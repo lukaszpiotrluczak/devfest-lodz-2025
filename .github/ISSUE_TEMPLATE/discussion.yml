@@ -1,0 +1,29 @@
+name: 💬 Discussion
+description: Start a discussion or ask a question
+title: "[Discussion]: "
+labels: ["discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Discussions are welcome — especially around:
+        - AI-assisted development workflows
+        - architecture and DX
+        - frontend/backend trade-offs
+        - security-by-design
+
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+      description: What would you like to discuss?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context or background
+      description: Provide any relevant context or links.
+    validations:
+      required: false

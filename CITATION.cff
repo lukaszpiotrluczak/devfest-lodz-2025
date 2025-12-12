@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "Digital Business Card Platform (AI-Assisted Case Study)"
+message: "If you use or reference this project, please cite it."
+type: software
+authors:
+  - family-names: Łuczak
+    given-names: Łukasz Piotr
+    email: lukasz.luczak@luczak.consulting
+    affiliation: Luczak Consulting
+repository-code: https://github.com/lukaszpiotrluczak/devfest-lodz-2015
+url: https://lukaszpiotrluczak.me
+license: MIT
+keywords:
+  - ai-assisted-development
+  - software-architecture
+  - frontend
+  - backend
+  - devops
+  - developer-experience
+  - seo
+  - structured-data
+  - astro
+  - nestjs
+  - tailwindcss
