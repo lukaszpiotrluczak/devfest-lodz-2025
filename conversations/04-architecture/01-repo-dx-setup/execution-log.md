@@ -321,3 +321,60 @@ Git hooks:
 
 This patch completes the transition to **production-grade dependency handling**
 with strict reproducibility guarantees.
+
+---
+
+## Patch: Prettier formatting enforcement (documentation)
+
+### Problem observed
+
+CI failed during the formatting step:
+
+- `pnpm run format` reported Prettier issues in:
+  - `docs/contributing/lockfile-and-dependencies.md`
+
+The failure was expected behavior:
+
+- Prettier is configured to check **all files**, including Markdown documentation.
+- The file content was correct, but formatting did not conform to project standards.
+
+---
+
+### Solution applied
+
+- Applied Prettier formatting to the affected Markdown file.
+
+Modified:
+
+- `docs/contributing/lockfile-and-dependencies.md`
+
+Changes:
+
+- Normalized list spacing
+- Standardized code block formatting
+- Ensured consistent line breaks
+- Applied line wrapping according to Prettier rules
+
+No logical or semantic content changes were made.
+
+---
+
+### Verification
+
+- `pnpm run format`
+  - All files formatted correctly
+- `pnpm run validate`
+  - ESLint: 0 errors
+  - Prettier: all files formatted
+  - cspell: 0 errors
+
+---
+
+### Outcome
+
+- Documentation now fully complies with project formatting rules
+- Prettier enforcement remains strict and unchanged
+- CI formatting step is stable and green
+
+This confirms that **documentation is treated as a first-class, linted artifact**
+in the repository.

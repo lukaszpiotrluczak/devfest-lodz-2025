@@ -25,12 +25,14 @@ pnpm install --frozen-lockfile
 ```
 
 This flag means:
+
 - ✅ **Install dependencies** from the lockfile
 - ❌ **Fail if lockfile is missing**
 - ❌ **Fail if lockfile is out of sync** with `package.json`
 - ❌ **Never modify the lockfile**
 
 **Why this matters:**
+
 - Prevents accidental dependency changes in CI
 - Ensures CI uses the exact versions that were tested locally
 - Catches when someone updates `package.json` but forgets to update the lockfile
@@ -114,6 +116,7 @@ node_modules/
 ```
 
 **Why:**
+
 - `node_modules/` is generated from the lockfile (never commit)
 - `pnpm-lock.yaml` is the source of truth for exact versions (always commit)
 
@@ -154,6 +157,7 @@ git commit -m "add new dependency"
 **Problem:** No `pnpm-lock.yaml` exists
 
 **Solution:**
+
 ```bash
 pnpm install
 git add pnpm-lock.yaml
@@ -165,6 +169,7 @@ git commit -m "build(deps): add lockfile for reproducible builds"
 **Problem:** `pnpm-lock.yaml` is out of sync with `package.json`
 
 **Solution:**
+
 ```bash
 pnpm install
 git add pnpm-lock.yaml
@@ -176,6 +181,7 @@ git commit -m "build(deps): sync lockfile"
 **Problem:** Corrupt lockfile or cache
 
 **Solution:**
+
 ```bash
 # Clean pnpm cache
 pnpm store prune
