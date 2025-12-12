@@ -7,7 +7,8 @@ Model: GPT-5.2
 # Design profile hardening
 
 ## Prompt:
-<!-- 
+
+<!--
 Attached files:
 - /docs/brand-style-direction.md
 - /docs/information-architecture.md
@@ -15,20 +16,25 @@ Attached files:
 -->
 
 # Role
+
 You are a design systems engineer performing a strict “contract hardening” pass.
 
 # Goal
+
 Produce a corrected, **fully explicit** design-profile.json that is safe to use as a source of truth for Tailwind theming.
 
 This is NOT a creative task. Do not invent new design direction.
 
 # Inputs
+
 I will paste:
-1) The current docs/design-profile.json (contains nulls and missing version)
-2) docs/brand-style-direction.md (normative rules)
-3) docs/information-architecture.md (component scope)
+
+1. The current docs/design-profile.json (contains nulls and missing version)
+2. docs/brand-style-direction.md (normative rules)
+3. docs/information-architecture.md (component scope)
 
 # Hardening Rules (must follow)
+
 - Do NOT change the overall structure unless necessary for validity/clarity
 - Do NOT introduce new colors, fonts, or components beyond what is already implied by the inputs
 - The output JSON must contain **no null values**
@@ -38,19 +44,23 @@ I will paste:
 - Ensure all intra-JSON references are consistent (e.g., modes referencing tokens that exist)
 
 # Specific Fix Requirements
-1) Replace all null token values (e.g., grays and form fields) following the rules above.
-2) Ensure color.modes.light and color.modes.dark reference valid tokens/paths.
-3) Ensure components.forms is not underspecified:
+
+1. Replace all null token values (e.g., grays and form fields) following the rules above.
+2. Ensure color.modes.light and color.modes.dark reference valid tokens/paths.
+3. Ensure components.forms is not underspecified:
    - If form field styling is not defined in inputs, mark it as "UNDEFINED" and list it in openDecisions.
-4) Add top-level openDecisions: [] (array of strings) and populate it with any unresolved items you had to mark as "UNDEFINED".
-5) Keep the output strictly valid JSON (no comments, no trailing commas).
+4. Add top-level openDecisions: [] (array of strings) and populate it with any unresolved items you had to mark as "UNDEFINED".
+5. Keep the output strictly valid JSON (no comments, no trailing commas).
 
 # Expected Output
+
 Return **only**:
-1) The final corrected JSON (single code block, valid JSON)
-2) A short bullet list (max 8 bullets) titled Changes made, summarizing what was fixed.
+
+1. The final corrected JSON (single code block, valid JSON)
+2. A short bullet list (max 8 bullets) titled Changes made, summarizing what was fixed.
 
 ## Response:
+
 Myślał przez 10s
 
 ```json
@@ -331,16 +341,15 @@ Myślał przez 10s
 
 ### Changes made
 
-*   Set `metadata.version` to `"1.0.0"` and removed the previous `null`.
-    design-profile
-*   Replaced all `null` color token values (`gray-100`, `gray-800`, `gray-500`, `gray-300`) with `"UNDEFINED"`.
-*   Ensured `color.modes.light` and `color.modes.dark` continue referencing existing token keys/paths (no broken references introduced).
-    design-profile
-*   Replaced `components.forms.fields: null` with `"UNDEFINED"` and flagged it as an open decision.
-*   Added top-level `openDecisions: []` and populated it with every `"UNDEFINED"` replacement.
-    design-profile
-
-
+- Set `metadata.version` to `"1.0.0"` and removed the previous `null`.
+  design-profile
+- Replaced all `null` color token values (`gray-100`, `gray-800`, `gray-500`, `gray-300`) with `"UNDEFINED"`.
+- Ensured `color.modes.light` and `color.modes.dark` continue referencing existing token keys/paths (no broken references introduced).
+  design-profile
+- Replaced `components.forms.fields: null` with `"UNDEFINED"` and flagged it as an open decision.
+- Added top-level `openDecisions: []` and populated it with every `"UNDEFINED"` replacement.
+  design-profile
 
 ---
+
 Powered by [ChatGPT Exporter](https://www.chatgptexporter.com)

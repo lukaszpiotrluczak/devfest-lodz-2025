@@ -31,6 +31,7 @@ This repository has been configured with production-grade developer experience (
 - Configured for browser + Node.js globals
 
 **Key features:**
+
 - Unused variable warnings (with `_` prefix exemption)
 - TypeScript strict mode
 - Astro-specific overrides
@@ -67,16 +68,19 @@ This repository has been configured with production-grade developer experience (
 ### 3. Git Hooks ([.githooks/](../../.githooks/))
 
 **commit-msg hook:**
+
 - Validates commit messages using commitlint
 - Skips in CI (`CI=true`)
 - Can be bypassed with `SKIP_HOOKS=true` (not recommended)
 
 **Setup:**
+
 - Automatically configured via `pnpm install` (prepare script)
 - Stored in `.githooks/` (not `.git/hooks/`)
 - Uses `git config core.hooksPath .githooks`
 
 **pnpm version:**
+
 - Single source of truth: `packageManager` field in `package.json`
 - CI automatically respects this via `pnpm/action-setup@v4`
 - Ensures identical versions in local dev and CI
@@ -111,11 +115,13 @@ Provides a fully configured development environment:
 **Base image:** `mcr.microsoft.com/devcontainers/typescript-node:20`
 
 **Features:**
+
 - Node.js 20
 - Git pre-installed
 - pnpm (installed via postCreateCommand)
 
 **VS Code extensions:**
+
 - ESLint
 - Prettier
 - cspell (Code Spell Checker)
@@ -124,6 +130,7 @@ Provides a fully configured development environment:
 - EditorConfig
 
 **Settings:**
+
 - Format on save (Prettier)
 - ESLint auto-fix on save
 - LF line endings
@@ -131,18 +138,21 @@ Provides a fully configured development environment:
 - Insert final newline
 
 **Environment:**
+
 - Timezone: `Europe/Warsaw`
 - User: `node`
 
 ### 6. VS Code Workspace ([.vscode/](../../.vscode/))
 
 **settings.json:**
+
 - Format on save enabled
 - ESLint auto-fix enabled
 - cspell enabled
 - Search/file exclusions for build artifacts
 
 **extensions.json:**
+
 - Recommended extensions list
 - VS Code prompts to install on workspace open
 
@@ -153,6 +163,7 @@ Provides a fully configured development environment:
 **Node version:** >=20.0.0 (enforced via `engines` field)
 
 **Scripts:**
+
 ```bash
 pnpm run lint          # ESLint check
 pnpm run lint:fix      # ESLint auto-fix
@@ -292,9 +303,7 @@ Add words to [cspell.json](../../cspell.json) `words` array:
 
 ```json
 {
-  "words": [
-    "newterm"
-  ]
+  "words": ["newterm"]
 }
 ```
 

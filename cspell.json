@@ -18,12 +18,12 @@
     ".devcontainer",
     "stacks",
     "*.min.js",
-    "*.min.css"
+    "*.min.css",
+    "docs/prototypes/index.html",
+    "conversations/**",
+    "docs/content-seed.md"
   ],
-  "ignoreRegExpList": [
-    "/https?:\\/\\/[^\\s]*/g",
-    "/\\b[A-Z0-9]{8,}\\b/g"
-  ],
+  "ignoreRegExpList": ["/https?:\\/\\/[^\\s]*/g", "/\\b[A-Z0-9]{8,}\\b/g"],
   "words": [
     "Łukasz",
     "Łuczak",
@@ -85,6 +85,37 @@
     "podman",
     "containerfile",
     "dockerfile",
-    "composefile"
+    "composefile",
+    "Wizytówka",
+    "Kontakt",
+    "publikacje",
+    "wydarzenia",
+    "polityka",
+    "prywatnosci",
+    "networkers",
+    "carrd",
+    "linktree",
+    "blinq",
+    "cardtree",
+    "Premi",
+    "glassmorphism",
+    "sygnet",
+    "underspecified",
+    "Healthchecks",
+    "programiści",
+    "frontendu",
+    "zagrożeni",
+    "pisze",
+    "ORCID",
+    "HSTS",
+    "mnie",
+    "konsulting",
+    "rgba",
+    "Grotesk",
+    "RGBA",
+    "renderable",
+    "tablist",
+    "newterm",
+    "Skeuomorphic"
   ]
 }

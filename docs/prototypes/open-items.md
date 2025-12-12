@@ -3,6 +3,7 @@
 ## Design tokens / theme contract items that are `"UNDEFINED"`
 
 From the design contract + compiled theme:
+
 - `color.tokens.gray-100.value` (light surfaces)
 - `color.tokens.gray-800.value` (dark surfaces)
 - `color.tokens.gray-500.value` (secondary text)
@@ -10,6 +11,7 @@ From the design contract + compiled theme:
 - `components.forms.fields` (form field styling contract)
 
 Impact:
+
 - Prototype uses theme fallbacks already present in `docs/theme/tailwind-theme.css`.
 - Form field visuals are kept generic (border + padding + focus-visible baseline).
 
@@ -27,6 +29,7 @@ Impact:
 ## Requirements needing NestJS (blocked for full fidelity)
 
 Contact form submission (project spec):
+
 - `POST /api/contact` implementation:
   - strict server-side input validation
   - rate limiting

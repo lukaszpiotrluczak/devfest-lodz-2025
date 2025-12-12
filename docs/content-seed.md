@@ -1,6 +1,7 @@
 # CONTENT SEED — Digital Business Card
 
 ## Identity
+
 - Full name: Łukasz Piotr Łuczak
 - One-liner (PL): Jestem architektem rozwiązań IT i konsultantem, łączącym tworzenie nowoczesnych systemów i produktów SaaS, bezpieczeństwo informacji i architekturę systemów, infrastrukturę i DevOps, a także działalność naukową i dydaktyczną.
 - One-liner (EN): I’m an IT solutions architect and consultant combining modern systems and SaaS product engineering with information security, system architecture, infrastructure & DevOps, and academic research and teaching.
@@ -12,15 +13,18 @@
   - Consultant
 
 ## Primary website
+
 - Website: https://lukasz.luczak.org/
 
 ## Contact
+
 - Phone: +48 535 015 006
 - Email (personal): lukasz@luczak.org
 - Email (business): lukasz.luczak@luczak.consulting
 - Meetings / scheduling: https://app.zencal.io/u/lukaszpiotrluczak
 
 ## Social profiles
+
 - LinkedIn: https://www.linkedin.com/in/lukaszpiotrluczak/
 - X: https://x.com/lukefrontlander
 - GitHub: https://github.com/lukaszpiotrluczak
@@ -28,6 +32,7 @@
 - Buy Me A Coffee: https://buymeacoffee.com/lukaszpiotrluczak
 
 ## Company (Luczak Consulting P.S.A.)
+
 - Legal name: Luczak Consulting P.S.A.
 - KRS: 0001056148
 - NIP: 7282876645
@@ -43,18 +48,22 @@
   - Kapitał akcyjny: 20 000 PLN (paid in full)
 
 ## Assets available
+
 - Personal photo: available (provided separately)
 - Luczak Consulting logo: available (provided separately)
 - Luczak Consulting sygnet: available (provided separately)
 
 ## Publications
+
 ### Journal
+
 - Łuczak, Ł.P.; Ignaciuk, P.; Morawski, M.
   - Title: Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming in Open Internet.
   - Venue: Future Internet 2023, 15, 328.
   - DOI URL: https://doi.org/10.3390/fi15100328
 
 ### Conferences / Proceedings
+
 - Łuczak, Ł.P.; Ignaciuk, P.; Morawski, M.
   - Title: Experimental Assessment of MPTCP Congestion Control Algorithms for Streaming Services in Open Internet.
   - Venue: Annals of Computer Science and Information Systems 2023, 26, 11.
@@ -80,6 +89,7 @@
   - Dates: 2024-09-04 to 2024-09-06
 
 ## Upcoming Event (DevFest)
+
 - Event name: DevFest Łódź 2015
 - Date: 2025-12-13
 - Venue: Politechnika Łódzka, Kampus A, Budynek A12, Sala E5
@@ -97,5 +107,6 @@
   i potrafiła wpakować zespół w niezłe kłopoty.
 
 ## Visibility rules reminder
+
 - Events section: visible only if at least one event occurs within the next 90 days
 - Publications section: visible only if publications exist

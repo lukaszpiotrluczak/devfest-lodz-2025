@@ -1,7 +1,7 @@
 name: 💬 Discussion
 description: Start a discussion or ask a question
-title: "[Discussion]: "
-labels: ["discussion"]
+title: '[Discussion]: '
+labels: ['discussion']
 body:
   - type: markdown
     attributes:

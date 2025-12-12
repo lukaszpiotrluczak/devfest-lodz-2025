@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="">
   <head>
     <meta charset="utf-8" />
@@ -1152,202 +1152,202 @@
        * In production, use new Date() with server-rendered filtering where possible.
        */
 
-      const FIXED_NOW = new Date("2025-12-12T00:00:00+01:00");
+      const FIXED_NOW = new Date('2025-12-12T00:00:00+01:00');
       const dayMs = 24 * 60 * 60 * 1000;
 
       const ROUTES = {
         en: {
-          me: "me",
-          consulting: "luczak-consulting",
-          publications: "publications",
-          events: "events",
-          contact: "contact",
+          me: 'me',
+          consulting: 'luczak-consulting',
+          publications: 'publications',
+          events: 'events',
+          contact: 'contact',
         },
         pl: {
-          me: "o-mnie",
-          consulting: "luczak-consulting",
-          publications: "publikacje",
-          events: "wydarzenia",
-          contact: "kontakt",
+          me: 'o-mnie',
+          consulting: 'luczak-consulting',
+          publications: 'publikacje',
+          events: 'wydarzenia',
+          contact: 'kontakt',
         },
       };
 
       const TAB_IDS = [
-        "me",
-        "luczak-consulting",
-        "publications",
-        "events",
-        "contact",
+        'me',
+        'luczak-consulting',
+        'publications',
+        'events',
+        'contact',
       ];
 
       const I18N = {
         en: {
           headline:
-            "IT solutions architect · consultant · researcher · speaker",
-          "tab.me": "Me",
-          "tab.consulting": "Luczak Consulting",
-          "tab.publications": "Publications",
-          "tab.events": "Events",
-          "tab.contact": "Contact",
-          "me.title": "Me",
-          "me.location": "Łódź, Poland",
-          "me.bio":
-            "I’m an IT solutions architect and consultant combining modern systems and SaaS product engineering with information security, system architecture, infrastructure & DevOps, and academic research and teaching.",
-          "me.rolesTitle": "Key roles",
-          "me.primaryLinksTitle": "Primary links",
-          "consulting.snapshotTitle": "Company snapshot",
-          "consulting.valueProp":
-            "IT solution architecture, secure system design, and delivery support for modern products and teams.",
-          "consulting.servicesTitle": "Services",
-          "consulting.audienceTitle": "Who it’s for",
-          "consulting.registryTitle": "Registry",
-          "consulting.address": "Address",
-          "consulting.shareCapital": "Share capital",
-          "pubs.title": "Publications",
-          "pubs.subtitle": "Newest first (max 5 visible).",
-          "events.title": "Events",
-          "events.subtitle": "Upcoming + recent (within ±90 days).",
-          "events.upcoming": "Upcoming",
-          "events.recent": "Recent",
-          "contact.title": "Contact",
-          "contact.linkedinCta": "Message on LinkedIn",
-          "contact.form.nameLabel": "Name",
-          "contact.form.emailLabel": "Email",
-          "contact.form.topicLabel": "Topic (optional)",
-          "contact.form.topicDefault": "Select a topic",
-          "contact.form.topicConsulting": "Consulting",
-          "contact.form.topicSpeaking": "Speaking / event",
-          "contact.form.topicResearch": "Research / publications",
-          "contact.form.topicOther": "Other",
-          "contact.form.messageLabel": "Message",
-          "contact.form.send": "Send",
-          "contact.form.schedule": "Schedule (ZenCal)",
-          "contact.privacyNote":
-            "No tracking. Your message is used only to respond. ",
-          "contact.privacyLink": "Privacy policy",
+            'IT solutions architect · consultant · researcher · speaker',
+          'tab.me': 'Me',
+          'tab.consulting': 'Luczak Consulting',
+          'tab.publications': 'Publications',
+          'tab.events': 'Events',
+          'tab.contact': 'Contact',
+          'me.title': 'Me',
+          'me.location': 'Łódź, Poland',
+          'me.bio':
+            'I’m an IT solutions architect and consultant combining modern systems and SaaS product engineering with information security, system architecture, infrastructure & DevOps, and academic research and teaching.',
+          'me.rolesTitle': 'Key roles',
+          'me.primaryLinksTitle': 'Primary links',
+          'consulting.snapshotTitle': 'Company snapshot',
+          'consulting.valueProp':
+            'IT solution architecture, secure system design, and delivery support for modern products and teams.',
+          'consulting.servicesTitle': 'Services',
+          'consulting.audienceTitle': 'Who it’s for',
+          'consulting.registryTitle': 'Registry',
+          'consulting.address': 'Address',
+          'consulting.shareCapital': 'Share capital',
+          'pubs.title': 'Publications',
+          'pubs.subtitle': 'Newest first (max 5 visible).',
+          'events.title': 'Events',
+          'events.subtitle': 'Upcoming + recent (within ±90 days).',
+          'events.upcoming': 'Upcoming',
+          'events.recent': 'Recent',
+          'contact.title': 'Contact',
+          'contact.linkedinCta': 'Message on LinkedIn',
+          'contact.form.nameLabel': 'Name',
+          'contact.form.emailLabel': 'Email',
+          'contact.form.topicLabel': 'Topic (optional)',
+          'contact.form.topicDefault': 'Select a topic',
+          'contact.form.topicConsulting': 'Consulting',
+          'contact.form.topicSpeaking': 'Speaking / event',
+          'contact.form.topicResearch': 'Research / publications',
+          'contact.form.topicOther': 'Other',
+          'contact.form.messageLabel': 'Message',
+          'contact.form.send': 'Send',
+          'contact.form.schedule': 'Schedule (ZenCal)',
+          'contact.privacyNote':
+            'No tracking. Your message is used only to respond. ',
+          'contact.privacyLink': 'Privacy policy',
         },
         pl: {
           headline:
-            "Architekt rozwiązań IT · konsultant · naukowiec · prelegent",
-          "tab.me": "O mnie",
-          "tab.consulting": "Luczak Consulting",
-          "tab.publications": "Publikacje",
-          "tab.events": "Wydarzenia",
-          "tab.contact": "Kontakt",
-          "me.title": "O mnie",
-          "me.location": "Łódź, Polska",
-          "me.bio":
-            "Jestem architektem rozwiązań IT i konsultantem, łączącym tworzenie nowoczesnych systemów i produktów SaaS, bezpieczeństwo informacji i architekturę systemów, infrastrukturę i DevOps, a także działalność naukową i dydaktyczną.",
-          "me.rolesTitle": "Role",
-          "me.primaryLinksTitle": "Najważniejsze linki",
-          "consulting.snapshotTitle": "O firmie",
-          "consulting.valueProp":
-            "Architektura rozwiązań IT, bezpieczne projektowanie systemów i wsparcie dostarczania nowoczesnych produktów.",
-          "consulting.servicesTitle": "Obszary",
-          "consulting.audienceTitle": "Dla kogo",
-          "consulting.registryTitle": "Rejestr",
-          "consulting.address": "Adres",
-          "consulting.shareCapital": "Kapitał",
-          "pubs.title": "Publikacje",
-          "pubs.subtitle": "Od najnowszych (maks. 5).",
-          "events.title": "Wydarzenia",
-          "events.subtitle": "Nadchodzące + ostatnie (±90 dni).",
-          "events.upcoming": "Nadchodzące",
-          "events.recent": "Ostatnie",
-          "contact.title": "Kontakt",
-          "contact.linkedinCta": "Napisz na LinkedIn",
-          "contact.form.nameLabel": "Imię i nazwisko",
-          "contact.form.emailLabel": "E-mail",
-          "contact.form.topicLabel": "Temat (opcjonalnie)",
-          "contact.form.topicDefault": "Wybierz temat",
-          "contact.form.topicConsulting": "Współpraca / consulting",
-          "contact.form.topicSpeaking": "Wystąpienie / wydarzenie",
-          "contact.form.topicResearch": "Nauka / publikacje",
-          "contact.form.topicOther": "Inne",
-          "contact.form.messageLabel": "Wiadomość",
-          "contact.form.send": "Wyślij",
-          "contact.form.schedule": "Umów spotkanie (ZenCal)",
-          "contact.privacyNote":
-            "Bez śledzenia. Dane są używane wyłącznie do odpowiedzi. ",
-          "contact.privacyLink": "Polityka prywatności",
+            'Architekt rozwiązań IT · konsultant · naukowiec · prelegent',
+          'tab.me': 'O mnie',
+          'tab.consulting': 'Luczak Consulting',
+          'tab.publications': 'Publikacje',
+          'tab.events': 'Wydarzenia',
+          'tab.contact': 'Kontakt',
+          'me.title': 'O mnie',
+          'me.location': 'Łódź, Polska',
+          'me.bio':
+            'Jestem architektem rozwiązań IT i konsultantem, łączącym tworzenie nowoczesnych systemów i produktów SaaS, bezpieczeństwo informacji i architekturę systemów, infrastrukturę i DevOps, a także działalność naukową i dydaktyczną.',
+          'me.rolesTitle': 'Role',
+          'me.primaryLinksTitle': 'Najważniejsze linki',
+          'consulting.snapshotTitle': 'O firmie',
+          'consulting.valueProp':
+            'Architektura rozwiązań IT, bezpieczne projektowanie systemów i wsparcie dostarczania nowoczesnych produktów.',
+          'consulting.servicesTitle': 'Obszary',
+          'consulting.audienceTitle': 'Dla kogo',
+          'consulting.registryTitle': 'Rejestr',
+          'consulting.address': 'Adres',
+          'consulting.shareCapital': 'Kapitał',
+          'pubs.title': 'Publikacje',
+          'pubs.subtitle': 'Od najnowszych (maks. 5).',
+          'events.title': 'Wydarzenia',
+          'events.subtitle': 'Nadchodzące + ostatnie (±90 dni).',
+          'events.upcoming': 'Nadchodzące',
+          'events.recent': 'Ostatnie',
+          'contact.title': 'Kontakt',
+          'contact.linkedinCta': 'Napisz na LinkedIn',
+          'contact.form.nameLabel': 'Imię i nazwisko',
+          'contact.form.emailLabel': 'E-mail',
+          'contact.form.topicLabel': 'Temat (opcjonalnie)',
+          'contact.form.topicDefault': 'Wybierz temat',
+          'contact.form.topicConsulting': 'Współpraca / consulting',
+          'contact.form.topicSpeaking': 'Wystąpienie / wydarzenie',
+          'contact.form.topicResearch': 'Nauka / publikacje',
+          'contact.form.topicOther': 'Inne',
+          'contact.form.messageLabel': 'Wiadomość',
+          'contact.form.send': 'Wyślij',
+          'contact.form.schedule': 'Umów spotkanie (ZenCal)',
+          'contact.privacyNote':
+            'Bez śledzenia. Dane są używane wyłącznie do odpowiedzi. ',
+          'contact.privacyLink': 'Polityka prywatności',
         },
       };
 
       const EVENTS = [
         {
-          id: "devfest-lodz-2025",
-          name: "DevFest Łódź 2015",
-          role: { en: "Speaker", pl: "Prelegent" },
-          date: "2025-12-13",
-          venue: "Politechnika Łódzka, Kampus A, Budynek A12, Sala E5",
-          address: "Prof. Bohdana Stefanowskiego 18/22, Łódź, 90-001, Poland",
+          id: 'devfest-lodz-2025',
+          name: 'DevFest Łódź 2015',
+          role: { en: 'Speaker', pl: 'Prelegent' },
+          date: '2025-12-13',
+          venue: 'Politechnika Łódzka, Kampus A, Budynek A12, Sala E5',
+          address: 'Prof. Bohdana Stefanowskiego 18/22, Łódź, 90-001, Poland',
           talkTitle: {
-            en: "Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…",
-            pl: "Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…",
+            en: 'Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…',
+            pl: 'Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…',
           },
           talkDesc: {
-            en: "Generative AI is already writing HTML, CSS and entire UI components — but what does that mean for frontend developers?",
-            pl: "Generatywna AI coraz sprawniej pisze HTML, CSS i całe komponenty frontendowe. Czy to zagrożenie, czy szansa?",
+            en: 'Generative AI is already writing HTML, CSS and entire UI components — but what does that mean for frontend developers?',
+            pl: 'Generatywna AI coraz sprawniej pisze HTML, CSS i całe komponenty frontendowe. Czy to zagrożenie, czy szansa?',
           },
-          link: "#",
+          link: '#',
         },
       ];
 
       const root = document.documentElement;
-      const tablist = document.getElementById("tablist");
+      const tablist = document.getElementById('tablist');
       const tabButtons = Array.from(tablist.querySelectorAll('[role="tab"]'));
       const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
-      const publicationsTab = document.getElementById("tab-publications");
-      const eventsTab = document.getElementById("tab-events");
+      const publicationsTab = document.getElementById('tab-publications');
+      const eventsTab = document.getElementById('tab-events');
 
-      const langEn = document.getElementById("lang-en");
-      const langPl = document.getElementById("lang-pl");
+      const langEn = document.getElementById('lang-en');
+      const langPl = document.getElementById('lang-pl');
 
-      const yearEl = document.getElementById("year");
+      const yearEl = document.getElementById('year');
       yearEl.textContent = String(FIXED_NOW.getFullYear());
 
       function setThemeFromSystem() {
-        const saved = localStorage.getItem("theme");
-        if (saved === "dark") root.classList.add("dark");
-        else if (saved === "light") root.classList.remove("dark");
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') root.classList.add('dark');
+        else if (saved === 'light') root.classList.remove('dark');
         else {
           const prefersDark =
             window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches;
-          root.classList.toggle("dark", prefersDark);
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+          root.classList.toggle('dark', prefersDark);
         }
       }
 
       function parsePath() {
-        const path = window.location.pathname.replace(/\/+$/, "");
-        const parts = path.split("/").filter(Boolean);
-        const lang = parts[0] === "pl" ? "pl" : "en";
+        const path = window.location.pathname.replace(/\/+$/, '');
+        const parts = path.split('/').filter(Boolean);
+        const lang = parts[0] === 'pl' ? 'pl' : 'en';
         const slug = parts[1] || ROUTES[lang].me;
         return { lang, slug };
       }
 
       function tabIdFromSlug(lang, slug) {
-        if (slug === ROUTES[lang].me) return "me";
-        if (slug === ROUTES[lang].consulting) return "luczak-consulting";
-        if (slug === ROUTES[lang].publications) return "publications";
-        if (slug === ROUTES[lang].events) return "events";
-        if (slug === ROUTES[lang].contact) return "contact";
-        return "me";
+        if (slug === ROUTES[lang].me) return 'me';
+        if (slug === ROUTES[lang].consulting) return 'luczak-consulting';
+        if (slug === ROUTES[lang].publications) return 'publications';
+        if (slug === ROUTES[lang].events) return 'events';
+        if (slug === ROUTES[lang].contact) return 'contact';
+        return 'me';
       }
 
       function slugFromTabId(lang, tabId) {
-        if (tabId === "me") return ROUTES[lang].me;
-        if (tabId === "luczak-consulting") return ROUTES[lang].consulting;
-        if (tabId === "publications") return ROUTES[lang].publications;
-        if (tabId === "events") return ROUTES[lang].events;
-        if (tabId === "contact") return ROUTES[lang].contact;
+        if (tabId === 'me') return ROUTES[lang].me;
+        if (tabId === 'luczak-consulting') return ROUTES[lang].consulting;
+        if (tabId === 'publications') return ROUTES[lang].publications;
+        if (tabId === 'events') return ROUTES[lang].events;
+        if (tabId === 'contact') return ROUTES[lang].contact;
         return ROUTES[lang].me;
       }
 
       function updateHreflang(lang, activeTabId) {
-        const enSlug = slugFromTabId("en", activeTabId);
-        const plSlug = slugFromTabId("pl", activeTabId);
+        const enSlug = slugFromTabId('en', activeTabId);
+        const plSlug = slugFromTabId('pl', activeTabId);
         const enUrl = `https://lukaszpiotrluczak.me/en/${enSlug}`;
         const plUrl = `https://lukaszpiotrluczak.me/pl/${plSlug}`;
 
@@ -1355,154 +1355,152 @@
           document.querySelectorAll('link[rel="alternate"][hreflang]')
         );
         for (const l of links) {
-          if (l.getAttribute("hreflang") === "en")
-            l.setAttribute("href", enUrl);
-          if (l.getAttribute("hreflang") === "pl")
-            l.setAttribute("href", plUrl);
-          if (l.getAttribute("hreflang") === "x-default")
-            l.setAttribute("href", enUrl);
+          if (l.getAttribute('hreflang') === 'en')
+            l.setAttribute('href', enUrl);
+          if (l.getAttribute('hreflang') === 'pl')
+            l.setAttribute('href', plUrl);
+          if (l.getAttribute('hreflang') === 'x-default')
+            l.setAttribute('href', enUrl);
         }
 
-        langEn.setAttribute("href", `/en/${enSlug}`);
-        langPl.setAttribute("href", `/pl/${plSlug}`);
+        langEn.setAttribute('href', `/en/${enSlug}`);
+        langPl.setAttribute('href', `/pl/${plSlug}`);
 
         const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute("content", lang === "pl" ? plUrl : enUrl);
+        if (ogUrl) ogUrl.setAttribute('content', lang === 'pl' ? plUrl : enUrl);
       }
 
       function applyI18n(lang) {
         document.documentElement.lang = lang;
         const dict = I18N[lang];
 
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
           if (key && dict[key]) el.textContent = dict[key];
         });
 
         // Update basic SEO fields per locale (prototype-level)
-        if (lang === "pl") {
-          document.title = "Łukasz Piotr Łuczak — Wizytówka";
+        if (lang === 'pl') {
+          document.title = 'Łukasz Piotr Łuczak — Wizytówka';
           const desc = document.querySelector('meta[name="description"]');
           if (desc)
             desc.setAttribute(
-              "content",
-              "Wizytówka online: kontakt, profile, publikacje, wydarzenia, Luczak Consulting."
+              'content',
+              'Wizytówka online: kontakt, profile, publikacje, wydarzenia, Luczak Consulting.'
             );
           const ogt = document.querySelector('meta[property="og:title"]');
           if (ogt)
-            ogt.setAttribute("content", "Łukasz Piotr Łuczak — Wizytówka");
+            ogt.setAttribute('content', 'Łukasz Piotr Łuczak — Wizytówka');
           const ogd = document.querySelector('meta[property="og:description"]');
           if (ogd)
             ogd.setAttribute(
-              "content",
-              "Kontakt, profile, publikacje, wydarzenia i Luczak Consulting."
+              'content',
+              'Kontakt, profile, publikacje, wydarzenia i Luczak Consulting.'
             );
           const twt = document.querySelector('meta[name="twitter:title"]');
           if (twt)
-            twt.setAttribute("content", "Łukasz Piotr Łuczak — Wizytówka");
+            twt.setAttribute('content', 'Łukasz Piotr Łuczak — Wizytówka');
           const twd = document.querySelector(
             'meta[name="twitter:description"]'
           );
           if (twd)
             twd.setAttribute(
-              "content",
-              "Kontakt, profile, publikacje, wydarzenia i Luczak Consulting."
+              'content',
+              'Kontakt, profile, publikacje, wydarzenia i Luczak Consulting.'
             );
         } else {
-          document.title = "Łukasz Piotr Łuczak — Digital Business Card";
+          document.title = 'Łukasz Piotr Łuczak — Digital Business Card';
           const desc = document.querySelector('meta[name="description"]');
           if (desc)
             desc.setAttribute(
-              "content",
-              "Digital business card: contact, profiles, publications, events, Luczak Consulting."
+              'content',
+              'Digital business card: contact, profiles, publications, events, Luczak Consulting.'
             );
           const ogt = document.querySelector('meta[property="og:title"]');
           if (ogt)
             ogt.setAttribute(
-              "content",
-              "Łukasz Piotr Łuczak — Digital Business Card"
+              'content',
+              'Łukasz Piotr Łuczak — Digital Business Card'
             );
           const ogd = document.querySelector('meta[property="og:description"]');
           if (ogd)
             ogd.setAttribute(
-              "content",
-              "Contact, profiles, publications, events, and Luczak Consulting."
+              'content',
+              'Contact, profiles, publications, events, and Luczak Consulting.'
             );
           const twt = document.querySelector('meta[name="twitter:title"]');
           if (twt)
             twt.setAttribute(
-              "content",
-              "Łukasz Piotr Łuczak — Digital Business Card"
+              'content',
+              'Łukasz Piotr Łuczak — Digital Business Card'
             );
           const twd = document.querySelector(
             'meta[name="twitter:description"]'
           );
           if (twd)
             twd.setAttribute(
-              "content",
-              "Contact, profiles, publications, events, and Luczak Consulting."
+              'content',
+              'Contact, profiles, publications, events, and Luczak Consulting.'
             );
         }
 
         // JSON-LD locale-aware IDs/URLs (prototype-level)
         const person = JSON.parse(
-          document.getElementById("ld-person").textContent
+          document.getElementById('ld-person').textContent
         );
         const org = JSON.parse(
-          document.getElementById("ld-organization").textContent
+          document.getElementById('ld-organization').textContent
         );
         const eventLd = JSON.parse(
-          document.getElementById("ld-event").textContent
+          document.getElementById('ld-event').textContent
         );
 
         const active = getActiveTabId();
         const slug = slugFromTabId(lang, active);
         const baseUrl = `https://lukaszpiotrluczak.me/${lang}/${slug}`;
 
-        person["@id"] = `https://lukaszpiotrluczak.me/${lang}/#person`;
-        person["url"] = baseUrl;
-        person["worksFor"]["@id"] = `https://lukaszpiotrluczak.me/${lang}/#org`;
+        person['@id'] = `https://lukaszpiotrluczak.me/${lang}/#person`;
+        person['url'] = baseUrl;
+        person['worksFor']['@id'] = `https://lukaszpiotrluczak.me/${lang}/#org`;
 
-        org["@id"] = `https://lukaszpiotrluczak.me/${lang}/#org`;
-        org[
-          "url"
-        ] = `https://lukaszpiotrluczak.me/${lang}/${ROUTES[lang].consulting}`;
+        org['@id'] = `https://lukaszpiotrluczak.me/${lang}/#org`;
+        org['url'] =
+          `https://lukaszpiotrluczak.me/${lang}/${ROUTES[lang].consulting}`;
 
-        eventLd[
-          "@id"
-        ] = `https://lukaszpiotrluczak.me/${lang}/#event-devfest-lodz-2025`;
-        eventLd["performer"]["@id"] = person["@id"];
+        eventLd['@id'] =
+          `https://lukaszpiotrluczak.me/${lang}/#event-devfest-lodz-2025`;
+        eventLd['performer']['@id'] = person['@id'];
 
-        document.getElementById("ld-person").textContent =
+        document.getElementById('ld-person').textContent =
           JSON.stringify(person);
-        document.getElementById("ld-organization").textContent =
+        document.getElementById('ld-organization').textContent =
           JSON.stringify(org);
-        document.getElementById("ld-event").textContent =
+        document.getElementById('ld-event').textContent =
           JSON.stringify(eventLd);
       }
 
       function setTabActiveVisual(tabEl, active) {
-        tabEl.classList.toggle("tab-active", active);
-        tabEl.classList.toggle("tab-inactive", !active);
+        tabEl.classList.toggle('tab-active', active);
+        tabEl.classList.toggle('tab-inactive', !active);
       }
 
       function showPanel(tabId) {
         panels.forEach((p) => {
-          const match = p.getAttribute("data-panel") === tabId;
-          p.classList.toggle("hidden", !match);
+          const match = p.getAttribute('data-panel') === tabId;
+          p.classList.toggle('hidden', !match);
         });
       }
 
-      function setActiveTab(tabId, { focus = false, lang = "en" } = {}) {
+      function setActiveTab(tabId, { focus = false, lang = 'en' } = {}) {
         // Ensure hidden tabs cannot be activated
         const tabBtn = tabButtons.find(
-          (b) => b.getAttribute("data-tab") === tabId
+          (b) => b.getAttribute('data-tab') === tabId
         );
-        if (!tabBtn || tabBtn.closest("[hidden]")) return;
+        if (!tabBtn || tabBtn.closest('[hidden]')) return;
 
         tabButtons.forEach((btn) => {
-          const isActive = btn.getAttribute("data-tab") === tabId;
-          btn.setAttribute("aria-selected", String(isActive));
+          const isActive = btn.getAttribute('data-tab') === tabId;
+          btn.setAttribute('aria-selected', String(isActive));
           btn.tabIndex = isActive ? 0 : -1;
           setTabActiveVisual(btn, isActive);
         });
@@ -1519,30 +1517,30 @@
         const slug = slugFromTabId(lang, tabId);
         const next = `/${lang}/${slug}`;
         if (window.location.pathname !== next) {
-          history.replaceState({ lang, tabId }, "", next);
+          history.replaceState({ lang, tabId }, '', next);
         }
       }
 
       function getActiveTabId() {
         const active = tabButtons.find(
-          (b) => b.getAttribute("aria-selected") === "true"
+          (b) => b.getAttribute('aria-selected') === 'true'
         );
-        return active ? active.getAttribute("data-tab") : "me";
+        return active ? active.getAttribute('data-tab') : 'me';
       }
 
       function visibleTabsInOrder() {
-        return tabButtons.filter((btn) => !btn.hasAttribute("hidden"));
+        return tabButtons.filter((btn) => !btn.hasAttribute('hidden'));
       }
 
       function moveFocusBy(delta) {
         const visible = visibleTabsInOrder();
         const current = visible.findIndex(
-          (b) => b.getAttribute("aria-selected") === "true"
+          (b) => b.getAttribute('aria-selected') === 'true'
         );
         if (current === -1) return;
 
         let next = (current + delta + visible.length) % visible.length;
-        const nextId = visible[next].getAttribute("data-tab");
+        const nextId = visible[next].getAttribute('data-tab');
         const { lang } = parsePath();
         setActiveTab(nextId, { focus: true, lang });
       }
@@ -1551,62 +1549,62 @@
         const visible = visibleTabsInOrder();
         if (!visible.length) return;
         const target =
-          edge === "start" ? visible[0] : visible[visible.length - 1];
+          edge === 'start' ? visible[0] : visible[visible.length - 1];
         const { lang } = parsePath();
-        setActiveTab(target.getAttribute("data-tab"), { focus: true, lang });
+        setActiveTab(target.getAttribute('data-tab'), { focus: true, lang });
       }
 
       function setConditionalTabVisibility() {
         // Publications: hidden if no publications exist (prototype uses static list => true).
         const hasPubs =
-          document.querySelectorAll("#panel-publications ol > li").length > 0;
-        publicationsTab.toggleAttribute("hidden", !hasPubs);
+          document.querySelectorAll('#panel-publications ol > li').length > 0;
+        publicationsTab.toggleAttribute('hidden', !hasPubs);
 
         // Events: hidden if no events within ±90 days from today.
         const withinWindow = EVENTS.filter((e) => {
-          const d = new Date(e.date + "T00:00:00+01:00");
+          const d = new Date(e.date + 'T00:00:00+01:00');
           const diff = d.getTime() - FIXED_NOW.getTime();
           return Math.abs(diff) <= 90 * dayMs;
         });
         const hasEventsWindow = withinWindow.length > 0;
-        eventsTab.toggleAttribute("hidden", !hasEventsWindow);
+        eventsTab.toggleAttribute('hidden', !hasEventsWindow);
 
         // If a hidden tab was active, fallback to "me"
         const { lang } = parsePath();
         const active = getActiveTabId();
         const activeBtn = tabButtons.find(
-          (b) => b.getAttribute("data-tab") === active
+          (b) => b.getAttribute('data-tab') === active
         );
-        if (activeBtn && activeBtn.hasAttribute("hidden")) {
-          setActiveTab("me", { focus: false, lang });
+        if (activeBtn && activeBtn.hasAttribute('hidden')) {
+          setActiveTab('me', { focus: false, lang });
         }
       }
 
       function renderEvents(lang) {
         try {
-          const upcomingList = document.getElementById("events-upcoming-list");
-          const recentList = document.getElementById("events-recent-list");
+          const upcomingList = document.getElementById('events-upcoming-list');
+          const recentList = document.getElementById('events-recent-list');
           const recentSection = document.getElementById(
-            "events-recent-section"
+            'events-recent-section'
           );
-          const empty = document.getElementById("events-empty");
+          const empty = document.getElementById('events-empty');
 
-          upcomingList.innerHTML = "";
-          recentList.innerHTML = "";
-          recentSection.classList.add("hidden");
-          empty.classList.add("hidden");
+          upcomingList.innerHTML = '';
+          recentList.innerHTML = '';
+          recentSection.classList.add('hidden');
+          empty.classList.add('hidden');
 
           const windowed = EVENTS.filter((e) => {
-            const d = new Date(e.date + "T00:00:00+01:00");
+            const d = new Date(e.date + 'T00:00:00+01:00');
             const diff = d.getTime() - FIXED_NOW.getTime();
             return Math.abs(diff) <= 90 * dayMs;
           });
 
           const upcoming = windowed.filter(
-            (e) => new Date(e.date + "T00:00:00+01:00") >= FIXED_NOW
+            (e) => new Date(e.date + 'T00:00:00+01:00') >= FIXED_NOW
           );
           const recent = windowed.filter(
-            (e) => new Date(e.date + "T00:00:00+01:00") < FIXED_NOW
+            (e) => new Date(e.date + 'T00:00:00+01:00') < FIXED_NOW
           );
 
           function eventItem(e) {
@@ -1614,8 +1612,8 @@
             const talkDesc = e.talkDesc[lang];
             const role = e.role[lang];
 
-            const li = document.createElement("li");
-            li.className = "glass-surface rounded-2xl p-4";
+            const li = document.createElement('li');
+            li.className = 'glass-surface rounded-2xl p-4';
             li.innerHTML = `
               <p class="text-xs text-secondary">${role} · ${e.date}</p>
               <p class="mt-1 font-medium">${e.name}</p>
@@ -1627,9 +1625,9 @@
                   e.link
                 }" target="_blank" rel="noopener noreferrer">
                   ${
-                    lang === "pl"
-                      ? "Link do wydarzenia (TBD)"
-                      : "Event link (TBD)"
+                    lang === 'pl'
+                      ? 'Link do wydarzenia (TBD)'
+                      : 'Event link (TBD)'
                   }
                 </a>
               </div>
@@ -1640,36 +1638,36 @@
           for (const e of upcoming) upcomingList.appendChild(eventItem(e));
 
           if (recent.length > 0) {
-            recentSection.classList.remove("hidden");
+            recentSection.classList.remove('hidden');
             for (const e of recent) recentList.appendChild(eventItem(e));
           }
         } catch (err) {
-          document.getElementById("events-empty").classList.remove("hidden");
+          document.getElementById('events-empty').classList.remove('hidden');
         }
       }
 
       function onTabClick(e) {
         const btn = e.target.closest('[role="tab"]');
-        if (!btn || btn.hasAttribute("hidden")) return;
-        const tabId = btn.getAttribute("data-tab");
+        if (!btn || btn.hasAttribute('hidden')) return;
+        const tabId = btn.getAttribute('data-tab');
         const { lang } = parsePath();
         setActiveTab(tabId, { focus: true, lang });
       }
 
       function onTabKeydown(e) {
         const key = e.key;
-        if (key === "ArrowRight") {
+        if (key === 'ArrowRight') {
           e.preventDefault();
           moveFocusBy(1);
-        } else if (key === "ArrowLeft") {
+        } else if (key === 'ArrowLeft') {
           e.preventDefault();
           moveFocusBy(-1);
-        } else if (key === "Home") {
+        } else if (key === 'Home') {
           e.preventDefault();
-          moveFocusTo("start");
-        } else if (key === "End") {
+          moveFocusTo('start');
+        } else if (key === 'End') {
           e.preventDefault();
-          moveFocusTo("end");
+          moveFocusTo('end');
         }
       }
 
@@ -1686,20 +1684,20 @@
 
         // Ensure CTA links inside panels are locale-aware
         document.querySelectorAll('[data-cta="contact"]').forEach((a) => {
-          a.setAttribute("href", `/${lang}/${slugFromTabId(lang, "contact")}`);
+          a.setAttribute('href', `/${lang}/${slugFromTabId(lang, 'contact')}`);
         });
         document.querySelectorAll('a[href="/en/privacy"]').forEach((a) => {
           a.setAttribute(
-            "href",
-            `/${lang}/${lang === "pl" ? "polityka-prywatnosci" : "privacy"}`
+            'href',
+            `/${lang}/${lang === 'pl' ? 'polityka-prywatnosci' : 'privacy'}`
           );
         });
       }
 
-      tablist.addEventListener("click", onTabClick);
-      tablist.addEventListener("keydown", onTabKeydown);
+      tablist.addEventListener('click', onTabClick);
+      tablist.addEventListener('keydown', onTabKeydown);
 
-      window.addEventListener("popstate", () => initFromUrl());
+      window.addEventListener('popstate', () => initFromUrl());
 
       initFromUrl();
     </script>

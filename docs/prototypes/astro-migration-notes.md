@@ -3,6 +3,7 @@
 ## Component breakdown (Astro)
 
 **Pages / routes**
+
 - `src/pages/en/[tab].astro` (or explicit: `me.astro`, `luczak-consulting.astro`, …)
 - `src/pages/pl/[tab].astro` (or explicit: `o-mnie.astro`, `luczak-consulting.astro`, …)
 - Root redirects:
@@ -11,6 +12,7 @@
   - `/pl` → `/pl/o-mnie`
 
 **Layout**
+
 - `src/layouts/AppLayout.astro`
   - `<head>` SEO + OG/Twitter + hreflang
   - JSON-LD output per route/locale
@@ -18,6 +20,7 @@
   - Container shell
 
 **UI components**
+
 - `src/components/HeroHeader.astro`
   - avatar, name, headline, language switch links
   - quick actions row
@@ -44,30 +47,36 @@
 ## What becomes interactive JS vs stays static
 
 **Stays static (preferred)**
+
 - Tabs: route-driven, no client JS required if each tab is its own page route.
 - Locale switching: static links that preserve tab via mapping.
 
 **Interactive (minimal hydration only where needed)**
+
 - Contact form submission:
   - Either full-page POST + redirect (no JS),
   - or a small hydrated island for async submit + inline success/error.
 
 Optional (keep minimal):
+
 - Theme preference (system default; optional toggle later if explicitly added).
 - Client-side enhancements like smooth scrolling (avoid by default).
 
 ## Data loading plan (JSON/MD)
 
 **Static content files**
+
 - `src/content/identity.en.json`, `src/content/identity.pl.json`
 - `src/content/company.en.json`, `src/content/company.pl.json`
 - `src/content/publications.json` (language-neutral, with optional per-locale titles if needed)
 - `src/content/events.json` (language-neutral + per-locale talk fields)
 
 **BibTeX**
+
 - `public/data/publications.bib` (generated/maintained from publications data)
 
 **Assets**
+
 - `public/assets/avatar.jpg`
 - `public/assets/og/en.png`, `public/assets/og/pl.png`
 - `public/assets/logo-luczak-consulting.svg` (if used later)

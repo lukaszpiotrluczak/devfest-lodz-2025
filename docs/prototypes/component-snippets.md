@@ -1,6 +1,7 @@
 # Component snippets (HTML + Tailwind utilities)
 
 > Notes:
+>
 > - Snippets use contract-driven CSS variables from `docs/theme/tailwind-theme.css`.
 > - `glass-surface` is defined by the theme file.
 > - Tabs must be wired with the keyboard + ARIA logic shown in `index.html`.
@@ -11,7 +12,11 @@
 
 ```html
 <section class="glass-surface rounded-2xl p-2" aria-label="Primary navigation">
-  <div role="tablist" aria-label="Profile sections" class="grid grid-cols-5 gap-2">
+  <div
+    role="tablist"
+    aria-label="Profile sections"
+    class="grid grid-cols-5 gap-2"
+  >
     <button
       type="button"
       role="tab"
@@ -53,14 +58,17 @@
 >
   <!-- content -->
 </article>
-````
+```
 
 ---
 
 ## Button — Primary
 
 ```html
-<a class="btn-primary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium" href="#">
+<a
+  class="btn-primary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium"
+  href="#"
+>
   Primary action
 </a>
 ```
@@ -70,7 +78,10 @@
 ## Button — Secondary
 
 ```html
-<a class="btn-secondary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium" href="#">
+<a
+  class="btn-secondary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium"
+  href="#"
+>
   Secondary action
 </a>
 ```
@@ -84,7 +95,9 @@
   <h2 class="font-[var(--font-accent)] text-lg">Card title</h2>
   <p class="mt-2 text-sm text-secondary">Card content text.</p>
   <div class="mt-4">
-    <a class="btn-secondary rounded-xl px-4 py-2 text-sm" href="#">Card action</a>
+    <a class="btn-secondary rounded-xl px-4 py-2 text-sm" href="#"
+      >Card action</a
+    >
   </div>
 </section>
 ```
@@ -148,12 +161,19 @@
 <li class="glass-surface rounded-2xl p-4">
   <p class="text-xs text-secondary">Speaker · 2025-12-13</p>
   <p class="mt-1 font-medium">DevFest Łódź 2015</p>
-  <p class="mt-1 text-sm text-secondary">Politechnika Łódzka, Kampus A, Budynek A12, Sala E5</p>
+  <p class="mt-1 text-sm text-secondary">
+    Politechnika Łódzka, Kampus A, Budynek A12, Sala E5
+  </p>
 
   <p class="mt-3 text-sm"><span class="font-medium">Talk title…</span></p>
   <p class="mt-1 text-sm text-secondary">Short description…</p>
 
-  <a class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm" href="#" target="_blank" rel="noopener noreferrer">
+  <a
+    class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     Event link (TBD)
   </a>
 </li>
@@ -166,9 +186,17 @@
 ```html
 <li id="pub-fi-2023-328" class="glass-surface rounded-2xl p-4">
   <p class="text-xs text-secondary">paper · 2023</p>
-  <p class="mt-1 font-medium">Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming in Open Internet</p>
+  <p class="mt-1 font-medium">
+    Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming
+    in Open Internet
+  </p>
   <p class="mt-1 text-sm text-secondary">Future Internet 2023, 15, 328</p>
-  <a class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm" href="https://doi.org/10.3390/fi15100328" target="_blank" rel="noopener noreferrer">
+  <a
+    class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
+    href="https://doi.org/10.3390/fi15100328"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     DOI
   </a>
 </li>

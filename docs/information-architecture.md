@@ -1,4 +1,5 @@
-# Digital Business Card Platform  
+# Digital Business Card Platform
+
 ## Information Architecture Specification
 
 ---
@@ -27,13 +28,13 @@ The scope covers UX structure only; visual design and content authoring are out 
 
 ## 3. Final Tab Set (Labels EN / PL)
 
-| Order | EN Label             | PL Label              |
-|------:|----------------------|-----------------------|
-| 1     | Me                   | O mnie                |
-| 2     | Luczak Consulting    | Luczak Consulting     |
-| 3     | Publications         | Publikacje            |
-| 4     | Events               | Wydarzenia            |
-| 5     | Contact              | Kontakt               |
+| Order | EN Label          | PL Label          |
+| ----: | ----------------- | ----------------- |
+|     1 | Me                | O mnie            |
+|     2 | Luczak Consulting | Luczak Consulting |
+|     3 | Publications      | Publikacje        |
+|     4 | Events            | Wydarzenia        |
+|     5 | Contact           | Kontakt           |
 
 ---
 
@@ -41,47 +42,47 @@ The scope covers UX structure only; visual design and content authoring are out 
 
 ### 4.1 Me
 
-1. Identity Block  
-   - Full name  
-   - Professional title  
+1. Identity Block
+   - Full name
+   - Professional title
    - Location (if provided)
 
-2. Short Bio  
+2. Short Bio
    - Maximum 3 lines
 
-3. Key Roles / Focus Areas  
+3. Key Roles / Focus Areas
    - Bullet list or chips
 
-4. Primary Links  
-   - LinkedIn  
-   - GitHub  
+4. Primary Links
+   - LinkedIn
+   - GitHub
    - Personal website / blog
 
 ---
 
 ### 4.2 Luczak Consulting
 
-1. Company Snapshot  
-   - Company name  
+1. Company Snapshot
+   - Company name
    - One-line value proposition
 
-2. Services  
+2. Services
    - Maximum 5 service labels
 
-3. Target Audience  
+3. Target Audience
    - 2–3 audience descriptors
 
-4. Primary Call-to-Action  
+4. Primary Call-to-Action
    - Link to company website or contact entry point
 
 ---
 
 ### 4.3 Publications
 
-1. Publications List  
-   - Title  
-   - Type (paper / article / talk)  
-   - Year  
+1. Publications List
+   - Title
+   - Type (paper / article / talk)
+   - Year
    - External link
 
 - Sorted by newest first
@@ -91,30 +92,30 @@ The scope covers UX structure only; visual design and content authoring are out 
 
 ### 4.4 Events
 
-1. Events List  
-   - Event name  
-   - Role (speaker / participant)  
-   - Date  
+1. Events List
+   - Event name
+   - Role (speaker / participant)
+   - Date
    - Location (if provided)
 
-2. Grouping  
-   - Upcoming events  
+2. Grouping
+   - Upcoming events
    - Recent events
 
 ---
 
 ### 4.5 Contact
 
-1. Primary Contact Actions  
-   - Email  
+1. Primary Contact Actions
+   - Email
    - LinkedIn direct contact
 
-2. Contact Form  
-   - Name  
-   - Email  
+2. Contact Form
+   - Name
+   - Email
    - Message
 
-3. Legal / Meta  
+3. Legal / Meta
    - Privacy policy link
 
 ---
@@ -156,12 +157,14 @@ The scope covers UX structure only; visual design and content authoring are out 
 ```
 
 Where `{lang}` is:
+
 - `en`
 - `pl`
 
 ### Tab Routes
 
 **English**
+
 ```
 
 /en/me
@@ -173,6 +176,7 @@ Where `{lang}` is:
 ```
 
 **Polish**
+
 ```
 
 /pl/o-mnie

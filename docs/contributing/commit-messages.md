@@ -90,6 +90,7 @@ chore: add linting
 ```
 
 **Why it's bad:**
+
 - Doesn't explain what linting tools were added
 - Doesn't explain why this decision was made
 - Doesn't provide context for future readers
@@ -121,6 +122,7 @@ fix: tabs
 ```
 
 **Why it's bad:**
+
 - Doesn't explain what was broken
 - Doesn't explain how it was fixed
 - Doesn't provide context for reviewers or future maintainers
@@ -130,6 +132,7 @@ fix: tabs
 When squashing commits during a pull request merge, the **squash message must remain verbose and educational**.
 
 The squash message should:
+
 1. Summarize all changes in the PR
 2. Explain the overall intent and design decisions
 3. Reference any key implementation details

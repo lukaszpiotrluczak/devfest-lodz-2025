@@ -1,13 +1,16 @@
 # Project Roadmap
+
 ## AI-Assisted Delivery Plan
 
 This roadmap is optimized for:
+
 - incremental delivery,
 - AI-assisted generation,
 - public repository transparency,
 - live conference demonstration (DevFest).
 
 Legend:
+
 - 🔴 Core
 - 🟡 Nice-to-have
 - 🎤 DevFest demo highlight
@@ -29,6 +32,7 @@ Legend:
 6. 🔴 Light/Dark accessibility review
 
 Artifacts:
+
 - visual direction document
 - reference screenshots
 
@@ -41,6 +45,7 @@ Artifacts:
 9. 🟡 Component styling guidelines
 
 Artifacts:
+
 - design-profile.json
 - theme.css
 
@@ -53,6 +58,7 @@ Artifacts:
 12. 🔴 SEO & structured data stubs
 
 Artifacts:
+
 - static HTML prototypes
 - component snippets
 
@@ -67,6 +73,7 @@ Artifacts:
 17. 🔴 CI pipelines & PR quality gates 🎤
 
 Artifacts:
+
 - public GitHub repository
 - README (AI-driven workflow)
 
@@ -80,6 +87,7 @@ Artifacts:
 21. 🔴 Contact form API (routing, validation, spam protection) 🎤
 
 Artifacts:
+
 - working application
 - API endpoints
 

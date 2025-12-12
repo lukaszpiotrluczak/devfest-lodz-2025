@@ -11,12 +11,14 @@ The project demonstrates how **generative AI can be used responsibly and effecti
 This is **not** a traditional website or blog.
 
 It is a:
+
 - **single-link digital business card**
 - **primary online contact hub**
 - **networking tool** for conferences and meetups (QR / link / NFC)
 - **routing point** to social profiles, publications, events, and contact channels
 
 The platform is:
+
 - mobile-first
 - bilingual (EN / PL)
 - SEO- and structured-data-optimized
@@ -39,6 +41,7 @@ The platform is:
 This project was built using **AI as a collaborator**, not a code generator.
 
 AI was used to:
+
 - clarify requirements and scope
 - design information architecture
 - synthesize brand and visual identity
@@ -95,39 +98,39 @@ see [AI-Assisted Pull Request Workflow](docs/contributing/ai-assisted-pr-workflo
 
 ### Frontend
 
-* **Astro**
-* **Tailwind CSS 4.1**
-* Semantic HTML, minimal JavaScript
-* Light / Dark mode
-* Full EN / PL i18n
+- **Astro**
+- **Tailwind CSS 4.1**
+- Semantic HTML, minimal JavaScript
+- Light / Dark mode
+- Full EN / PL i18n
 
 ### Backend
 
-* **NestJS**
-* Contact form API
-* Security controls (rate-limit, honeypot, GDPR-compliant captcha)
-* Astro served as middleware
+- **NestJS**
+- Contact form API
+- Security controls (rate-limit, honeypot, GDPR-compliant captcha)
+- Astro served as middleware
 
 ### Infrastructure & DX
 
-* Docker / Podman agnostic
-* Coolify deployment
-* ESLint, Prettier, cspell
-* Conventional Commits
-* Git hooks & CI checks
-* Dev Container + VS Code workspace
+- Docker / Podman agnostic
+- Coolify deployment
+- ESLint, Prettier, cspell
+- Conventional Commits
+- Git hooks & CI checks
+- Dev Container + VS Code workspace
 
 ---
 
 ## 🔐 Security & Privacy
 
-* No analytics
-* No tracking
-* No cookies
-* GDPR-aware by design
-* Minimal data collection
-* Structured input validation
-* Secure headers and CSP
+- No analytics
+- No tracking
+- No cookies
+- GDPR-aware by design
+- Minimal data collection
+- Structured input validation
+- Secure headers and CSP
 
 ---
 
@@ -135,14 +138,13 @@ see [AI-Assisted Pull Request Workflow](docs/contributing/ai-assisted-pr-workflo
 
 The platform implements:
 
-* OpenGraph & Twitter cards
-* hreflang (EN / PL)
-* JSON-LD for:
-
-  * Person
-  * Organization
-  * Event
-  * ScholarlyArticle
+- OpenGraph & Twitter cards
+- hreflang (EN / PL)
+- JSON-LD for:
+  - Person
+  - Organization
+  - Event
+  - ScholarlyArticle
 
 This makes the site suitable as a **primary identity reference point** for search engines and external links.
 
@@ -152,10 +154,10 @@ This makes the site suitable as a **primary identity reference point** for searc
 
 ### Prerequisites
 
-* **Node.js** 20+ (LTS)
-* **pnpm** 9+ (package manager)
-* **Docker or Podman** (optional, for Dev Container)
-* **VS Code** (recommended, for workspace configuration)
+- **Node.js** 20+ (LTS)
+- **pnpm** 9+ (package manager)
+- **Docker or Podman** (optional, for Dev Container)
+- **VS Code** (recommended, for workspace configuration)
 
 ### Option 1: Using Dev Container (recommended)
 
@@ -168,6 +170,7 @@ This method provides a fully configured development environment with all tools p
 5. Wait for the container to build and dependencies to install automatically
 
 The Dev Container includes:
+
 - Node.js 20
 - pnpm pre-configured
 - All VS Code extensions (ESLint, Prettier, Tailwind, Astro, cspell)
@@ -242,6 +245,7 @@ footer
 **Allowed types:** `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`, `build`, `perf`, `revert`
 
 **Example:**
+
 ```
 feat(dx): add ESLint and Prettier configuration
 
@@ -277,7 +281,7 @@ stacks/production/
 
 The application is deployed under:
 
-* **[https://lukaszpiotrluczak.me](https://lukaszpiotrluczak.me)**
+- **[https://lukaszpiotrluczak.me](https://lukaszpiotrluczak.me)**
 
 ---
 
@@ -286,10 +290,10 @@ The application is deployed under:
 This project is used as a **live case study** in the talk:
 
 **EN:**
-*“Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…”*
+_“Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…”_
 
 **PL:**
-*„Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…”*
+_„Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…”_
 
 The repository intentionally exposes the **entire AI-assisted process**, including mistakes, refinements, and architectural decisions.
 
@@ -305,10 +309,10 @@ MIT — feel free to reuse the ideas, structure, and workflow.
 
 This is a personal project, but issues and discussions are welcome — especially around:
 
-* AI-assisted development workflows
-* frontend architecture
-* developer experience
-* security-by-design
+- AI-assisted development workflows
+- frontend architecture
+- developer experience
+- security-by-design
 
 ---
 
@@ -318,6 +322,6 @@ This is a personal project, but issues and discussions are welcome — especiall
 Software Architect • Consultant • Researcher • Speaker
 Managing Partner @ Luczak Consulting
 
-* Website: [https://lukasz.luczak.org](https://lukasz.luczak.org)
-* LinkedIn: [https://www.linkedin.com/in/lukaszpiotrluczak/](https://www.linkedin.com/in/lukaszpiotrluczak/)
-* GitHub: [https://github.com/lukaszpiotrluczak](https://github.com/lukaszpiotrluczak)
+- Website: [https://lukasz.luczak.org](https://lukasz.luczak.org)
+- LinkedIn: [https://www.linkedin.com/in/lukaszpiotrluczak/](https://www.linkedin.com/in/lukaszpiotrluczak/)
+- GitHub: [https://github.com/lukaszpiotrluczak](https://github.com/lukaszpiotrluczak)

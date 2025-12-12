@@ -42,6 +42,7 @@ The `packageManager` field in `package.json` is the **standard, recommended way*
 **Alternative rejected:** Remove `packageManager` from `package.json` and pin pnpm only in `.github/workflows/ci.yml`
 
 **Why this is worse:**
+
 - **No local version enforcement** — developers could use pnpm 8, 9, or 10 locally with unpredictable results
 - **Violates "production-grade" requirement** — production-grade projects ensure reproducibility across all environments
 - **Hidden drift** — local dev and CI could behave differently, leading to "works on my machine" issues
@@ -55,12 +56,12 @@ The `packageManager` field in `package.json` is the **standard, recommended way*
 - name: Setup pnpm
   uses: pnpm/action-setup@v4
   with:
-    version: 9  # ❌ Conflicts with package.json
+    version: 9 # ❌ Conflicts with package.json
 ```
 
 ```json
 {
-  "packageManager": "pnpm@9.15.0"  // ❌ Conflicts with CI workflow
+  "packageManager": "pnpm@9.15.0" // ❌ Conflicts with CI workflow
 }
 ```
 
@@ -76,7 +77,7 @@ The `packageManager` field in `package.json` is the **standard, recommended way*
 
 ```json
 {
-  "packageManager": "pnpm@9.15.0"  // ✅ Single source of truth
+  "packageManager": "pnpm@9.15.0" // ✅ Single source of truth
 }
 ```
 

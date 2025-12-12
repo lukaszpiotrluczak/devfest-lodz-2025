@@ -5,6 +5,7 @@ Thanks for your interest in contributing!
 This is a **public, educational, production-grade** repository demonstrating an **AI-assisted software delivery workflow**.
 
 The project optimizes for:
+
 - clarity,
 - reproducibility,
 - human-readable history,
@@ -48,6 +49,7 @@ This repository enforces **Conventional Commits** and expects **verbose, educati
   - and key decisions / trade-offs
 
 For AI-assisted PR preparation guidance, see:
+
 - `docs/contributing/ai-assisted-pr-workflow.md`
 
 ---
@@ -55,9 +57,11 @@ For AI-assisted PR preparation guidance, see:
 ## Local Setup
 
 Recommended:
+
 - VS Code + Dev Container
 
 Basic:
+
 - Node.js (LTS)
 - pnpm
 - (optional) Docker/Podman
@@ -67,6 +71,7 @@ Basic:
 ## Reporting Issues
 
 When opening an issue, include:
+
 - expected behavior,
 - actual behavior,
 - steps to reproduce,

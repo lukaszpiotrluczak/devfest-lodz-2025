@@ -7,7 +7,8 @@ Model: GPT-5.2
 # HTML prototype generation
 
 ## Prompt:
-<!-- 
+
+<!--
 Attached files:
 - /docs/information-architecture.md
 - /docs/design-profile.json
@@ -17,26 +18,31 @@ Attached files:
 -->
 
 # Role
+
 You are a senior frontend engineer producing implementation-ready HTML prototypes.
 
 # Goal
+
 Generate responsive, accessible HTML + Tailwind prototypes that will later be migrated into Astro.
 This is not a creative exploration: follow the provided artifacts strictly.
 
 # Inputs (I will paste)
-1) docs/information-architecture.md (normative IA and tab rules)
-2) docs/design-profile.json (authoritative design contract)
-3) docs/theme/tailwind-theme.css (compiled theme artifact)
-4) docs/project-spec.md (recommended; scope guard)
-5) Content seed (links, contacts, company details, publications, events) (recommended)
+
+1. docs/information-architecture.md (normative IA and tab rules)
+2. docs/design-profile.json (authoritative design contract)
+3. docs/theme/tailwind-theme.css (compiled theme artifact)
+4. docs/project-spec.md (recommended; scope guard)
+5. Content seed (links, contacts, company details, publications, events) (recommended)
 
 # Strict Rules
+
 - Do NOT invent new tabs, sections, or components beyond the IA.
 - Do NOT invent new design tokens, colors, or fonts beyond the design profile and theme.
 - Use realistic placeholder content based on the provided content seed (avoid lorem ipsum).
 - If any design token is "UNDEFINED", do NOT guess values; keep styling generic and list it in Open items.
 
 # Requirements
+
 - Mobile-first, responsive
 - Light/Dark mode compatible with the provided theme strategy
 - Tabs must be accessible:
@@ -59,23 +65,24 @@ This is not a creative exploration: follow the provided artifacts strictly.
   - ensure IDs/URLs are consistent and locale-aware
 
 # Expected Output (Markdown)
+
 Provide 4 artifacts, each clearly separated and labeled with the target file path:
 
-1) docs/prototypes/index.html
+1. docs/prototypes/index.html
    - single-page with tabs
    - include both EN and PL approach clearly (either locale-prefixed links or language switcher placeholders)
    - include conditional rendering placeholders for Events/Publications
 
-2) docs/prototypes/component-snippets.md
+2. docs/prototypes/component-snippets.md
    - reusable HTML snippets for: Tabs, Button (primary/secondary), Glass Card, Social Icon Link, Contact Form Field, Event Item, Publication Item
 
-3) docs/prototypes/astro-migration-notes.md
+3. docs/prototypes/astro-migration-notes.md
    - component breakdown proposal (Astro components)
    - data loading plan (JSON/MD)
    - i18n routing plan (/en/, /pl/)
    - what becomes interactive JS vs stays static
 
-4) docs/prototypes/open-items.md
+4. docs/prototypes/open-items.md
    - list unresolved design tokens or missing requirements that block full fidelity
    - list anything you had to keep generic due to "UNDEFINED" values
    - list items that must be implemented in NestJS (e.g., contact form submission)
@@ -83,10 +90,10 @@ Provide 4 artifacts, each clearly separated and labeled with the target file pat
 Do NOT output anything else.
 
 ## Response:
+
 Myślał przez 1m 8s
 
-`docs/prototypes/index.html`
-----------------------------
+## `docs/prototypes/index.html`
 
 ```html
 <!doctype html>
@@ -112,28 +119,52 @@ Myślał przez 1m 8s
     <!-- OpenGraph -->
     <meta property="og:type" content="profile" />
     <meta property="og:site_name" content="Łukasz Piotr Łuczak" />
-    <meta property="og:title" content="Łukasz Piotr Łuczak — Digital Business Card" />
+    <meta
+      property="og:title"
+      content="Łukasz Piotr Łuczak — Digital Business Card"
+    />
     <meta
       property="og:description"
       content="Contact, profiles, publications, events, and Luczak Consulting."
     />
     <meta property="og:url" content="https://lukaszpiotrluczak.me/en/me" />
     <!-- og:image placeholder (asset path resolved in Astro build) -->
-    <meta property="og:image" content="https://lukaszpiotrluczak.me/assets/og/en.png" />
+    <meta
+      property="og:image"
+      content="https://lukaszpiotrluczak.me/assets/og/en.png"
+    />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Łukasz Piotr Łuczak — Digital Business Card" />
+    <meta
+      name="twitter:title"
+      content="Łukasz Piotr Łuczak — Digital Business Card"
+    />
     <meta
       name="twitter:description"
       content="Contact, profiles, publications, events, and Luczak Consulting."
     />
-    <meta name="twitter:image" content="https://lukaszpiotrluczak.me/assets/og/en.png" />
+    <meta
+      name="twitter:image"
+      content="https://lukaszpiotrluczak.me/assets/og/en.png"
+    />
 
     <!-- hreflang hints (locale-aware, tab-preserving) -->
-    <link rel="alternate" hreflang="en" href="https://lukaszpiotrluczak.me/en/me" />
-    <link rel="alternate" hreflang="pl" href="https://lukaszpiotrluczak.me/pl/o-mnie" />
-    <link rel="alternate" hreflang="x-default" href="https://lukaszpiotrluczak.me/en/me" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://lukaszpiotrluczak.me/en/me"
+    />
+    <link
+      rel="alternate"
+      hreflang="pl"
+      href="https://lukaszpiotrluczak.me/pl/o-mnie"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://lukaszpiotrluczak.me/en/me"
+    />
 
     <!-- JSON-LD stubs (IDs/URLs will be updated by router) -->
     <script type="application/ld+json" id="ld-person">
@@ -152,7 +183,11 @@ Myślał przez 1m 8s
         ],
         "jobTitle": "IT Solutions Architect and Consultant",
         "worksFor": { "@id": "https://lukaszpiotrluczak.me/en/#org" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Łódź", "addressCountry": "PL" }
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Łódź",
+          "addressCountry": "PL"
+        }
       }
     </script>
 
@@ -229,7 +264,10 @@ Myślał przez 1m 8s
               { "@type": "Person", "name": "P. Ignaciuk" },
               { "@type": "Person", "name": "M. Morawski" }
             ],
-            "isPartOf": { "@type": "PublicationVolume", "name": "Annals of Computer Science and Information Systems" },
+            "isPartOf": {
+              "@type": "PublicationVolume",
+              "name": "Annals of Computer Science and Information Systems"
+            },
             "sameAs": ["https://doi.org/10.15439/2023F9991"]
           }
         ]
@@ -294,7 +332,8 @@ Myślał przez 1m 8s
             </p>
             <p class="mt-1 text-sm text-secondary">
               <span data-i18n="headline"
-                >IT solutions architect · consultant · researcher · speaker</span
+                >IT solutions architect · consultant · researcher ·
+                speaker</span
               >
             </p>
 
@@ -358,7 +397,12 @@ Myślał przez 1m 8s
               >
                 <span aria-hidden="true">
                   <!-- LinkedIn icon -->
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05C12.4 9 13.8 7.7 16 7.7c4 0 4.7 2.6 4.7 6V24h-4v-8.7c0-2.1 0-4.8-2.9-4.8-2.9 0-3.4 2.3-3.4 4.7V24H8V8z"
                     />
@@ -377,7 +421,12 @@ Myślał przez 1m 8s
               >
                 <span aria-hidden="true">
                   <!-- GitHub icon -->
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M12 .5C5.73.5.75 5.62.75 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.26.79-.57v-2.2c-3.2.71-3.88-1.58-3.88-1.58-.52-1.36-1.28-1.72-1.28-1.72-1.05-.73.08-.72.08-.72 1.16.08 1.77 1.23 1.77 1.23 1.03 1.81 2.71 1.29 3.37.99.1-.77.4-1.29.72-1.59-2.56-.3-5.26-1.31-5.26-5.85 0-1.29.45-2.35 1.19-3.18-.12-.3-.52-1.52.11-3.17 0 0 .98-.32 3.2 1.21.93-.27 1.93-.4 2.93-.4s2 .14 2.93.4c2.22-1.53 3.2-1.21 3.2-1.21.63 1.65.23 2.87.11 3.17.74.83 1.19 1.89 1.19 3.18 0 4.55-2.71 5.55-5.29 5.84.41.37.77 1.1.77 2.22v3.28c0 .31.21.68.8.57 4.56-1.53 7.85-5.86 7.85-10.96C23.25 5.62 18.27.5 12 .5z"
                     />
@@ -396,7 +445,12 @@ Myślał przez 1m 8s
               >
                 <span aria-hidden="true">
                   <!-- Link icon -->
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M10.59 13.41a1.996 1.996 0 0 0 2.82 0l3.18-3.18a2 2 0 0 0-2.83-2.83l-1.06 1.06a1 1 0 1 1-1.41-1.41l1.06-1.06a4 4 0 1 1 5.66 5.66l-3.18 3.18a3.99 3.99 0 0 1-5.64 0 1 1 0 0 1 1.4-1.42z"
                     />
@@ -441,7 +495,12 @@ Myślał przez 1m 8s
               <span class="mx-auto inline-flex items-center gap-2">
                 <span aria-hidden="true">
                   <!-- user icon -->
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z"
                     />
@@ -464,7 +523,12 @@ Myślał przez 1m 8s
               <span class="mx-auto inline-flex items-center gap-2">
                 <span aria-hidden="true">
                   <!-- briefcase icon -->
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M10 2h4a2 2 0 0 1 2 2v2h4v6H4V6h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4v2z"
                     />
@@ -488,7 +552,12 @@ Myślał przez 1m 8s
               <span class="mx-auto inline-flex items-center gap-2">
                 <span aria-hidden="true">
                   <!-- book icon -->
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M4 3h11a3 3 0 0 1 3 3v15a2 2 0 0 0-2-2H4V3zm0 18h12a2 2 0 0 1 2 2H6a2 2 0 0 1-2-2z"
                     />
@@ -511,7 +580,12 @@ Myślał przez 1m 8s
               <span class="mx-auto inline-flex items-center gap-2">
                 <span aria-hidden="true">
                   <!-- calendar icon -->
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2zm15 8H2v12h20V10z"
                     />
@@ -534,7 +608,12 @@ Myślał przez 1m 8s
               <span class="mx-auto inline-flex items-center gap-2">
                 <span aria-hidden="true">
                   <!-- mail icon -->
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path
                       d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
                     />
@@ -569,27 +648,42 @@ Myślał przez 1m 8s
             <!-- Short bio (max ~3 lines) -->
             <p class="mt-4 text-sm sm:text-base">
               <span data-i18n="me.bio">
-                I’m an IT solutions architect and consultant combining modern systems and SaaS product engineering
-                with information security, system architecture, infrastructure &amp; DevOps, and academic research and
-                teaching.
+                I’m an IT solutions architect and consultant combining modern
+                systems and SaaS product engineering with information security,
+                system architecture, infrastructure &amp; DevOps, and academic
+                research and teaching.
               </span>
             </p>
 
             <!-- Key roles / focus areas -->
             <div class="mt-4">
-              <h2 class="text-sm font-medium" data-i18n="me.rolesTitle">Key roles</h2>
+              <h2 class="text-sm font-medium" data-i18n="me.rolesTitle">
+                Key roles
+              </h2>
               <ul class="mt-2 flex flex-wrap gap-2" aria-label="Key roles list">
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Managing Partner — Luczak Consulting</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Researcher / PhD (doctoral student)</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Speaker</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Trainer / Lecturer</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Consultant</li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Managing Partner — Luczak Consulting
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Researcher / PhD (doctoral student)
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Speaker
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Trainer / Lecturer
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Consultant
+                </li>
               </ul>
             </div>
 
             <!-- Primary links -->
             <div class="mt-6">
-              <h2 class="text-sm font-medium" data-i18n="me.primaryLinksTitle">Primary links</h2>
+              <h2 class="text-sm font-medium" data-i18n="me.primaryLinksTitle">
+                Primary links
+              </h2>
               <ul class="mt-3 space-y-2">
                 <li>
                   <a
@@ -637,40 +731,77 @@ Myślał przez 1m 8s
             class="glass-surface rounded-2xl p-4 sm:p-6 hidden"
             data-panel="luczak-consulting"
           >
-            <h1 class="font-[var(--font-accent)] text-xl sm:text-2xl">Luczak Consulting</h1>
+            <h1 class="font-[var(--font-accent)] text-xl sm:text-2xl">
+              Luczak Consulting
+            </h1>
 
             <!-- Company snapshot -->
             <div class="mt-4">
-              <h2 class="text-sm font-medium" data-i18n="consulting.snapshotTitle">Company snapshot</h2>
+              <h2
+                class="text-sm font-medium"
+                data-i18n="consulting.snapshotTitle"
+              >
+                Company snapshot
+              </h2>
               <div class="mt-2 glass-surface rounded-2xl p-4">
                 <p class="text-sm sm:text-base">
                   <span class="font-medium">Luczak Consulting P.S.A.</span>
                 </p>
-                <p class="mt-2 text-sm text-secondary" data-i18n="consulting.valueProp">
-                  IT solution architecture, secure system design, and delivery support for modern products and teams.
+                <p
+                  class="mt-2 text-sm text-secondary"
+                  data-i18n="consulting.valueProp"
+                >
+                  IT solution architecture, secure system design, and delivery
+                  support for modern products and teams.
                 </p>
               </div>
             </div>
 
             <!-- Services (max 5 labels) -->
             <div class="mt-6">
-              <h2 class="text-sm font-medium" data-i18n="consulting.servicesTitle">Services</h2>
+              <h2
+                class="text-sm font-medium"
+                data-i18n="consulting.servicesTitle"
+              >
+                Services
+              </h2>
               <ul class="mt-2 flex flex-wrap gap-2" aria-label="Services list">
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Solution architecture</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Information security</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Infrastructure &amp; DevOps</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">SaaS product engineering</li>
-                <li class="glass-surface rounded-full px-3 py-2 text-xs">Research &amp; training</li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Solution architecture
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Information security
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Infrastructure &amp; DevOps
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  SaaS product engineering
+                </li>
+                <li class="glass-surface rounded-full px-3 py-2 text-xs">
+                  Research &amp; training
+                </li>
               </ul>
             </div>
 
             <!-- Target audience (2–3 descriptors) -->
             <div class="mt-6">
-              <h2 class="text-sm font-medium" data-i18n="consulting.audienceTitle">Who it’s for</h2>
+              <h2
+                class="text-sm font-medium"
+                data-i18n="consulting.audienceTitle"
+              >
+                Who it’s for
+              </h2>
               <ul class="mt-2 space-y-2 text-sm sm:text-base">
-                <li class="glass-surface rounded-2xl p-4">CTOs &amp; Tech Leads</li>
-                <li class="glass-surface rounded-2xl p-4">Product &amp; engineering teams</li>
-                <li class="glass-surface rounded-2xl p-4">Organizations needing security-minded architecture</li>
+                <li class="glass-surface rounded-2xl p-4">
+                  CTOs &amp; Tech Leads
+                </li>
+                <li class="glass-surface rounded-2xl p-4">
+                  Product &amp; engineering teams
+                </li>
+                <li class="glass-surface rounded-2xl p-4">
+                  Organizations needing security-minded architecture
+                </li>
               </ul>
             </div>
 
@@ -683,7 +814,8 @@ Myślał przez 1m 8s
                 >Contact / Schedule a meeting</a
               >
               <p class="mt-2 text-xs text-secondary">
-                External scheduling: <a
+                External scheduling:
+                <a
                   class="underline"
                   href="https://app.zencal.io/u/lukaszpiotrluczak"
                   target="_blank"
@@ -695,7 +827,12 @@ Myślał przez 1m 8s
 
             <!-- Registry data (required by project spec) -->
             <div class="mt-6">
-              <h2 class="text-sm font-medium" data-i18n="consulting.registryTitle">Registry</h2>
+              <h2
+                class="text-sm font-medium"
+                data-i18n="consulting.registryTitle"
+              >
+                Registry
+              </h2>
               <dl class="mt-2 grid grid-cols-1 gap-2 text-sm">
                 <div class="glass-surface rounded-2xl p-4">
                   <dt class="text-secondary">KRS</dt>
@@ -710,11 +847,20 @@ Myślał przez 1m 8s
                   <dd class="font-medium">526277912</dd>
                 </div>
                 <div class="glass-surface rounded-2xl p-4">
-                  <dt class="text-secondary" data-i18n="consulting.address">Address</dt>
-                  <dd class="font-medium">Suwalska 16 lok. 103, 93-176 Łódź, Poland</dd>
+                  <dt class="text-secondary" data-i18n="consulting.address">
+                    Address
+                  </dt>
+                  <dd class="font-medium">
+                    Suwalska 16 lok. 103, 93-176 Łódź, Poland
+                  </dd>
                 </div>
                 <div class="glass-surface rounded-2xl p-4">
-                  <dt class="text-secondary" data-i18n="consulting.shareCapital">Share capital</dt>
+                  <dt
+                    class="text-secondary"
+                    data-i18n="consulting.shareCapital"
+                  >
+                    Share capital
+                  </dt>
                   <dd class="font-medium">20 000 PLN (paid in full)</dd>
                 </div>
               </dl>
@@ -731,7 +877,10 @@ Myślał przez 1m 8s
             data-panel="publications"
           >
             <div class="flex items-start justify-between gap-4">
-              <h1 class="font-[var(--font-accent)] text-xl sm:text-2xl" data-i18n="pubs.title">
+              <h1
+                class="font-[var(--font-accent)] text-xl sm:text-2xl"
+                data-i18n="pubs.title"
+              >
                 Publications
               </h1>
 
@@ -751,13 +900,18 @@ Myślał przez 1m 8s
 
             <ol class="mt-6 space-y-3" aria-label="Publications list">
               <!-- Sorted by newest first (2024, then 2023) -->
-              <li id="pub-onoff-fedcsis-2024" class="glass-surface rounded-2xl p-4">
+              <li
+                id="pub-onoff-fedcsis-2024"
+                class="glass-surface rounded-2xl p-4"
+              >
                 <p class="text-xs text-secondary">paper · 2024</p>
                 <p class="mt-1 font-medium">
-                  Congestion Control in Streaming Services with an On-Off MPTCP Algorithm
+                  Congestion Control in Streaming Services with an On-Off MPTCP
+                  Algorithm
                 </p>
                 <p class="mt-1 text-sm text-secondary">
-                  19th Conference on Computer Science and Intelligence Systems (FedCSIS 2024) — Belgrade, Serbia
+                  19th Conference on Computer Science and Intelligence Systems
+                  (FedCSIS 2024) — Belgrade, Serbia
                 </p>
                 <a
                   class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
@@ -768,13 +922,18 @@ Myślał przez 1m 8s
                 >
               </li>
 
-              <li id="pub-onoff-eurospi-2024" class="glass-surface rounded-2xl p-4">
+              <li
+                id="pub-onoff-eurospi-2024"
+                class="glass-surface rounded-2xl p-4"
+              >
                 <p class="text-xs text-secondary">paper · 2024</p>
                 <p class="mt-1 font-medium">
-                  An On-Off MPTCP Congestion Control Algorithm for Streaming Services
+                  An On-Off MPTCP Congestion Control Algorithm for Streaming
+                  Services
                 </p>
                 <p class="mt-1 text-sm text-secondary">
-                  European System, Software &amp; Service Process Improvement &amp; Innovation (EuroSPI² 2024) — Munich, Germany
+                  European System, Software &amp; Service Process Improvement
+                  &amp; Innovation (EuroSPI² 2024) — Munich, Germany
                 </p>
                 <a
                   class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
@@ -785,12 +944,19 @@ Myślał przez 1m 8s
                 >
               </li>
 
-              <li id="pub-acis-2023-f9991" class="glass-surface rounded-2xl p-4">
+              <li
+                id="pub-acis-2023-f9991"
+                class="glass-surface rounded-2xl p-4"
+              >
                 <p class="text-xs text-secondary">paper · 2023</p>
                 <p class="mt-1 font-medium">
-                  Experimental Assessment of MPTCP Congestion Control Algorithms for Streaming Services in Open Internet
+                  Experimental Assessment of MPTCP Congestion Control Algorithms
+                  for Streaming Services in Open Internet
                 </p>
-                <p class="mt-1 text-sm text-secondary">Annals of Computer Science and Information Systems 2023, 26, 11</p>
+                <p class="mt-1 text-sm text-secondary">
+                  Annals of Computer Science and Information Systems 2023, 26,
+                  11
+                </p>
                 <a
                   class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
                   href="https://doi.org/10.15439/2023F9991"
@@ -803,9 +969,12 @@ Myślał przez 1m 8s
               <li id="pub-fi-2023-328" class="glass-surface rounded-2xl p-4">
                 <p class="text-xs text-secondary">paper · 2023</p>
                 <p class="mt-1 font-medium">
-                  Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming in Open Internet
+                  Evaluating MPTCP Congestion Control Algorithms: Implications
+                  for Streaming in Open Internet
                 </p>
-                <p class="mt-1 text-sm text-secondary">Future Internet 2023, 15, 328</p>
+                <p class="mt-1 text-sm text-secondary">
+                  Future Internet 2023, 15, 328
+                </p>
                 <a
                   class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
                   href="https://doi.org/10.3390/fi15100328"
@@ -826,22 +995,35 @@ Myślał przez 1m 8s
             class="glass-surface rounded-2xl p-4 sm:p-6 hidden"
             data-panel="events"
           >
-            <h1 class="font-[var(--font-accent)] text-xl sm:text-2xl" data-i18n="events.title">Events</h1>
+            <h1
+              class="font-[var(--font-accent)] text-xl sm:text-2xl"
+              data-i18n="events.title"
+            >
+              Events
+            </h1>
             <p class="mt-2 text-sm text-secondary" data-i18n="events.subtitle">
               Upcoming + recent (within ±90 days).
             </p>
 
             <!-- Upcoming -->
             <section class="mt-6" aria-label="Upcoming events">
-              <h2 class="text-sm font-medium" data-i18n="events.upcoming">Upcoming</h2>
+              <h2 class="text-sm font-medium" data-i18n="events.upcoming">
+                Upcoming
+              </h2>
               <ul class="mt-2 space-y-3" id="events-upcoming-list">
                 <!-- Rendered from JS seed; single upcoming event -->
               </ul>
             </section>
 
             <!-- Recent (renders only when non-empty) -->
-            <section class="mt-6 hidden" aria-label="Recent events" id="events-recent-section">
-              <h2 class="text-sm font-medium" data-i18n="events.recent">Recent</h2>
+            <section
+              class="mt-6 hidden"
+              aria-label="Recent events"
+              id="events-recent-section"
+            >
+              <h2 class="text-sm font-medium" data-i18n="events.recent">
+                Recent
+              </h2>
               <ul class="mt-2 space-y-3" id="events-recent-list"></ul>
             </section>
 
@@ -860,7 +1042,12 @@ Myślał przez 1m 8s
             class="glass-surface rounded-2xl p-4 sm:p-6 hidden"
             data-panel="contact"
           >
-            <h1 class="font-[var(--font-accent)] text-xl sm:text-2xl" data-i18n="contact.title">Contact</h1>
+            <h1
+              class="font-[var(--font-accent)] text-xl sm:text-2xl"
+              data-i18n="contact.title"
+            >
+              Contact
+            </h1>
 
             <!-- Primary contact actions -->
             <div class="mt-4 grid grid-cols-1 gap-2">
@@ -880,15 +1067,29 @@ Myślał przez 1m 8s
             </div>
 
             <!-- Contact form (email + message + optional topic; includes Name per IA) -->
-            <form class="mt-6 space-y-4" method="post" action="/api/contact" novalidate>
+            <form
+              class="mt-6 space-y-4"
+              method="post"
+              action="/api/contact"
+              novalidate
+            >
               <!-- Honeypot (spam protection) -->
               <div class="hidden" aria-hidden="true">
                 <label for="company">Company</label>
-                <input id="company" name="company" type="text" autocomplete="off" tabindex="-1" />
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  autocomplete="off"
+                  tabindex="-1"
+                />
               </div>
 
               <div>
-                <label class="block text-sm font-medium" for="name" data-i18n="contact.form.nameLabel"
+                <label
+                  class="block text-sm font-medium"
+                  for="name"
+                  data-i18n="contact.form.nameLabel"
                   >Name</label
                 >
                 <input
@@ -902,7 +1103,10 @@ Myślał przez 1m 8s
               </div>
 
               <div>
-                <label class="block text-sm font-medium" for="email" data-i18n="contact.form.emailLabel"
+                <label
+                  class="block text-sm font-medium"
+                  for="email"
+                  data-i18n="contact.form.emailLabel"
                   >Email</label
                 >
                 <input
@@ -916,7 +1120,10 @@ Myślał przez 1m 8s
               </div>
 
               <div>
-                <label class="block text-sm font-medium" for="topic" data-i18n="contact.form.topicLabel"
+                <label
+                  class="block text-sm font-medium"
+                  for="topic"
+                  data-i18n="contact.form.topicLabel"
                   >Topic (optional)</label
                 >
                 <select
@@ -924,16 +1131,42 @@ Myślał przez 1m 8s
                   id="topic"
                   name="topic"
                 >
-                  <option value="" selected data-i18n="contact.form.topicDefault">Select a topic</option>
-                  <option value="consulting" data-i18n="contact.form.topicConsulting">Consulting</option>
-                  <option value="speaking" data-i18n="contact.form.topicSpeaking">Speaking / event</option>
-                  <option value="research" data-i18n="contact.form.topicResearch">Research / publications</option>
-                  <option value="other" data-i18n="contact.form.topicOther">Other</option>
+                  <option
+                    value=""
+                    selected
+                    data-i18n="contact.form.topicDefault"
+                  >
+                    Select a topic
+                  </option>
+                  <option
+                    value="consulting"
+                    data-i18n="contact.form.topicConsulting"
+                  >
+                    Consulting
+                  </option>
+                  <option
+                    value="speaking"
+                    data-i18n="contact.form.topicSpeaking"
+                  >
+                    Speaking / event
+                  </option>
+                  <option
+                    value="research"
+                    data-i18n="contact.form.topicResearch"
+                  >
+                    Research / publications
+                  </option>
+                  <option value="other" data-i18n="contact.form.topicOther">
+                    Other
+                  </option>
                 </select>
               </div>
 
               <div>
-                <label class="block text-sm font-medium" for="message" data-i18n="contact.form.messageLabel"
+                <label
+                  class="block text-sm font-medium"
+                  for="message"
+                  data-i18n="contact.form.messageLabel"
                   >Message</label
                 >
                 <textarea
@@ -946,7 +1179,11 @@ Myślał przez 1m 8s
               </div>
 
               <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                <button class="btn-primary rounded-xl px-4 py-3 font-medium" type="submit" data-i18n="contact.form.send">
+                <button
+                  class="btn-primary rounded-xl px-4 py-3 font-medium"
+                  type="submit"
+                  data-i18n="contact.form.send"
+                >
                   Send
                 </button>
 
@@ -965,14 +1202,29 @@ Myślał przez 1m 8s
                 <span data-i18n="contact.privacyNote">
                   No tracking. Your message is used only to respond.
                 </span>
-                <a class="underline" href="/en/privacy" data-i18n="contact.privacyLink">Privacy policy</a>
+                <a
+                  class="underline"
+                  href="/en/privacy"
+                  data-i18n="contact.privacyLink"
+                  >Privacy policy</a
+                >
               </p>
 
               <!-- Client-side status placeholders -->
-              <p class="hidden text-sm" id="contact-success" role="status" aria-live="polite">
+              <p
+                class="hidden text-sm"
+                id="contact-success"
+                role="status"
+                aria-live="polite"
+              >
                 Message sent.
               </p>
-              <p class="hidden text-sm" id="contact-error" role="status" aria-live="polite">
+              <p
+                class="hidden text-sm"
+                id="contact-error"
+                role="status"
+                aria-live="polite"
+              >
                 Something went wrong. Please email directly.
               </p>
             </form>
@@ -998,275 +1250,355 @@ Myślał przez 1m 8s
        * In production, use new Date() with server-rendered filtering where possible.
        */
 
-      const FIXED_NOW = new Date("2025-12-12T00:00:00+01:00");
+      const FIXED_NOW = new Date('2025-12-12T00:00:00+01:00');
       const dayMs = 24 * 60 * 60 * 1000;
 
       const ROUTES = {
-        en: { me: "me", consulting: "luczak-consulting", publications: "publications", events: "events", contact: "contact" },
-        pl: { me: "o-mnie", consulting: "luczak-consulting", publications: "publikacje", events: "wydarzenia", contact: "kontakt" }
+        en: {
+          me: 'me',
+          consulting: 'luczak-consulting',
+          publications: 'publications',
+          events: 'events',
+          contact: 'contact',
+        },
+        pl: {
+          me: 'o-mnie',
+          consulting: 'luczak-consulting',
+          publications: 'publikacje',
+          events: 'wydarzenia',
+          contact: 'kontakt',
+        },
       };
 
-      const TAB_IDS = ["me", "luczak-consulting", "publications", "events", "contact"];
+      const TAB_IDS = [
+        'me',
+        'luczak-consulting',
+        'publications',
+        'events',
+        'contact',
+      ];
 
       const I18N = {
         en: {
-          "headline": "IT solutions architect · consultant · researcher · speaker",
-          "tab.me": "Me",
-          "tab.consulting": "Luczak Consulting",
-          "tab.publications": "Publications",
-          "tab.events": "Events",
-          "tab.contact": "Contact",
-          "me.title": "Me",
-          "me.location": "Łódź, Poland",
-          "me.bio":
-            "I’m an IT solutions architect and consultant combining modern systems and SaaS product engineering with information security, system architecture, infrastructure & DevOps, and academic research and teaching.",
-          "me.rolesTitle": "Key roles",
-          "me.primaryLinksTitle": "Primary links",
-          "consulting.snapshotTitle": "Company snapshot",
-          "consulting.valueProp": "IT solution architecture, secure system design, and delivery support for modern products and teams.",
-          "consulting.servicesTitle": "Services",
-          "consulting.audienceTitle": "Who it’s for",
-          "consulting.registryTitle": "Registry",
-          "consulting.address": "Address",
-          "consulting.shareCapital": "Share capital",
-          "pubs.title": "Publications",
-          "pubs.subtitle": "Newest first (max 5 visible).",
-          "events.title": "Events",
-          "events.subtitle": "Upcoming + recent (within ±90 days).",
-          "events.upcoming": "Upcoming",
-          "events.recent": "Recent",
-          "contact.title": "Contact",
-          "contact.linkedinCta": "Message on LinkedIn",
-          "contact.form.nameLabel": "Name",
-          "contact.form.emailLabel": "Email",
-          "contact.form.topicLabel": "Topic (optional)",
-          "contact.form.topicDefault": "Select a topic",
-          "contact.form.topicConsulting": "Consulting",
-          "contact.form.topicSpeaking": "Speaking / event",
-          "contact.form.topicResearch": "Research / publications",
-          "contact.form.topicOther": "Other",
-          "contact.form.messageLabel": "Message",
-          "contact.form.send": "Send",
-          "contact.form.schedule": "Schedule (ZenCal)",
-          "contact.privacyNote": "No tracking. Your message is used only to respond. ",
-          "contact.privacyLink": "Privacy policy"
+          headline:
+            'IT solutions architect · consultant · researcher · speaker',
+          'tab.me': 'Me',
+          'tab.consulting': 'Luczak Consulting',
+          'tab.publications': 'Publications',
+          'tab.events': 'Events',
+          'tab.contact': 'Contact',
+          'me.title': 'Me',
+          'me.location': 'Łódź, Poland',
+          'me.bio':
+            'I’m an IT solutions architect and consultant combining modern systems and SaaS product engineering with information security, system architecture, infrastructure & DevOps, and academic research and teaching.',
+          'me.rolesTitle': 'Key roles',
+          'me.primaryLinksTitle': 'Primary links',
+          'consulting.snapshotTitle': 'Company snapshot',
+          'consulting.valueProp':
+            'IT solution architecture, secure system design, and delivery support for modern products and teams.',
+          'consulting.servicesTitle': 'Services',
+          'consulting.audienceTitle': 'Who it’s for',
+          'consulting.registryTitle': 'Registry',
+          'consulting.address': 'Address',
+          'consulting.shareCapital': 'Share capital',
+          'pubs.title': 'Publications',
+          'pubs.subtitle': 'Newest first (max 5 visible).',
+          'events.title': 'Events',
+          'events.subtitle': 'Upcoming + recent (within ±90 days).',
+          'events.upcoming': 'Upcoming',
+          'events.recent': 'Recent',
+          'contact.title': 'Contact',
+          'contact.linkedinCta': 'Message on LinkedIn',
+          'contact.form.nameLabel': 'Name',
+          'contact.form.emailLabel': 'Email',
+          'contact.form.topicLabel': 'Topic (optional)',
+          'contact.form.topicDefault': 'Select a topic',
+          'contact.form.topicConsulting': 'Consulting',
+          'contact.form.topicSpeaking': 'Speaking / event',
+          'contact.form.topicResearch': 'Research / publications',
+          'contact.form.topicOther': 'Other',
+          'contact.form.messageLabel': 'Message',
+          'contact.form.send': 'Send',
+          'contact.form.schedule': 'Schedule (ZenCal)',
+          'contact.privacyNote':
+            'No tracking. Your message is used only to respond. ',
+          'contact.privacyLink': 'Privacy policy',
         },
         pl: {
-          "headline": "Architekt rozwiązań IT · konsultant · naukowiec · prelegent",
-          "tab.me": "O mnie",
-          "tab.consulting": "Luczak Consulting",
-          "tab.publications": "Publikacje",
-          "tab.events": "Wydarzenia",
-          "tab.contact": "Kontakt",
-          "me.title": "O mnie",
-          "me.location": "Łódź, Polska",
-          "me.bio":
-            "Jestem architektem rozwiązań IT i konsultantem, łączącym tworzenie nowoczesnych systemów i produktów SaaS, bezpieczeństwo informacji i architekturę systemów, infrastrukturę i DevOps, a także działalność naukową i dydaktyczną.",
-          "me.rolesTitle": "Role",
-          "me.primaryLinksTitle": "Najważniejsze linki",
-          "consulting.snapshotTitle": "O firmie",
-          "consulting.valueProp": "Architektura rozwiązań IT, bezpieczne projektowanie systemów i wsparcie dostarczania nowoczesnych produktów.",
-          "consulting.servicesTitle": "Obszary",
-          "consulting.audienceTitle": "Dla kogo",
-          "consulting.registryTitle": "Rejestr",
-          "consulting.address": "Adres",
-          "consulting.shareCapital": "Kapitał",
-          "pubs.title": "Publikacje",
-          "pubs.subtitle": "Od najnowszych (maks. 5).",
-          "events.title": "Wydarzenia",
-          "events.subtitle": "Nadchodzące + ostatnie (±90 dni).",
-          "events.upcoming": "Nadchodzące",
-          "events.recent": "Ostatnie",
-          "contact.title": "Kontakt",
-          "contact.linkedinCta": "Napisz na LinkedIn",
-          "contact.form.nameLabel": "Imię i nazwisko",
-          "contact.form.emailLabel": "E-mail",
-          "contact.form.topicLabel": "Temat (opcjonalnie)",
-          "contact.form.topicDefault": "Wybierz temat",
-          "contact.form.topicConsulting": "Współpraca / consulting",
-          "contact.form.topicSpeaking": "Wystąpienie / wydarzenie",
-          "contact.form.topicResearch": "Nauka / publikacje",
-          "contact.form.topicOther": "Inne",
-          "contact.form.messageLabel": "Wiadomość",
-          "contact.form.send": "Wyślij",
-          "contact.form.schedule": "Umów spotkanie (ZenCal)",
-          "contact.privacyNote": "Bez śledzenia. Dane są używane wyłącznie do odpowiedzi. ",
-          "contact.privacyLink": "Polityka prywatności"
-        }
+          headline:
+            'Architekt rozwiązań IT · konsultant · naukowiec · prelegent',
+          'tab.me': 'O mnie',
+          'tab.consulting': 'Luczak Consulting',
+          'tab.publications': 'Publikacje',
+          'tab.events': 'Wydarzenia',
+          'tab.contact': 'Kontakt',
+          'me.title': 'O mnie',
+          'me.location': 'Łódź, Polska',
+          'me.bio':
+            'Jestem architektem rozwiązań IT i konsultantem, łączącym tworzenie nowoczesnych systemów i produktów SaaS, bezpieczeństwo informacji i architekturę systemów, infrastrukturę i DevOps, a także działalność naukową i dydaktyczną.',
+          'me.rolesTitle': 'Role',
+          'me.primaryLinksTitle': 'Najważniejsze linki',
+          'consulting.snapshotTitle': 'O firmie',
+          'consulting.valueProp':
+            'Architektura rozwiązań IT, bezpieczne projektowanie systemów i wsparcie dostarczania nowoczesnych produktów.',
+          'consulting.servicesTitle': 'Obszary',
+          'consulting.audienceTitle': 'Dla kogo',
+          'consulting.registryTitle': 'Rejestr',
+          'consulting.address': 'Adres',
+          'consulting.shareCapital': 'Kapitał',
+          'pubs.title': 'Publikacje',
+          'pubs.subtitle': 'Od najnowszych (maks. 5).',
+          'events.title': 'Wydarzenia',
+          'events.subtitle': 'Nadchodzące + ostatnie (±90 dni).',
+          'events.upcoming': 'Nadchodzące',
+          'events.recent': 'Ostatnie',
+          'contact.title': 'Kontakt',
+          'contact.linkedinCta': 'Napisz na LinkedIn',
+          'contact.form.nameLabel': 'Imię i nazwisko',
+          'contact.form.emailLabel': 'E-mail',
+          'contact.form.topicLabel': 'Temat (opcjonalnie)',
+          'contact.form.topicDefault': 'Wybierz temat',
+          'contact.form.topicConsulting': 'Współpraca / consulting',
+          'contact.form.topicSpeaking': 'Wystąpienie / wydarzenie',
+          'contact.form.topicResearch': 'Nauka / publikacje',
+          'contact.form.topicOther': 'Inne',
+          'contact.form.messageLabel': 'Wiadomość',
+          'contact.form.send': 'Wyślij',
+          'contact.form.schedule': 'Umów spotkanie (ZenCal)',
+          'contact.privacyNote':
+            'Bez śledzenia. Dane są używane wyłącznie do odpowiedzi. ',
+          'contact.privacyLink': 'Polityka prywatności',
+        },
       };
 
       const EVENTS = [
         {
-          id: "devfest-lodz-2025",
-          name: "DevFest Łódź 2015",
-          role: { en: "Speaker", pl: "Prelegent" },
-          date: "2025-12-13",
-          venue: "Politechnika Łódzka, Kampus A, Budynek A12, Sala E5",
-          address: "Prof. Bohdana Stefanowskiego 18/22, Łódź, 90-001, Poland",
+          id: 'devfest-lodz-2025',
+          name: 'DevFest Łódź 2015',
+          role: { en: 'Speaker', pl: 'Prelegent' },
+          date: '2025-12-13',
+          venue: 'Politechnika Łódzka, Kampus A, Budynek A12, Sala E5',
+          address: 'Prof. Bohdana Stefanowskiego 18/22, Łódź, 90-001, Poland',
           talkTitle: {
-            en: "Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…",
-            pl: "Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…"
+            en: 'Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…',
+            pl: 'Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…',
           },
           talkDesc: {
-            en:
-              "Generative AI is already writing HTML, CSS and entire UI components — but what does that mean for frontend developers?",
-            pl:
-              "Generatywna AI coraz sprawniej pisze HTML, CSS i całe komponenty frontendowe. Czy to zagrożenie, czy szansa?"
+            en: 'Generative AI is already writing HTML, CSS and entire UI components — but what does that mean for frontend developers?',
+            pl: 'Generatywna AI coraz sprawniej pisze HTML, CSS i całe komponenty frontendowe. Czy to zagrożenie, czy szansa?',
           },
-          link: "#"
-        }
+          link: '#',
+        },
       ];
 
       const root = document.documentElement;
-      const tablist = document.getElementById("tablist");
+      const tablist = document.getElementById('tablist');
       const tabButtons = Array.from(tablist.querySelectorAll('[role="tab"]'));
       const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
-      const publicationsTab = document.getElementById("tab-publications");
-      const eventsTab = document.getElementById("tab-events");
+      const publicationsTab = document.getElementById('tab-publications');
+      const eventsTab = document.getElementById('tab-events');
 
-      const langEn = document.getElementById("lang-en");
-      const langPl = document.getElementById("lang-pl");
+      const langEn = document.getElementById('lang-en');
+      const langPl = document.getElementById('lang-pl');
 
-      const yearEl = document.getElementById("year");
+      const yearEl = document.getElementById('year');
       yearEl.textContent = String(FIXED_NOW.getFullYear());
 
       function setThemeFromSystem() {
-        const saved = localStorage.getItem("theme");
-        if (saved === "dark") root.classList.add("dark");
-        else if (saved === "light") root.classList.remove("dark");
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') root.classList.add('dark');
+        else if (saved === 'light') root.classList.remove('dark');
         else {
-          const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-          root.classList.toggle("dark", prefersDark);
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+          root.classList.toggle('dark', prefersDark);
         }
       }
 
       function parsePath() {
-        const path = window.location.pathname.replace(/\/+$/, "");
-        const parts = path.split("/").filter(Boolean);
-        const lang = parts[0] === "pl" ? "pl" : "en";
+        const path = window.location.pathname.replace(/\/+$/, '');
+        const parts = path.split('/').filter(Boolean);
+        const lang = parts[0] === 'pl' ? 'pl' : 'en';
         const slug = parts[1] || ROUTES[lang].me;
         return { lang, slug };
       }
 
       function tabIdFromSlug(lang, slug) {
-        if (slug === ROUTES[lang].me) return "me";
-        if (slug === ROUTES[lang].consulting) return "luczak-consulting";
-        if (slug === ROUTES[lang].publications) return "publications";
-        if (slug === ROUTES[lang].events) return "events";
-        if (slug === ROUTES[lang].contact) return "contact";
-        return "me";
+        if (slug === ROUTES[lang].me) return 'me';
+        if (slug === ROUTES[lang].consulting) return 'luczak-consulting';
+        if (slug === ROUTES[lang].publications) return 'publications';
+        if (slug === ROUTES[lang].events) return 'events';
+        if (slug === ROUTES[lang].contact) return 'contact';
+        return 'me';
       }
 
       function slugFromTabId(lang, tabId) {
-        if (tabId === "me") return ROUTES[lang].me;
-        if (tabId === "luczak-consulting") return ROUTES[lang].consulting;
-        if (tabId === "publications") return ROUTES[lang].publications;
-        if (tabId === "events") return ROUTES[lang].events;
-        if (tabId === "contact") return ROUTES[lang].contact;
+        if (tabId === 'me') return ROUTES[lang].me;
+        if (tabId === 'luczak-consulting') return ROUTES[lang].consulting;
+        if (tabId === 'publications') return ROUTES[lang].publications;
+        if (tabId === 'events') return ROUTES[lang].events;
+        if (tabId === 'contact') return ROUTES[lang].contact;
         return ROUTES[lang].me;
       }
 
       function updateHreflang(lang, activeTabId) {
-        const enSlug = slugFromTabId("en", activeTabId);
-        const plSlug = slugFromTabId("pl", activeTabId);
+        const enSlug = slugFromTabId('en', activeTabId);
+        const plSlug = slugFromTabId('pl', activeTabId);
         const enUrl = `https://lukaszpiotrluczak.me/en/${enSlug}`;
         const plUrl = `https://lukaszpiotrluczak.me/pl/${plSlug}`;
 
-        const links = Array.from(document.querySelectorAll('link[rel="alternate"][hreflang]'));
+        const links = Array.from(
+          document.querySelectorAll('link[rel="alternate"][hreflang]')
+        );
         for (const l of links) {
-          if (l.getAttribute("hreflang") === "en") l.setAttribute("href", enUrl);
-          if (l.getAttribute("hreflang") === "pl") l.setAttribute("href", plUrl);
-          if (l.getAttribute("hreflang") === "x-default") l.setAttribute("href", enUrl);
+          if (l.getAttribute('hreflang') === 'en')
+            l.setAttribute('href', enUrl);
+          if (l.getAttribute('hreflang') === 'pl')
+            l.setAttribute('href', plUrl);
+          if (l.getAttribute('hreflang') === 'x-default')
+            l.setAttribute('href', enUrl);
         }
 
-        langEn.setAttribute("href", `/en/${enSlug}`);
-        langPl.setAttribute("href", `/pl/${plSlug}`);
+        langEn.setAttribute('href', `/en/${enSlug}`);
+        langPl.setAttribute('href', `/pl/${plSlug}`);
 
         const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute("content", lang === "pl" ? plUrl : enUrl);
+        if (ogUrl) ogUrl.setAttribute('content', lang === 'pl' ? plUrl : enUrl);
       }
 
       function applyI18n(lang) {
         document.documentElement.lang = lang;
         const dict = I18N[lang];
 
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
           if (key && dict[key]) el.textContent = dict[key];
         });
 
         // Update basic SEO fields per locale (prototype-level)
-        if (lang === "pl") {
-          document.title = "Łukasz Piotr Łuczak — Wizytówka";
+        if (lang === 'pl') {
+          document.title = 'Łukasz Piotr Łuczak — Wizytówka';
           const desc = document.querySelector('meta[name="description"]');
-          if (desc) desc.setAttribute("content", "Wizytówka online: kontakt, profile, publikacje, wydarzenia, Luczak Consulting.");
+          if (desc)
+            desc.setAttribute(
+              'content',
+              'Wizytówka online: kontakt, profile, publikacje, wydarzenia, Luczak Consulting.'
+            );
           const ogt = document.querySelector('meta[property="og:title"]');
-          if (ogt) ogt.setAttribute("content", "Łukasz Piotr Łuczak — Wizytówka");
+          if (ogt)
+            ogt.setAttribute('content', 'Łukasz Piotr Łuczak — Wizytówka');
           const ogd = document.querySelector('meta[property="og:description"]');
-          if (ogd) ogd.setAttribute("content", "Kontakt, profile, publikacje, wydarzenia i Luczak Consulting.");
+          if (ogd)
+            ogd.setAttribute(
+              'content',
+              'Kontakt, profile, publikacje, wydarzenia i Luczak Consulting.'
+            );
           const twt = document.querySelector('meta[name="twitter:title"]');
-          if (twt) twt.setAttribute("content", "Łukasz Piotr Łuczak — Wizytówka");
-          const twd = document.querySelector('meta[name="twitter:description"]');
-          if (twd) twd.setAttribute("content", "Kontakt, profile, publikacje, wydarzenia i Luczak Consulting.");
+          if (twt)
+            twt.setAttribute('content', 'Łukasz Piotr Łuczak — Wizytówka');
+          const twd = document.querySelector(
+            'meta[name="twitter:description"]'
+          );
+          if (twd)
+            twd.setAttribute(
+              'content',
+              'Kontakt, profile, publikacje, wydarzenia i Luczak Consulting.'
+            );
         } else {
-          document.title = "Łukasz Piotr Łuczak — Digital Business Card";
+          document.title = 'Łukasz Piotr Łuczak — Digital Business Card';
           const desc = document.querySelector('meta[name="description"]');
-          if (desc) desc.setAttribute("content", "Digital business card: contact, profiles, publications, events, Luczak Consulting.");
+          if (desc)
+            desc.setAttribute(
+              'content',
+              'Digital business card: contact, profiles, publications, events, Luczak Consulting.'
+            );
           const ogt = document.querySelector('meta[property="og:title"]');
-          if (ogt) ogt.setAttribute("content", "Łukasz Piotr Łuczak — Digital Business Card");
+          if (ogt)
+            ogt.setAttribute(
+              'content',
+              'Łukasz Piotr Łuczak — Digital Business Card'
+            );
           const ogd = document.querySelector('meta[property="og:description"]');
-          if (ogd) ogd.setAttribute("content", "Contact, profiles, publications, events, and Luczak Consulting.");
+          if (ogd)
+            ogd.setAttribute(
+              'content',
+              'Contact, profiles, publications, events, and Luczak Consulting.'
+            );
           const twt = document.querySelector('meta[name="twitter:title"]');
-          if (twt) twt.setAttribute("content", "Łukasz Piotr Łuczak — Digital Business Card");
-          const twd = document.querySelector('meta[name="twitter:description"]');
-          if (twd) twd.setAttribute("content", "Contact, profiles, publications, events, and Luczak Consulting.");
+          if (twt)
+            twt.setAttribute(
+              'content',
+              'Łukasz Piotr Łuczak — Digital Business Card'
+            );
+          const twd = document.querySelector(
+            'meta[name="twitter:description"]'
+          );
+          if (twd)
+            twd.setAttribute(
+              'content',
+              'Contact, profiles, publications, events, and Luczak Consulting.'
+            );
         }
 
         // JSON-LD locale-aware IDs/URLs (prototype-level)
-        const person = JSON.parse(document.getElementById("ld-person").textContent);
-        const org = JSON.parse(document.getElementById("ld-organization").textContent);
-        const eventLd = JSON.parse(document.getElementById("ld-event").textContent);
+        const person = JSON.parse(
+          document.getElementById('ld-person').textContent
+        );
+        const org = JSON.parse(
+          document.getElementById('ld-organization').textContent
+        );
+        const eventLd = JSON.parse(
+          document.getElementById('ld-event').textContent
+        );
 
         const active = getActiveTabId();
         const slug = slugFromTabId(lang, active);
         const baseUrl = `https://lukaszpiotrluczak.me/${lang}/${slug}`;
 
-        person["@id"] = `https://lukaszpiotrluczak.me/${lang}/#person`;
-        person["url"] = baseUrl;
-        person["worksFor"]["@id"] = `https://lukaszpiotrluczak.me/${lang}/#org`;
+        person['@id'] = `https://lukaszpiotrluczak.me/${lang}/#person`;
+        person['url'] = baseUrl;
+        person['worksFor']['@id'] = `https://lukaszpiotrluczak.me/${lang}/#org`;
 
-        org["@id"] = `https://lukaszpiotrluczak.me/${lang}/#org`;
-        org["url"] = `https://lukaszpiotrluczak.me/${lang}/${ROUTES[lang].consulting}`;
+        org['@id'] = `https://lukaszpiotrluczak.me/${lang}/#org`;
+        org['url'] =
+          `https://lukaszpiotrluczak.me/${lang}/${ROUTES[lang].consulting}`;
 
-        eventLd["@id"] = `https://lukaszpiotrluczak.me/${lang}/#event-devfest-lodz-2025`;
-        eventLd["performer"]["@id"] = person["@id"];
+        eventLd['@id'] =
+          `https://lukaszpiotrluczak.me/${lang}/#event-devfest-lodz-2025`;
+        eventLd['performer']['@id'] = person['@id'];
 
-        document.getElementById("ld-person").textContent = JSON.stringify(person);
-        document.getElementById("ld-organization").textContent = JSON.stringify(org);
-        document.getElementById("ld-event").textContent = JSON.stringify(eventLd);
+        document.getElementById('ld-person').textContent =
+          JSON.stringify(person);
+        document.getElementById('ld-organization').textContent =
+          JSON.stringify(org);
+        document.getElementById('ld-event').textContent =
+          JSON.stringify(eventLd);
       }
 
       function setTabActiveVisual(tabEl, active) {
-        tabEl.classList.toggle("tab-active", active);
-        tabEl.classList.toggle("tab-inactive", !active);
+        tabEl.classList.toggle('tab-active', active);
+        tabEl.classList.toggle('tab-inactive', !active);
       }
 
       function showPanel(tabId) {
         panels.forEach((p) => {
-          const match = p.getAttribute("data-panel") === tabId;
-          p.classList.toggle("hidden", !match);
+          const match = p.getAttribute('data-panel') === tabId;
+          p.classList.toggle('hidden', !match);
         });
       }
 
-      function setActiveTab(tabId, { focus = false, lang = "en" } = {}) {
+      function setActiveTab(tabId, { focus = false, lang = 'en' } = {}) {
         // Ensure hidden tabs cannot be activated
-        const tabBtn = tabButtons.find((b) => b.getAttribute("data-tab") === tabId);
-        if (!tabBtn || tabBtn.closest("[hidden]")) return;
+        const tabBtn = tabButtons.find(
+          (b) => b.getAttribute('data-tab') === tabId
+        );
+        if (!tabBtn || tabBtn.closest('[hidden]')) return;
 
         tabButtons.forEach((btn) => {
-          const isActive = btn.getAttribute("data-tab") === tabId;
-          btn.setAttribute("aria-selected", String(isActive));
+          const isActive = btn.getAttribute('data-tab') === tabId;
+          btn.setAttribute('aria-selected', String(isActive));
           btn.tabIndex = isActive ? 0 : -1;
           setTabActiveVisual(btn, isActive);
         });
@@ -1283,26 +1615,30 @@ Myślał przez 1m 8s
         const slug = slugFromTabId(lang, tabId);
         const next = `/${lang}/${slug}`;
         if (window.location.pathname !== next) {
-          history.replaceState({ lang, tabId }, "", next);
+          history.replaceState({ lang, tabId }, '', next);
         }
       }
 
       function getActiveTabId() {
-        const active = tabButtons.find((b) => b.getAttribute("aria-selected") === "true");
-        return active ? active.getAttribute("data-tab") : "me";
+        const active = tabButtons.find(
+          (b) => b.getAttribute('aria-selected') === 'true'
+        );
+        return active ? active.getAttribute('data-tab') : 'me';
       }
 
       function visibleTabsInOrder() {
-        return tabButtons.filter((btn) => !btn.hasAttribute("hidden"));
+        return tabButtons.filter((btn) => !btn.hasAttribute('hidden'));
       }
 
       function moveFocusBy(delta) {
         const visible = visibleTabsInOrder();
-        const current = visible.findIndex((b) => b.getAttribute("aria-selected") === "true");
+        const current = visible.findIndex(
+          (b) => b.getAttribute('aria-selected') === 'true'
+        );
         if (current === -1) return;
 
         let next = (current + delta + visible.length) % visible.length;
-        const nextId = visible[next].getAttribute("data-tab");
+        const nextId = visible[next].getAttribute('data-tab');
         const { lang } = parsePath();
         setActiveTab(nextId, { focus: true, lang });
       }
@@ -1310,62 +1646,72 @@ Myślał przez 1m 8s
       function moveFocusTo(edge) {
         const visible = visibleTabsInOrder();
         if (!visible.length) return;
-        const target = edge === "start" ? visible[0] : visible[visible.length - 1];
+        const target =
+          edge === 'start' ? visible[0] : visible[visible.length - 1];
         const { lang } = parsePath();
-        setActiveTab(target.getAttribute("data-tab"), { focus: true, lang });
+        setActiveTab(target.getAttribute('data-tab'), { focus: true, lang });
       }
 
       function setConditionalTabVisibility() {
         // Publications: hidden if no publications exist (prototype uses static list => true).
-        const hasPubs = document.querySelectorAll("#panel-publications ol > li").length > 0;
-        publicationsTab.toggleAttribute("hidden", !hasPubs);
+        const hasPubs =
+          document.querySelectorAll('#panel-publications ol > li').length > 0;
+        publicationsTab.toggleAttribute('hidden', !hasPubs);
 
         // Events: hidden if no events within ±90 days from today.
         const withinWindow = EVENTS.filter((e) => {
-          const d = new Date(e.date + "T00:00:00+01:00");
+          const d = new Date(e.date + 'T00:00:00+01:00');
           const diff = d.getTime() - FIXED_NOW.getTime();
           return Math.abs(diff) <= 90 * dayMs;
         });
         const hasEventsWindow = withinWindow.length > 0;
-        eventsTab.toggleAttribute("hidden", !hasEventsWindow);
+        eventsTab.toggleAttribute('hidden', !hasEventsWindow);
 
         // If a hidden tab was active, fallback to "me"
         const { lang } = parsePath();
         const active = getActiveTabId();
-        const activeBtn = tabButtons.find((b) => b.getAttribute("data-tab") === active);
-        if (activeBtn && activeBtn.hasAttribute("hidden")) {
-          setActiveTab("me", { focus: false, lang });
+        const activeBtn = tabButtons.find(
+          (b) => b.getAttribute('data-tab') === active
+        );
+        if (activeBtn && activeBtn.hasAttribute('hidden')) {
+          setActiveTab('me', { focus: false, lang });
         }
       }
 
       function renderEvents(lang) {
         try {
-          const upcomingList = document.getElementById("events-upcoming-list");
-          const recentList = document.getElementById("events-recent-list");
-          const recentSection = document.getElementById("events-recent-section");
-          const empty = document.getElementById("events-empty");
+          const upcomingList = document.getElementById('events-upcoming-list');
+          const recentList = document.getElementById('events-recent-list');
+          const recentSection = document.getElementById(
+            'events-recent-section'
+          );
+          const empty = document.getElementById('events-empty');
 
-          upcomingList.innerHTML = "";
-          recentList.innerHTML = "";
-          recentSection.classList.add("hidden");
-          empty.classList.add("hidden");
+          upcomingList.innerHTML = '';
+          recentList.innerHTML = '';
+          recentSection.classList.add('hidden');
+          empty.classList.add('hidden');
 
           const windowed = EVENTS.filter((e) => {
-            const d = new Date(e.date + "T00:00:00+01:00");
+            const d = new Date(e.date + 'T00:00:00+01:00');
             const diff = d.getTime() - FIXED_NOW.getTime();
             return Math.abs(diff) <= 90 * dayMs;
           });
 
-          const upcoming = windowed.filter((e) => new Date(e.date + "T00:00:00+01:00") >= FIXED_NOW);
-          const recent = windowed.filter((e) => new Date(e.date + "T00:00:00+01:00") < FIXED_NOW);
+          const upcoming = windowed.filter(
+            (e) => new Date(e.date + 'T00:00:00+01:00') >= FIXED_NOW
+          );
+          const recent = windowed.filter(
+            (e) => new Date(e.date + 'T00:00:00+01:00') < FIXED_NOW
+          );
 
           function eventItem(e) {
             const talkTitle = e.talkTitle[lang];
             const talkDesc = e.talkDesc[lang];
             const role = e.role[lang];
 
-            const li = document.createElement("li");
-            li.className = "glass-surface rounded-2xl p-4";
+            const li = document.createElement('li');
+            li.className = 'glass-surface rounded-2xl p-4';
             li.innerHTML = `
               <p class="text-xs text-secondary">${role} · ${e.date}</p>
               <p class="mt-1 font-medium">${e.name}</p>
@@ -1374,7 +1720,7 @@ Myślał przez 1m 8s
               <p class="mt-1 text-sm text-secondary">${talkDesc}</p>
               <div class="mt-3 flex flex-col gap-2 sm:flex-row">
                 <a class="btn-secondary rounded-xl px-4 py-2 text-sm text-center" href="${e.link}" target="_blank" rel="noopener noreferrer">
-                  ${lang === "pl" ? "Link do wydarzenia (TBD)" : "Event link (TBD)"}
+                  ${lang === 'pl' ? 'Link do wydarzenia (TBD)' : 'Event link (TBD)'}
                 </a>
               </div>
             `;
@@ -1384,36 +1730,36 @@ Myślał przez 1m 8s
           for (const e of upcoming) upcomingList.appendChild(eventItem(e));
 
           if (recent.length > 0) {
-            recentSection.classList.remove("hidden");
+            recentSection.classList.remove('hidden');
             for (const e of recent) recentList.appendChild(eventItem(e));
           }
         } catch (err) {
-          document.getElementById("events-empty").classList.remove("hidden");
+          document.getElementById('events-empty').classList.remove('hidden');
         }
       }
 
       function onTabClick(e) {
         const btn = e.target.closest('[role="tab"]');
-        if (!btn || btn.hasAttribute("hidden")) return;
-        const tabId = btn.getAttribute("data-tab");
+        if (!btn || btn.hasAttribute('hidden')) return;
+        const tabId = btn.getAttribute('data-tab');
         const { lang } = parsePath();
         setActiveTab(tabId, { focus: true, lang });
       }
 
       function onTabKeydown(e) {
         const key = e.key;
-        if (key === "ArrowRight") {
+        if (key === 'ArrowRight') {
           e.preventDefault();
           moveFocusBy(1);
-        } else if (key === "ArrowLeft") {
+        } else if (key === 'ArrowLeft') {
           e.preventDefault();
           moveFocusBy(-1);
-        } else if (key === "Home") {
+        } else if (key === 'Home') {
           e.preventDefault();
-          moveFocusTo("start");
-        } else if (key === "End") {
+          moveFocusTo('start');
+        } else if (key === 'End') {
           e.preventDefault();
-          moveFocusTo("end");
+          moveFocusTo('end');
         }
       }
 
@@ -1430,17 +1776,20 @@ Myślał przez 1m 8s
 
         // Ensure CTA links inside panels are locale-aware
         document.querySelectorAll('[data-cta="contact"]').forEach((a) => {
-          a.setAttribute("href", `/${lang}/${slugFromTabId(lang, "contact")}`);
+          a.setAttribute('href', `/${lang}/${slugFromTabId(lang, 'contact')}`);
         });
         document.querySelectorAll('a[href="/en/privacy"]').forEach((a) => {
-          a.setAttribute("href", `/${lang}/${lang === "pl" ? "polityka-prywatnosci" : "privacy"}`);
+          a.setAttribute(
+            'href',
+            `/${lang}/${lang === 'pl' ? 'polityka-prywatnosci' : 'privacy'}`
+          );
         });
       }
 
-      tablist.addEventListener("click", onTabClick);
-      tablist.addEventListener("keydown", onTabKeydown);
+      tablist.addEventListener('click', onTabClick);
+      tablist.addEventListener('keydown', onTabKeydown);
 
-      window.addEventListener("popstate", () => initFromUrl());
+      window.addEventListener('popstate', () => initFromUrl());
 
       initFromUrl();
     </script>
@@ -1448,15 +1797,15 @@ Myślał przez 1m 8s
 </html>
 ```
 
-* * *
+---
 
-`docs/prototypes/component-snippets.md`
----------------------------------------
+## `docs/prototypes/component-snippets.md`
 
 ````md
 # Component snippets (HTML + Tailwind utilities)
 
 > Notes:
+>
 > - Snippets use contract-driven CSS variables from `docs/theme/tailwind-theme.css`.
 > - `glass-surface` is defined by the theme file.
 > - Tabs must be wired with the keyboard + ARIA logic shown in `index.html`.
@@ -1467,7 +1816,11 @@ Myślał przez 1m 8s
 
 ```html
 <section class="glass-surface rounded-2xl p-2" aria-label="Primary navigation">
-  <div role="tablist" aria-label="Profile sections" class="grid grid-cols-5 gap-2">
+  <div
+    role="tablist"
+    aria-label="Profile sections"
+    class="grid grid-cols-5 gap-2"
+  >
     <button
       type="button"
       role="tab"
@@ -1509,49 +1862,54 @@ Myślał przez 1m 8s
 >
   <!-- content -->
 </article>
+```
 ````
 
-* * *
+---
 
-Button — Primary
-----------------
+## Button — Primary
 
 ```html
-<a class="btn-primary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium" href="#">
+<a
+  class="btn-primary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium"
+  href="#"
+>
   Primary action
 </a>
 ```
 
-* * *
+---
 
-Button — Secondary
-------------------
+## Button — Secondary
 
 ```html
-<a class="btn-secondary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium" href="#">
+<a
+  class="btn-secondary rounded-xl px-4 py-3 inline-flex items-center justify-center font-medium"
+  href="#"
+>
   Secondary action
 </a>
 ```
 
-* * *
+---
 
-Glass Card
-----------
+## Glass Card
 
 ```html
 <section class="glass-surface rounded-2xl p-4 sm:p-6">
   <h2 class="font-[var(--font-accent)] text-lg">Card title</h2>
   <p class="mt-2 text-sm text-secondary">Card content text.</p>
   <div class="mt-4">
-    <a class="btn-secondary rounded-xl px-4 py-2 text-sm" href="#">Card action</a>
+    <a class="btn-secondary rounded-xl px-4 py-2 text-sm" href="#"
+      >Card action</a
+    >
   </div>
 </section>
 ```
 
-* * *
+---
 
-Social Icon Link (icon + label)
--------------------------------
+## Social Icon Link (icon + label)
 
 ```html
 <a
@@ -1565,10 +1923,9 @@ Social Icon Link (icon + label)
 </a>
 ```
 
-* * *
+---
 
-Contact Form Field — Text Input
--------------------------------
+## Contact Form Field — Text Input
 
 ```html
 <div>
@@ -1584,10 +1941,9 @@ Contact Form Field — Text Input
 </div>
 ```
 
-* * *
+---
 
-Contact Form Field — Textarea
------------------------------
+## Contact Form Field — Textarea
 
 ```html
 <div>
@@ -1602,37 +1958,50 @@ Contact Form Field — Textarea
 </div>
 ```
 
-* * *
+---
 
-Event Item
-----------
+## Event Item
 
 ```html
 <li class="glass-surface rounded-2xl p-4">
   <p class="text-xs text-secondary">Speaker · 2025-12-13</p>
   <p class="mt-1 font-medium">DevFest Łódź 2015</p>
-  <p class="mt-1 text-sm text-secondary">Politechnika Łódzka, Kampus A, Budynek A12, Sala E5</p>
+  <p class="mt-1 text-sm text-secondary">
+    Politechnika Łódzka, Kampus A, Budynek A12, Sala E5
+  </p>
 
   <p class="mt-3 text-sm"><span class="font-medium">Talk title…</span></p>
   <p class="mt-1 text-sm text-secondary">Short description…</p>
 
-  <a class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm" href="#" target="_blank" rel="noopener noreferrer">
+  <a
+    class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     Event link (TBD)
   </a>
 </li>
 ```
 
-* * *
+---
 
-Publication Item
-----------------
+## Publication Item
 
 ```html
 <li id="pub-fi-2023-328" class="glass-surface rounded-2xl p-4">
   <p class="text-xs text-secondary">paper · 2023</p>
-  <p class="mt-1 font-medium">Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming in Open Internet</p>
+  <p class="mt-1 font-medium">
+    Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming
+    in Open Internet
+  </p>
   <p class="mt-1 text-sm text-secondary">Future Internet 2023, 15, 328</p>
-  <a class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm" href="https://doi.org/10.3390/fi15100328" target="_blank" rel="noopener noreferrer">
+  <a
+    class="mt-3 inline-flex btn-secondary rounded-xl px-4 py-2 text-sm"
+    href="https://doi.org/10.3390/fi15100328"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     DOI
   </a>
 </li>
@@ -1642,7 +2011,7 @@ Publication Item
 
 ---
 
-## `docs/prototypes/astro-migration-notes.md` 
+## `docs/prototypes/astro-migration-notes.md`
 
 ```md
 # Astro migration notes
@@ -1746,10 +2115,9 @@ Optional (keep minimal):
 - CORS not needed if same origin (preferred).
 ````
 
-* * *
+---
 
-`docs/prototypes/open-items.md`
--------------------------------
+## `docs/prototypes/open-items.md`
 
 ```md
 # Open items
@@ -1757,6 +2125,7 @@ Optional (keep minimal):
 ## Design tokens / theme contract items that are `"UNDEFINED"`
 
 From the design contract + compiled theme:
+
 - `color.tokens.gray-100.value` (light surfaces)
 - `color.tokens.gray-800.value` (dark surfaces)
 - `color.tokens.gray-500.value` (secondary text)
@@ -1764,6 +2133,7 @@ From the design contract + compiled theme:
 - `components.forms.fields` (form field styling contract)
 
 Impact:
+
 - Prototype uses theme fallbacks already present in `docs/theme/tailwind-theme.css`.
 - Form field visuals are kept generic (border + padding + focus-visible baseline).
 
@@ -1781,6 +2151,7 @@ Impact:
 ## Requirements needing NestJS (blocked for full fidelity)
 
 Contact form submission (project spec):
+
 - `POST /api/contact` implementation:
   - strict server-side input validation
   - rate limiting
@@ -1809,6 +2180,6 @@ Contact form submission (project spec):
   - In Astro production, JSON-LD must be rendered per route at build time (no client-side mutation).
 ```
 
-
 ---
+
 Powered by [ChatGPT Exporter](https://www.chatgptexporter.com)

@@ -16,6 +16,7 @@ Instead, report it responsibly by contacting:
 **Email:** lukasz.luczak@luczak.consulting
 
 Please include:
+
 - a clear description of the issue,
 - steps to reproduce (if applicable),
 - potential impact,
@@ -26,11 +27,13 @@ Please include:
 ## Scope
 
 This repository:
+
 - does not include user accounts,
 - does not process sensitive personal data,
 - does not use tracking or analytics.
 
 Security considerations focus on:
+
 - input validation,
 - API abuse prevention,
 - infrastructure and deployment configuration,
@@ -41,6 +44,7 @@ Security considerations focus on:
 ## Disclosure Process
 
 Valid security reports will be:
+
 - acknowledged,
 - assessed,
 - fixed in a reasonable timeframe,
