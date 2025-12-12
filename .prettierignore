@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+pnpm-lock.yaml
+.vscode
+.devcontainer
+stacks
+*.min.js
+*.min.css

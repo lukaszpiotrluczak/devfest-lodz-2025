@@ -1,0 +1,2 @@
+# Custom dictionary for project-specific terms
+# Add domain-specific words here

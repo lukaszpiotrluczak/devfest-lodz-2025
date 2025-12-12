@@ -1,0 +1,30 @@
+export default {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      [
+        'feat',
+        'fix',
+        'docs',
+        'style',
+        'refactor',
+        'test',
+        'chore',
+        'ci',
+        'build',
+        'perf',
+        'revert',
+      ],
+    ],
+    'scope-case': [2, 'always', 'kebab-case'],
+    'subject-case': [2, 'never', ['upper-case']],
+    'subject-empty': [2, 'never'],
+    'subject-full-stop': [2, 'never', '.'],
+    'body-leading-blank': [2, 'always'],
+    'body-max-line-length': [0, 'always', Infinity],
+    'footer-leading-blank': [2, 'always'],
+    'header-max-length': [2, 'always', 100],
+  },
+};

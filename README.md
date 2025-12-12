@@ -58,34 +58,35 @@ see [AI-Assisted Pull Request Workflow](docs/contributing/ai-assisted-pr-workflo
 
 ```text
 /
-├─ app/
-│  ├─ backend/            # NestJS application
-│  └─ astro/              # Astro frontend (served via NestJS middleware)
+├─ app/                   # Application code (future: Astro + NestJS)
+│
+├─ docs/                  # Approved documentation and artifacts
+│  ├─ project-spec.md     # Product specification
+│  ├─ roadmap.md          # Delivery plan
+│  ├─ design-profile.json # Design contract
+│  ├─ prototypes/         # HTML/UI prototypes
+│  ├─ theme/              # Theme CSS and tokens
+│  └─ contributing/       # Contribution guides
+│
+├─ conversations/         # AI conversation logs (archived by phase)
 │
 ├─ prompts/               # AI prompts used at each project phase
 │  ├─ 01-discovery/
 │  ├─ 02-branding/
-│  ├─ 03-architecture/
-│  ├─ 04-ui/
-│  ├─ 05-implementation/
-│  └─ 06-refinement/
-│
-├─ conversations/         # Saved AI conversations + generated assets
-│
-├─ docs/                  # Project documentation
-│  ├─ project-spec.md
-│  └─ roadmap.md
+│  ├─ 03-ui/
+│  ├─ 04-architecture/
+│  ├─ 05-backend/
+│  └─ 06-seo/
 │
 ├─ stacks/
 │  └─ production/         # Coolify production stack
 │
 ├─ dist/                  # Build artifacts (safe to delete)
 │
-├─ compose.yml             # Container orchestration (Docker/Podman agnostic)
-├─ Containerfile           # Container build definition
-├─ .devcontainer/          # Dev container configuration
-├─ .vscode/                # VS Code workspace & settings
-└─ README.md
+├─ .devcontainer/         # Dev container configuration
+├─ .vscode/               # VS Code workspace & settings
+├─ .githooks/             # Git hooks (commit validation)
+└─ .github/               # GitHub workflows and templates
 ```
 
 ---
@@ -151,34 +152,118 @@ This makes the site suitable as a **primary identity reference point** for searc
 
 ### Prerequisites
 
-* Node.js (LTS)
-* pnpm (recommended)
-* Docker or Podman (optional but recommended)
+* **Node.js** 20+ (LTS)
+* **pnpm** 9+ (package manager)
+* **Docker or Podman** (optional, for Dev Container)
+* **VS Code** (recommended, for workspace configuration)
 
-### Using Dev Container (recommended)
+### Option 1: Using Dev Container (recommended)
 
-1. Open the repository in VS Code
-2. Reopen in Dev Container
-3. Install dependencies and run the project
+This method provides a fully configured development environment with all tools pre-installed:
 
-### Manual setup
+1. Open the repository in **VS Code**
+2. Install the **Dev Containers** extension if not already installed
+3. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
+4. Select **"Dev Containers: Reopen in Container"**
+5. Wait for the container to build and dependencies to install automatically
+
+The Dev Container includes:
+- Node.js 20
+- pnpm pre-configured
+- All VS Code extensions (ESLint, Prettier, Tailwind, Astro, cspell)
+- Git hooks enabled automatically
+- Timezone set to Europe/Warsaw
+
+### Option 2: Manual setup
+
+If you prefer to work without a container:
 
 ```bash
+# Install dependencies
 pnpm install
-pnpm dev
+
+# Run quality checks
+pnpm run validate
+
+# Run linting
+pnpm run lint
+
+# Format code
+pnpm run format:fix
+
+# Spell check
+pnpm run spell
+```
+
+### Git Hooks Setup
+
+Git hooks are automatically configured via the `prepare` script when you run `pnpm install`.
+
+To manually set up hooks:
+
+```bash
+# The hooks are stored in .githooks/
+git config core.hooksPath .githooks
+```
+
+To skip hooks temporarily:
+
+```bash
+SKIP_HOOKS=true git commit -m "message"
 ```
 
 ---
 
-## 🧪 Quality Gates
+## 🧪 Quality Gates & CI
 
-This repository enforces:
+This repository enforces strict quality gates from day one:
 
-* linting (ESLint)
-* formatting (Prettier)
-* spell checking (cspell)
-* commit message conventions
-* CI validation on pull requests
+### Local Checks (via npm scripts)
+
+```bash
+pnpm run lint        # ESLint validation
+pnpm run format      # Prettier format check
+pnpm run spell       # cspell spell check
+pnpm run validate    # Run all checks
+```
+
+### Commit Message Validation
+
+All commits must follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+type(scope): subject
+
+body
+
+footer
+```
+
+**Allowed types:** `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`, `build`, `perf`, `revert`
+
+**Example:**
+```
+feat(dx): add ESLint and Prettier configuration
+
+Establishes code quality gates with flat config ESLint supporting
+TypeScript and Astro, and Prettier for consistent formatting.
+
+This is enforced via git hooks and CI validation.
+```
+
+See [docs/contributing/commit-messages.md](docs/contributing/commit-messages.md) for detailed guidance.
+
+### CI Pipeline
+
+On every push and pull request, GitHub Actions runs:
+
+1. Install dependencies (pnpm with caching)
+2. ESLint validation
+3. Prettier format check
+4. cspell spell check
+5. Repository structure validation
+
+All checks must pass before merging.
 
 ---
 

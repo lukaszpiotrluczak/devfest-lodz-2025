@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Validate commit messages using commitlint
+# This hook is installed via git config core.hooksPath
+
+# Skip hook in CI or when explicitly disabled
+if [ "$CI" = "true" ] || [ "$SKIP_HOOKS" = "true" ]; then
+  exit 0
+fi
+
+# Run commitlint
+npx --no -- commitlint --edit "$1"
