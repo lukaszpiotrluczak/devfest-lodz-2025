@@ -1,0 +1,100 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const title = 'Kontakt — Łukasz Piotr Łuczak';
+const description =
+  'Skontaktuj się w sprawie współpracy, wystąpień lub konsultacji.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="pl"
+  currentPath="/pl/kontakt"
+>
+  <div class="container">
+    <div class="card">
+      <h1>Kontakt</h1>
+      <p>Skontaktuj się w sprawie współpracy, wystąpień lub konsultacji.</p>
+
+      <form method="post" action="/api/contact">
+        <div style="display: none;">
+          <label for="company">Firma</label>
+          <input
+            id="company"
+            name="company"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="name" style="display: block; margin-bottom: 0.5rem;"
+            >Imię i nazwisko</label
+          >
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="email" style="display: block; margin-bottom: 0.5rem;"
+            >E-mail</label
+          >
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="topic" style="display: block; margin-bottom: 0.5rem;"
+            >Temat (opcjonalnie)</label
+          >
+          <select
+            id="topic"
+            name="topic"
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          >
+            <option value="">Wybierz temat</option>
+            <option value="consulting">Współpraca / consulting</option>
+            <option value="speaking">Wystąpienie / wydarzenie</option>
+            <option value="research">Nauka / publikacje</option>
+            <option value="other">Inne</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="message" style="display: block; margin-bottom: 0.5rem;"
+            >Wiadomość</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn">Wyślij</button>
+      </form>
+
+      <p style="margin-top: 2rem; font-size: 0.875rem; color: #666;">
+        Bez śledzenia. Dane są używane wyłącznie do odpowiedzi.
+      </p>
+
+      <div style="margin-top: 2rem;">
+        <a href="/pl/o-mnie" class="btn">Powrót do O mnie</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

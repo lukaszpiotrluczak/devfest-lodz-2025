@@ -1,0 +1,22 @@
+[
+  {
+    "id": "devfest-lodz-2025",
+    "name": "DevFest Łódź 2015",
+    "date": "2025-12-13",
+    "role": {
+      "en": "Speaker",
+      "pl": "Prelegent"
+    },
+    "venue": "Politechnika Łódzka, Kampus A, Budynek A12, Sala E5",
+    "address": "Prof. Bohdana Stefanowskiego 18/22, Łódź, 90-001, Poland",
+    "talkTitle": {
+      "en": "Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…",
+      "pl": "Czy programiści frontendu są zagrożeni? AI już pisze HTML za nas…"
+    },
+    "talkDescription": {
+      "en": "Generative AI is already writing HTML, CSS and entire UI components — but what does that mean for frontend developers?",
+      "pl": "Generatywna AI coraz sprawniej pisze HTML, CSS i całe komponenty frontendowe. Czy to zagrożenie, czy szansa?"
+    },
+    "url": null
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "name": "Łukasz Piotr Łuczak",
+  "headline": "IT solutions architect · consultant · researcher · speaker",
+  "location": "Łódź, Poland",
+  "bio": "I'm an IT solutions architect and consultant combining modern systems and SaaS product engineering with information security, system architecture, infrastructure & DevOps, and academic research and teaching.",
+  "roles": [
+    "Managing Partner — Luczak Consulting",
+    "Researcher / PhD (doctoral student)",
+    "Speaker",
+    "Trainer / Lecturer",
+    "Consultant"
+  ],
+  "primaryLinks": [
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lukaszpiotrluczak/"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/lukaszpiotrluczak"
+    },
+    {
+      "label": "Website",
+      "url": "https://lukasz.luczak.org/"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lukaszpiotrluczak/"
+    },
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "url": "https://github.com/lukaszpiotrluczak"
+    },
+    {
+      "platform": "x",
+      "label": "X (Twitter)",
+      "url": "https://x.com/lukefrontlander"
+    },
+    {
+      "platform": "facebook",
+      "label": "Facebook",
+      "url": "https://www.facebook.com/lukaszpiotrluczak"
+    },
+    {
+      "platform": "website",
+      "label": "Website",
+      "url": "https://lukasz.luczak.org/"
+    }
+  ],
+  "contactMethods": [
+    {
+      "type": "phone",
+      "label": "Call",
+      "value": "+485350150006",
+      "url": "tel:+485350150006"
+    },
+    {
+      "type": "sms",
+      "label": "SMS",
+      "value": "+485350150006",
+      "url": "sms:+485350150006"
+    },
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "value": "+485350150006",
+      "url": "https://wa.me/485350150006"
+    },
+    {
+      "type": "email",
+      "label": "Email",
+      "value": "lukasz@luczak.org",
+      "url": "mailto:lukasz@luczak.org"
+    }
+  ]
+}

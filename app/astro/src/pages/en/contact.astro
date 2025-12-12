@@ -1,0 +1,102 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const title = 'Contact — Łukasz Piotr Łuczak';
+const description =
+  'Get in touch for consulting, speaking opportunities, or collaboration.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  currentPath="/en/contact"
+>
+  <div class="container">
+    <div class="card">
+      <h1>Contact</h1>
+      <p>
+        Get in touch for consulting, speaking opportunities, or collaboration.
+      </p>
+
+      <form method="post" action="/api/contact">
+        <div style="display: none;">
+          <label for="company">Company</label>
+          <input
+            id="company"
+            name="company"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="name" style="display: block; margin-bottom: 0.5rem;"
+            >Name</label
+          >
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="email" style="display: block; margin-bottom: 0.5rem;"
+            >Email</label
+          >
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          />
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="topic" style="display: block; margin-bottom: 0.5rem;"
+            >Topic (optional)</label
+          >
+          <select
+            id="topic"
+            name="topic"
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          >
+            <option value="">Select a topic</option>
+            <option value="consulting">Consulting</option>
+            <option value="speaking">Speaking / event</option>
+            <option value="research">Research / publications</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="message" style="display: block; margin-bottom: 0.5rem;"
+            >Message</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px;"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send</button>
+      </form>
+
+      <p style="margin-top: 2rem; font-size: 0.875rem; color: #666;">
+        No tracking. Your message is used only to respond.
+      </p>
+
+      <div style="margin-top: 2rem;">
+        <a href="/en/me" class="btn">Back to Me</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

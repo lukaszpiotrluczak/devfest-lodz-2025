@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import identityData from '@content/identity.pl.json';
+
+const title = `${identityData.name} — Wizytówka`;
+const description =
+  'Architekt rozwiązań IT, konsultant, naukowiec i prelegent z Łodzi, Polska.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="pl"
+  currentPath="/pl/o-mnie"
+>
+  <div class="container">
+    <div class="card">
+      <h1>{identityData.name}</h1>
+      <p>{identityData.headline}</p>
+      <p><strong>Lokalizacja:</strong> {identityData.location}</p>
+      <p>{identityData.bio}</p>
+
+      <h2>Role</h2>
+      <ul>
+        {identityData.roles.map((role) => <li>{role}</li>)}
+      </ul>
+
+      <h2>Najważniejsze linki</h2>
+      <ul>
+        {
+          identityData.primaryLinks.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div>
+        <a href="/pl/luczak-consulting" class="btn">Luczak Consulting</a>
+        <a href="/pl/kontakt" class="btn">Kontakt</a>
+        <a href="/en/me" class="btn">EN</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

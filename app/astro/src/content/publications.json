@@ -1,0 +1,42 @@
+[
+  {
+    "id": "onoff-fedcsis-2024",
+    "type": "paper",
+    "year": 2024,
+    "title": "Congestion Control in Streaming Services with an On-Off MPTCP Algorithm",
+    "authors": ["Łukasz P. Łuczak", "P. Ignaciuk", "M. Morawski"],
+    "venue": "19th Conference on Computer Science and Intelligence Systems (FedCSIS 2024) — Belgrade, Serbia",
+    "url": null,
+    "doi": null
+  },
+  {
+    "id": "onoff-eurospi-2024",
+    "type": "paper",
+    "year": 2024,
+    "title": "An On-Off MPTCP Congestion Control Algorithm for Streaming Services",
+    "authors": ["Łukasz P. Łuczak", "P. Ignaciuk", "M. Morawski"],
+    "venue": "European System, Software & Service Process Improvement & Innovation (EuroSPI² 2024) — Munich, Germany",
+    "url": null,
+    "doi": null
+  },
+  {
+    "id": "acis-2023-f9991",
+    "type": "paper",
+    "year": 2023,
+    "title": "Experimental Assessment of MPTCP Congestion Control Algorithms for Streaming Services in Open Internet",
+    "authors": ["Łukasz P. Łuczak", "P. Ignaciuk", "M. Morawski"],
+    "venue": "Annals of Computer Science and Information Systems 2023, 26, 11",
+    "url": null,
+    "doi": "https://doi.org/10.15439/2023F9991"
+  },
+  {
+    "id": "fi-2023-328",
+    "type": "paper",
+    "year": 2023,
+    "title": "Evaluating MPTCP Congestion Control Algorithms: Implications for Streaming in Open Internet",
+    "authors": ["Łukasz P. Łuczak", "P. Ignaciuk", "M. Morawski"],
+    "venue": "Future Internet 2023, 15, 328",
+    "url": null,
+    "doi": "https://doi.org/10.3390/fi15100328"
+  }
+]

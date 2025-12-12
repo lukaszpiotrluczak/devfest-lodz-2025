@@ -1,0 +1,27 @@
+{
+  "name": "Luczak Consulting P.S.A.",
+  "valueProp": "Architektura rozwiązań IT, bezpieczne projektowanie systemów i wsparcie dostarczania nowoczesnych produktów.",
+  "services": [
+    "Architektura rozwiązań",
+    "Bezpieczeństwo informacji",
+    "Infrastruktura i DevOps",
+    "Tworzenie produktów SaaS",
+    "Badania i szkolenia"
+  ],
+  "targetAudience": [
+    "CTO i liderzy techniczni",
+    "Zespoły produktowe i inżynieryjne",
+    "Organizacje wymagające architektury skoncentrowanej na bezpieczeństwie"
+  ],
+  "registry": {
+    "krs": "0001056148",
+    "nip": "7282876645",
+    "regon": "526277912",
+    "address": "Suwalska 16 lok. 103, 93-176 Łódź, Polska",
+    "shareCapital": "20 000 PLN (opłacony w całości)"
+  },
+  "contact": {
+    "email": "lukasz.luczak@luczak.consulting",
+    "schedulingUrl": "https://app.zencal.io/u/lukaszpiotrluczak"
+  }
+}

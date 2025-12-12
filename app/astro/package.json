@@ -1,0 +1,10 @@
+{
+  "name": "astro-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
+  }
+}

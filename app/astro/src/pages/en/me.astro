@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import identityData from '@content/identity.en.json';
+
+const title = `${identityData.name} — Digital Business Card`;
+const description =
+  'IT solutions architect, consultant, researcher, and speaker based in Łódź, Poland.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  currentPath="/en/me"
+>
+  <div class="container">
+    <div class="card">
+      <h1>{identityData.name}</h1>
+      <p>{identityData.headline}</p>
+      <p><strong>Location:</strong> {identityData.location}</p>
+      <p>{identityData.bio}</p>
+
+      <h2>Key Roles</h2>
+      <ul>
+        {identityData.roles.map((role) => <li>{role}</li>)}
+      </ul>
+
+      <h2>Primary Links</h2>
+      <ul>
+        {
+          identityData.primaryLinks.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div>
+        <a href="/en/luczak-consulting" class="btn">Luczak Consulting</a>
+        <a href="/en/contact" class="btn">Contact</a>
+        <a href="/pl/o-mnie" class="btn">PL</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

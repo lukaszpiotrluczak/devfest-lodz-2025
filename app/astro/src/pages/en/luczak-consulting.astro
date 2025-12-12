@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import companyData from '@content/company.en.json';
+
+const title = 'Luczak Consulting — IT Solution Architecture';
+const description = companyData.valueProp;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang="en"
+  currentPath="/en/luczak-consulting"
+>
+  <div class="container">
+    <div class="card">
+      <h1>{companyData.name}</h1>
+      <p>{companyData.valueProp}</p>
+
+      <h2>Services</h2>
+      <ul>
+        {companyData.services.map((service) => <li>{service}</li>)}
+      </ul>
+
+      <h2>Who it's for</h2>
+      <ul>
+        {companyData.targetAudience.map((audience) => <li>{audience}</li>)}
+      </ul>
+
+      <h2>Registry</h2>
+      <p><strong>KRS:</strong> {companyData.registry.krs}</p>
+      <p><strong>NIP:</strong> {companyData.registry.nip}</p>
+      <p><strong>REGON:</strong> {companyData.registry.regon}</p>
+      <p><strong>Address:</strong> {companyData.registry.address}</p>
+
+      <div>
+        <a href="/en/me" class="btn">Back to Me</a>
+        <a href="/en/contact" class="btn">Contact</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

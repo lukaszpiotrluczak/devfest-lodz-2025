@@ -1,0 +1,80 @@
+{
+  "name": "Łukasz Piotr Łuczak",
+  "headline": "Architekt rozwiązań IT · konsultant · naukowiec · prelegent",
+  "location": "Łódź, Polska",
+  "bio": "Jestem architektem rozwiązań IT i konsultantem, łączącym tworzenie nowoczesnych systemów i produktów SaaS, bezpieczeństwo informacji i architekturę systemów, infrastrukturę i DevOps, a także działalność naukową i dydaktyczną.",
+  "roles": [
+    "Managing Partner — Luczak Consulting",
+    "Naukowiec / Doktorant",
+    "Prelegent",
+    "Szkoleniowiec / Wykładowca",
+    "Konsultant"
+  ],
+  "primaryLinks": [
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lukaszpiotrluczak/"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/lukaszpiotrluczak"
+    },
+    {
+      "label": "Strona WWW",
+      "url": "https://lukasz.luczak.org/"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lukaszpiotrluczak/"
+    },
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "url": "https://github.com/lukaszpiotrluczak"
+    },
+    {
+      "platform": "x",
+      "label": "X (Twitter)",
+      "url": "https://x.com/lukefrontlander"
+    },
+    {
+      "platform": "facebook",
+      "label": "Facebook",
+      "url": "https://www.facebook.com/lukaszpiotrluczak"
+    },
+    {
+      "platform": "website",
+      "label": "Strona WWW",
+      "url": "https://lukasz.luczak.org/"
+    }
+  ],
+  "contactMethods": [
+    {
+      "type": "phone",
+      "label": "Zadzwoń",
+      "value": "+485350150006",
+      "url": "tel:+485350150006"
+    },
+    {
+      "type": "sms",
+      "label": "SMS",
+      "value": "+485350150006",
+      "url": "sms:+485350150006"
+    },
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "value": "+485350150006",
+      "url": "https://wa.me/485350150006"
+    },
+    {
+      "type": "email",
+      "label": "E-mail",
+      "value": "lukasz@luczak.org",
+      "url": "mailto:lukasz@luczak.org"
+    }
+  ]
+}

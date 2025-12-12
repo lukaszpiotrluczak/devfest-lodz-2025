@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "start": "node ../../dist/backend/main.js",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "NODE_ENV=production node ../../dist/backend/main.js"
+  }
+}

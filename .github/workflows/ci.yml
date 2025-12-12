@@ -51,15 +51,27 @@ jobs:
       - name: Run spell check (cspell)
         run: pnpm run spell
 
+      - name: Type check
+        run: pnpm run typecheck
+
+      - name: Build application
+        run: pnpm run build
+
       - name: Validate repository structure
         run: |
           # Ensure critical directories exist
           test -d docs || (echo "Missing docs/ directory" && exit 1)
           test -d conversations || (echo "Missing conversations/ directory" && exit 1)
+          test -d app || (echo "Missing app/ directory" && exit 1)
 
           # Ensure required files exist
           test -f README.md || (echo "Missing README.md" && exit 1)
           test -f LICENSE || (echo "Missing LICENSE" && exit 1)
           test -f CONTRIBUTING.md || (echo "Missing CONTRIBUTING.md" && exit 1)
+
+          # Ensure build succeeded
+          test -d dist || (echo "Missing dist/ directory (build failed)" && exit 1)
+          test -d dist/backend || (echo "Missing dist/backend/ directory" && exit 1)
+          test -d dist/astro || (echo "Missing dist/astro/ directory" && exit 1)
 
           echo "Repository structure validation passed"
