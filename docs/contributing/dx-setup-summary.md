@@ -76,6 +76,11 @@ This repository has been configured with production-grade developer experience (
 - Stored in `.githooks/` (not `.git/hooks/`)
 - Uses `git config core.hooksPath .githooks`
 
+**pnpm version:**
+- Single source of truth: `packageManager` field in `package.json`
+- CI automatically respects this via `pnpm/action-setup@v4`
+- Ensures identical versions in local dev and CI
+
 ### 4. CI Pipeline ([.github/workflows/ci.yml](../../.github/workflows/ci.yml))
 
 Runs on every push and pull request to `main`:

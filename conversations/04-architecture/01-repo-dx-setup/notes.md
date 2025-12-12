@@ -1,0 +1,3 @@
+- CI failed due to pnpm version pin mismatch (workflow vs packageManager).
+- Fixed by using package.json as the single source of truth and removing CI pin.
+- Added docs explaining why this approach supports reproducibility and prevents drift.

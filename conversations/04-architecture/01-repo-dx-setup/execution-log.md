@@ -170,3 +170,14 @@ The repository now has a **production-grade DX foundation** with:
 Next planned phase:
 - Introduce Astro frontend structure under `app/astro/`
 - Promote existing HTML prototypes into real Astro components
+
+---
+
+## Patch: CI fix (pnpm version conflict)
+
+See: docs/contributing/pnpm-version-fix.md
+
+- Modified: .github/workflows/ci.yml
+  - Removed explicit pnpm version pin to avoid conflict with package.json `packageManager`
+- Decision: `package.json` is the single source of truth for pnpm version via Corepack
+- Result: CI and local dev use the same pnpm version (9.15.0)
