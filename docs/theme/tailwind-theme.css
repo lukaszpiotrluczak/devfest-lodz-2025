@@ -1,0 +1,85 @@
+/* docs/theme/tailwind-theme.css */
+/* Derived strictly from docs/design-profile.json {index=0} */
+
+:root {
+  /* typography */
+  --font-sans: Inter;
+  --font-accent: "Space Grotesk";
+
+  /* light mode semantic surfaces/text */
+  --bg: #FAFAFA;                 /* color.modes.light.background -> neutral-50 */
+  --surface: #f3f4f6;            /* FALLBACK: gray-100 is UNDEFINED */
+  --surface-glass: rgba(255,255,255,0.65); /* surface-glass.light */
+  --text: #0B0B0C;               /* default readable text on light bg (neutral-900 from contract) */
+  --text-secondary: #6b7280;     /* FALLBACK: gray-500 is UNDEFINED */
+  --divider: #d1d5db;            /* FALLBACK: gray-300 is UNDEFINED */
+
+  /* brand tokens */
+  --brand-consulting-primary: #FAD228;
+  --brand-consulting-secondary: #D28C0A;
+  --brand-personal-primary: #CC1E1E;
+
+  /* focus (contract: “clearly visible and consistent”) */
+  --focus-ring: var(--brand-consulting-primary);
+  --focus-ring-offset: var(--bg);
+
+  /* component-scoped helpers (no new tokens; just aliases to contract tokens) */
+  --tab-active-bg: var(--brand-consulting-primary); /* components.tabs.activeState.colorToken */
+  --btn-primary-bg: var(--brand-consulting-primary); /* components.buttons.primary.backgroundToken */
+  --btn-primary-text: #0B0B0C;   /* components.buttons.primary.textColorIntent = dark-text */
+  --btn-secondary-border: var(--divider);
+
+  /* glass rules (contract: blur + subtle border) */
+  --glass-border: var(--divider);
+}
+
+.dark {
+  /* dark mode semantic surfaces/text */
+  --bg: #0B0B0C;                 /* color.modes.dark.background -> neutral-900 */
+  --surface: #111827;            /* FALLBACK: gray-800 is UNDEFINED */
+  --surface-glass: rgba(15,15,17,0.6); /* surface-glass.dark */
+  --text: #FAFAFA;               /* readable text on dark bg (neutral-50 from contract) */
+  --text-secondary: #9ca3af;     /* FALLBACK: gray-500 is UNDEFINED */
+  --divider: #374151;            /* FALLBACK: gray-300 is UNDEFINED */
+
+  /* focus */
+  --focus-ring-offset: var(--bg);
+
+  /* secondary button border stays tied to divider */
+  --btn-secondary-border: var(--divider);
+}
+
+/* base element mapping (Astro-friendly global layer; can be imported once) */
+html {
+  font-family: var(--font-sans);
+  font-size: 16px; /* typography.sizes.base.px */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* consistent focus visibility */
+:where(a, button, input, textarea, select, [role="tab"]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  /* If you prefer ring utilities, keep this as a fallback baseline */
+}
+
+/* glass surface utility class (pairs blur + subtle border per contract) */
+.glass-surface {
+  background: var(--surface-glass);
+  border: 1px solid var(--glass-border);
+  /* contract blur token: layout.blur.glassBackdrop = backdrop-blur-md */
+  backdrop-filter: blur(12px); /* matches “md” feel; Tailwind class can be used instead */
+}
+
+/* optional: reduce-motion baseline */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
