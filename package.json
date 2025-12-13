@@ -19,6 +19,9 @@
     "prestart": "test -d dist/backend || (echo 'Error: dist/backend not found. Run pnpm run build first.' && exit 1)",
     "start": "node dist/backend/main.js",
     "start:prod": "NODE_ENV=production pnpm run start",
+    "slides:dev": "cd presentation/reveal && vite",
+    "slides:build": "cd presentation/reveal && vite build",
+    "slides:preview": "cd presentation/reveal && vite preview",
     "typecheck": "cd app/astro && astro check && cd ../backend && tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -57,8 +60,10 @@
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "reflect-metadata": "^0.2.2",
+    "reveal.js": "^5.2.1",
     "rxjs": "^7.8.2",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.1"
+    "typescript-eslint": "^8.19.1",
+    "vite": "^7.2.7"
   }
 }
