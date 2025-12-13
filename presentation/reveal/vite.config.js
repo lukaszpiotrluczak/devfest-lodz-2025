@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 export default defineConfig({
   root: fileURLToPath(new URL('.', import.meta.url)),
   base: '/devfest-lodz-2015/',
-  publicDir: false,
+  publicDir: 'assets',
   build: {
     outDir: '../../dist/presentation',
     emptyOutDir: true,
