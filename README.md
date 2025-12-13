@@ -198,6 +198,61 @@ pnpm run format:fix
 pnpm run spell
 ```
 
+### Development Workflow
+
+#### Running the Development Server
+
+```bash
+# Start in development mode (watches for changes, hot reload)
+pnpm run dev
+
+# Start on a custom port
+PORT=3100 pnpm run dev
+
+# Using .env file (copy .env.example to .env first)
+cp .env.example .env
+# Edit .env to set PORT and other variables
+pnpm run dev
+```
+
+The dev server runs from TypeScript source files and automatically recompiles on changes.
+
+#### Building for Production
+
+```bash
+# Build both Astro frontend and NestJS backend
+pnpm run build
+
+# Start the production build
+pnpm run start:prod
+
+# Or just run the built output (requires build first)
+pnpm run start
+```
+
+**Note:** `pnpm run start` requires that you've run `pnpm run build` first. It will fail with a clear error message if the build artifacts are missing.
+
+#### Environment Variables
+
+The application supports the following environment variables:
+
+| Variable   | Default       | Description                                           |
+| ---------- | ------------- | ----------------------------------------------------- |
+| `PORT`     | `3000`        | Port for the NestJS backend server                    |
+| `NODE_ENV` | `development` | Application environment (`development`, `production`) |
+
+**Examples:**
+
+```bash
+# Development with custom port
+PORT=3100 pnpm run dev
+
+# Production mode
+NODE_ENV=production pnpm run start
+```
+
+See [.env.example](.env.example) for all available configuration options.
+
 ### Git Hooks Setup
 
 Git hooks are automatically configured via the `prepare` script when you run `pnpm install`.

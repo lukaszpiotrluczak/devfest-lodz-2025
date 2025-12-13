@@ -112,3 +112,4 @@ konsultantem
 architekturę
 także
 współpraca
+recompiles
