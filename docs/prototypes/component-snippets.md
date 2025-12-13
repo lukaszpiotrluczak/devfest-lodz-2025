@@ -160,7 +160,7 @@
 ```html
 <li class="glass-surface rounded-2xl p-4">
   <p class="text-xs text-secondary">Speaker · 2025-12-13</p>
-  <p class="mt-1 font-medium">DevFest Łódź 2015</p>
+  <p class="mt-1 font-medium">DevFest Łódź 2025</p>
   <p class="mt-1 text-sm text-secondary">
     Politechnika Łódzka, Kampus A, Budynek A12, Sala E5
   </p>

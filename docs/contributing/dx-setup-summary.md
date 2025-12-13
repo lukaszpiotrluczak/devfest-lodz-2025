@@ -184,7 +184,7 @@ Automatically sets up git hooks on `pnpm install`.
 ```bash
 # Clone the repository
 git clone <repo-url>
-cd devfest-lodz-2015
+cd devfest-lodz-2025
 
 # Install dependencies (also sets up git hooks)
 pnpm install

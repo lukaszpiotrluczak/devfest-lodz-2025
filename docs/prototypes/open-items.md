@@ -23,7 +23,7 @@ Impact:
   - Prototype uses placeholder routes:
     - EN: `/en/privacy`
     - PL: `/pl/polityka-prywatnosci`
-- Event external link for “DevFest Łódź 2015” is `TBD` (seed does not provide a URL).
+- Event external link for "DevFest Łódź 2025" is `TBD` (seed does not provide a URL).
 - Publication external links for 2024 conference papers are `TBD` (seed does not provide URLs/DOIs).
 
 ## Requirements needing NestJS (blocked for full fidelity)

@@ -218,7 +218,7 @@ Myślał przez 1m 8s
         "@context": "https://schema.org",
         "@type": "Event",
         "@id": "https://lukaszpiotrluczak.me/en/#event-devfest-lodz-2025",
-        "name": "DevFest Łódź 2015",
+        "name": "DevFest Łódź 2025",
         "startDate": "2025-12-13",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "eventStatus": "https://schema.org/EventScheduled",
@@ -1374,7 +1374,7 @@ Myślał przez 1m 8s
       const EVENTS = [
         {
           id: 'devfest-lodz-2025',
-          name: 'DevFest Łódź 2015',
+          name: 'DevFest Łódź 2025',
           role: { en: 'Speaker', pl: 'Prelegent' },
           date: '2025-12-13',
           venue: 'Politechnika Łódzka, Kampus A, Budynek A12, Sala E5',
@@ -1965,7 +1965,7 @@ Myślał przez 1m 8s
 ```html
 <li class="glass-surface rounded-2xl p-4">
   <p class="text-xs text-secondary">Speaker · 2025-12-13</p>
-  <p class="mt-1 font-medium">DevFest Łódź 2015</p>
+  <p class="mt-1 font-medium">DevFest Łódź 2025</p>
   <p class="mt-1 text-sm text-secondary">
     Politechnika Łódzka, Kampus A, Budynek A12, Sala E5
   </p>
@@ -2145,7 +2145,7 @@ Impact:
   - Prototype uses placeholder routes:
     - EN: `/en/privacy`
     - PL: `/pl/polityka-prywatnosci`
-- Event external link for “DevFest Łódź 2015” is `TBD` (seed does not provide a URL).
+- Event external link for "DevFest Łódź 2025" is `TBD` (seed does not provide a URL).
 - Publication external links for 2024 conference papers are `TBD` (seed does not provide URLs/DOIs).
 
 ## Requirements needing NestJS (blocked for full fidelity)

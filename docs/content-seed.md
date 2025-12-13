@@ -90,7 +90,7 @@
 
 ## Upcoming Event (DevFest)
 
-- Event name: DevFest Łódź 2015
+- Event name: DevFest Łódź 2025
 - Date: 2025-12-13
 - Venue: Politechnika Łódzka, Kampus A, Budynek A12, Sala E5
 - Address: Prof. Bohdana Stefanowskiego 18/22, Łódź, 90-001, Poland
