@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Are Frontend Developers at Risk? AI Is Already Writing HTML for Us
+    </title>
+    <meta
+      name="description"
+      content="A live case study on building a production-grade digital business card platform using AI-assisted development workflow"
+    />
+    <meta name="author" content="Łukasz Piotr Łuczak" />
+
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./reveal.css" />
+    <link rel="stylesheet" href="./theme.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title Slide -->
+        <section
+          data-markdown
+          data-separator="^\n---\n$"
+          data-separator-vertical="^\n--\n$"
+        >
+          <textarea data-template>
+            # Are Frontend Developers at Risk?
+
+            ## AI Is Already Writing HTML for Us
+
+            **Łukasz Piotr Łuczak**
+            Software Architect • Consultant • Researcher
+
+            DevFest Łódź 2025
+
+            <aside class="notes">
+              Hi, I'm Łukasz Piotr Łuczak — easier to show you my online business card than spell it… I never had time to build one… AI will replace us… let's test AI on this task.
+            </aside>
+
+            ---
+
+            # The Problem
+
+            - No online business card
+            - Manual networking is inefficient
+            - Scattered social profiles
+
+            <aside class="notes">
+              As a consultant and speaker, I needed a single-link digital business card. But like many developers, I kept postponing this simple project.
+            </aside>
+
+            ---
+
+            # The Premise
+
+            **"AI will replace us"**
+
+            Let's test this claim:
+            - Can AI build a production-ready platform?
+            - From scratch to deployment?
+            - No manual coding?
+
+            <aside class="notes">
+              We hear this all the time: AI will replace developers. Instead of debating, I decided to test it. Can AI build my business card platform from zero to production?
+            </aside>
+
+            ---
+
+            # The Project
+
+            **Digital Business Card Platform**
+
+            - Single-link contact hub
+            - Bilingual (EN/PL)
+            - Mobile-first, SEO-optimized
+            - Tabs: Me, Consulting, Contact, Events, Publications
+            - Production-grade standards
+
+            <aside class="notes">
+              Not a toy project. A real platform with i18n, structured data, accessibility, security headers, and deployment.
+            </aside>
+
+            ---
+
+            # The AI-Assisted Process
+
+            **Artifacts Pipeline:**
+
+            1. Information Architecture
+            2. Brand & Visual Identity
+            3. Design Profile (design-profile.json)
+            4. Tailwind Theme CSS
+            5. HTML Prototypes
+            6. Repository DX Setup
+            7. Architecture (NestJS + Astro)
+            8. Implementation
+
+            <aside class="notes">
+              This wasn't "write me a website." It was a structured workflow: discovery, branding, design system, prototypes, architecture, then code.
+            </aside>
+
+            ---
+
+            # Key Constraint
+
+            **No manual fixes — only prompts**
+
+            - Every change via AI prompt
+            - Follow-up prompts for refinement
+            - Execution logs replaced chat logs
+            - Quality gates made issues visible
+
+            <aside class="notes">
+              The rule: I could only give prompts. If something broke, I had to prompt a fix. This forced me to test AI's real-world capability.
+            </aside>
+
+            ---
+
+            # Friction Point 1
+
+            **pnpm Version Conflict**
+
+            - CI specified `version: 9`
+            - package.json specified `pnpm@9.15.0`
+            - pnpm/action-setup@v4 detected conflict
+
+            **Solution:**
+            Remove CI version, use package.json as single source of truth
+
+            <aside class="notes">
+              First CI failure: conflicting pnpm versions. AI fixed it by removing redundancy. Lesson: tooling assumptions matter.
+            </aside>
+
+            ---
+
+            # Friction Point 2
+
+            **Missing pnpm Lockfile**
+
+            - CI ran pnpm install
+            - No pnpm-lock.yaml committed
+            - Non-deterministic builds
+
+            **Solution:**
+            Generate and commit pnpm-lock.yaml
+
+            <aside class="notes">
+              Second failure: no lockfile means unpredictable builds. AI added it. Reproducibility requires explicit state.
+            </aside>
+
+            ---
+
+            # Friction Point 3
+
+            **Prettier Format Check Failures**
+
+            - AI-generated code wasn't formatted
+            - CI format check failed
+
+            **Solution:**
+            Run pnpm run format:fix before commit
+
+            <aside class="notes">
+              Third failure: AI wrote valid code, but didn't match Prettier style. Quality gates caught it immediately.
+            </aside>
+
+            ---
+
+            # Friction Point 4
+
+            **ESM/CommonJS Module Mismatch**
+
+            - NestJS built as ESM
+            - Astro SSR adapter expected CommonJS
+            - Runtime crash: "Cannot use import outside module"
+
+            **Solution:**
+            Add build:postprocess to write package.json with type: commonjs
+
+            <aside class="notes">
+              Fourth failure: module system mismatch. AI debugged it, but required multiple prompts. Complex runtime issues are hard for AI.
+            </aside>
+
+            ---
+
+            # What Works Today
+
+            - ✅ Bilingual SPA (EN/PL)
+            - ✅ Tabs with icon + label
+            - ✅ Light/Dark mode
+            - ✅ SEO metadata + JSON-LD
+            - ✅ Security headers (CSP, HSTS)
+            - ✅ Contact form API (stub)
+            - ✅ CI/CD quality gates
+            - ✅ Coolify-ready deployment
+
+            <aside class="notes">
+              What AI delivered: a real, production-grade platform. Not perfect, but functional and secure.
+            </aside>
+
+            ---
+
+            # What's Intentionally Unfinished
+
+            - ⏳ Contact form email integration (stub only)
+            - ⏳ CAPTCHA (planned, GDPR-friendly)
+            - ⏳ CSP hardening (remove unsafe-inline)
+            - ⏳ Analytics (privacy-first, post-MVP)
+
+            <aside class="notes">
+              Some features are stubbed on purpose. The goal was to test AI's ability to scaffold, not to over-engineer.
+            </aside>
+
+            ---
+
+            # The Repository as the Product
+
+            **Everything is public:**
+
+            - All prompts (prompts/)
+            - All conversation logs (conversations/)
+            - All design artifacts (docs/)
+            - All code (app/)
+            - All CI failures and fixes
+
+            **github.com/lukaszpiotrluczak/devfest-lodz-2015**
+
+            <aside class="notes">
+              This repo is the real artifact. You can see every prompt, every mistake, every fix. Full transparency.
+            </aside>
+
+            ---
+
+            # Key Lessons
+
+            **AI accelerates, but needs guidance**
+
+            - AI is a powerful tool, not a replacement
+            - Quality gates are essential
+            - Humans steer strategy and architecture
+            - Works best for structured, well-scoped tasks
+            - Struggles with runtime debugging and edge cases
+
+            <aside class="notes">
+              Bottom line: AI didn't replace me. It accelerated me. I still made every architectural decision. AI executed, I directed.
+            </aside>
+
+            ---
+
+            # The Honest Takeaway
+
+            **Can AI replace frontend developers?**
+
+            - ❌ Not for complex, production systems
+            - ✅ For simple, well-defined tasks
+            - ✅ As an accelerator with human oversight
+            - ✅ When paired with quality gates
+
+            **Developers who use AI > Developers who don't**
+
+            <aside class="notes">
+              AI didn't replace me, but it made me faster. The real question isn't "Will AI replace us?" It's "Will developers who use AI replace those who don't?"
+            </aside>
+
+            ---
+
+            # Thank You
+
+            **Explore the full repo:**
+
+            github.com/lukaszpiotrluczak/devfest-lodz-2015
+
+            **Connect:**
+
+            - lukaszpiotrluczak.me
+            - linkedin.com/in/lukaszpiotrluczak
+            - github.com/lukaszpiotrluczak
+
+            <aside class="notes">
+              Questions? Check out the repo. Everything is there: prompts, logs, code, mistakes, fixes. Thanks!
+            </aside>
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <footer class="presentation-footer">
+      <div class="footer-content">
+        <span class="footer-title">AI-Assisted Development: A Case Study</span>
+        <span class="footer-divider">•</span>
+        <span class="footer-author">Łukasz Piotr Łuczak</span>
+        <span class="footer-divider">•</span>
+        <span class="footer-repo"
+          >github.com/lukaszpiotrluczak/devfest-lodz-2015</span
+        >
+      </div>
+    </footer>
+
+    <script type="module">
+      import Reveal from './reveal.esm.js';
+      import Markdown from './markdown.esm.js';
+      import Notes from './notes.esm.js';
+      import Highlight from './highlight.esm.js';
+
+      const deck = new Reveal({
+        plugins: [Markdown, Notes, Highlight],
+        hash: true,
+        slideNumber: 'c/t',
+        showSlideNumber: 'speaker',
+        transition: 'slide',
+        backgroundTransition: 'fade',
+        center: true,
+        width: 1280,
+        height: 720,
+        margin: 0.04,
+        minScale: 0.2,
+        maxScale: 2.0,
+      });
+
+      deck.initialize();
+    </script>
+  </body>
+</html>
