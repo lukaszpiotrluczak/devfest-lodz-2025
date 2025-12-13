@@ -88,7 +88,7 @@ The custom theme (`theme.css`) uses brand tokens from `docs/design-profile.json`
 
 The presentation is automatically deployed to GitHub Pages via `.github/workflows/pages.yml`.
 
-Live URL: [https://lukaszpiotrluczak.github.io/devfest-lodz-2015/](https://lukaszpiotrluczak.github.io/devfest-lodz-2015/)
+Live URL: [https://lukaszpiotrluczak.github.io/devfest-lodz-2025/](https://lukaszpiotrluczak.github.io/devfest-lodz-2025/)
 
 ## Speaker Notes
 

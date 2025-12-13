@@ -1,5 +1,5 @@
 {
-  "name": "DevFest Łódź 2015 - Development Environment",
+  "name": "DevFest Łódź 2025 - Development Environment",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
