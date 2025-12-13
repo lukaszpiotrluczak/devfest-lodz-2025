@@ -15,6 +15,7 @@ These images are referenced in the presentation slides to demonstrate that the a
 ## Usage in slides
 
 The screenshots appear in slides 12-14 (after "What Works Today") with captions:
+
 - "It works."
 - "Still functional."
 - "This is fine."
