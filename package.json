@@ -12,9 +12,10 @@
   "scripts": {
     "prepare": "node -e \"if (process.env.CI !== 'true') { try { require('node:fs').symlinkSync('.githooks', '.git/hooks', 'dir') } catch (e) { if (e.code !== 'EEXIST') throw e } }\"",
     "dev": "cd app/backend && pnpm run start:dev",
-    "build": "pnpm run build:astro && pnpm run build:backend",
+    "build": "pnpm run build:astro && pnpm run build:backend && pnpm run build:postprocess",
     "build:astro": "cd app/astro && astro build",
     "build:backend": "cd app/backend && nest build",
+    "build:postprocess": "node -e \"require('node:fs').writeFileSync('dist/backend/package.json', JSON.stringify({type:'commonjs'}, null, 2))\"",
     "start": "cd app/backend && node ../../dist/backend/main.js",
     "start:prod": "NODE_ENV=production pnpm run start",
     "typecheck": "cd app/astro && astro check && cd ../backend && tsc --noEmit",

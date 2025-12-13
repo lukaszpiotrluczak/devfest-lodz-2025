@@ -286,3 +286,106 @@ Local verification:
 
 This step establishes a **production-ready application architecture**
 while keeping scope intentionally minimal and auditable.
+
+---
+
+## Patch: Fix ESM/CommonJS runtime conflict for production start
+
+### Problem observed
+
+Local runtime failed when starting the built backend:
+
+- `pnpm run start` executed `node dist/backend/main.js`
+- Node treated `dist/backend/main.js` as ESM because repository root `package.json` declares `"type": "module"`
+- NestJS build output is CommonJS (uses `exports` / `require`)
+
+Resulting error:
+
+- `ReferenceError: exports is not defined in ES module scope`
+
+Root cause:
+
+- ESM/CJS mismatch at runtime due to root-level module type affecting compiled backend output.
+
+---
+
+### Solution applied (Strategy: module boundary)
+
+Chosen strategy:
+
+- Keep root ESM (`"type": "module"`) unchanged
+- Introduce an explicit CommonJS boundary for the backend build output
+
+Implementation:
+
+- Added a build postprocessing step that creates:
+  - `dist/backend/package.json` containing `{ "type": "commonjs" }`
+
+Effect:
+
+- Node treats `dist/backend/*.js` as CommonJS at runtime
+- Astro build output remains ESM under `dist/astro/`
+- Backend dynamically imports Astro’s ESM handler when needed
+
+This preserves a single deployment artifact while making runtime module semantics explicit and deterministic.
+
+---
+
+### Files changed
+
+Build configuration:
+
+- `package.json`
+  - added `build:postprocess` script (creates `dist/backend/package.json`)
+
+Backend integration:
+
+- `app/backend/src/astro/astro.middleware.ts`
+  - refactored to dynamically import Astro SSR handler
+- `app/backend/src/astro/astro-manifest.ts`
+  - placeholder typing adjusted (not used in production path)
+
+Tooling:
+
+- `eslint.config.js`
+  - fixed ignore pattern for `.astro/` directories
+
+Generated at build time:
+
+- `dist/backend/package.json` (CommonJS boundary)
+
+---
+
+### Verification
+
+Verified locally:
+
+- `pnpm run build`
+  - builds Astro to `dist/astro/`
+  - builds NestJS to `dist/backend/`
+  - generates `dist/backend/package.json`
+- `pnpm run start:prod`
+  - application starts without module errors
+- smoke checks:
+  - `POST /api/contact` returns `{"success":true,"message":"Message received"}`
+  - `curl -I /en/me` shows redirect + CSP header present
+- `pnpm run validate`
+  - ESLint passed (with known acceptable warnings for placeholder `any`)
+  - Prettier passed
+  - cspell passed
+
+CI impact:
+
+- No workflow changes required; existing typecheck/build/validate steps remain green.
+
+---
+
+### Outcome
+
+Production start is now reliable across Node environments while keeping:
+
+- root project ESM
+- backend output explicitly CommonJS
+- Astro SSR handled via dynamic ESM import
+
+This patch documents a practical, production-safe approach to ESM/CJS interop in a mixed-tooling monorepo.

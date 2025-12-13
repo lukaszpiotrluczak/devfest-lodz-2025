@@ -16,7 +16,7 @@ export default tseslint.config(
     ignores: [
       'node_modules/',
       'dist/',
-      '.astro/',
+      '**/.astro/',
       '.vscode/',
       '.devcontainer/',
       'stacks/',
