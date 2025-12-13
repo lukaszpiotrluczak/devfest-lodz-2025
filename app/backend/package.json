@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "nest build",
+    "build": "nest build && node ensure-cjs.js",
     "start": "node ../../dist/backend/main.js",
-    "start:dev": "nest start --watch",
+    "start:dev": "node ensure-cjs.js && nest start --watch --preserveWatchOutput --exec 'node ensure-cjs.js && node'",
     "start:debug": "nest start --debug --watch",
     "start:prod": "NODE_ENV=production node ../../dist/backend/main.js"
   }
