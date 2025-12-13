@@ -116,6 +116,18 @@
     "renderable",
     "tablist",
     "newterm",
-    "Skeuomorphic"
+    "Skeuomorphic",
+    "revealjs",
+    "Reveal",
+    "vite",
+    "CAPTCHA",
+    "outDir",
+    "esbuild",
+    "Roboto",
+    "Blinkmacsystem",
+    "esm",
+    "commonjs",
+    "postprocess",
+    "Checkmarks"
   ]
 }
