@@ -7,7 +7,7 @@ import * as fs from 'fs';
 export class AstroMiddleware implements NestMiddleware {
   private readonly logger = new Logger(AstroMiddleware.name);
   private astroHandler: any;
-  private readonly astroDevPort = 4321; // Astro's default dev port
+  private readonly astroDevPort = 3001; // Astro dev server port (configured in astro.config.mjs)
 
   constructor() {
     // Initialize Astro app in production mode

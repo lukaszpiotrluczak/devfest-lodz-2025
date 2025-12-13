@@ -16,4 +16,12 @@ export default defineConfig({
   server: {
     port: 3001,
   },
+  vite: {
+    server: {
+      fs: {
+        // Allow serving files from the workspace root (for pnpm workspace dependencies)
+        allow: ['../..'],
+      },
+    },
+  },
 });
