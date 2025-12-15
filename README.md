@@ -1,3 +1,31 @@
+# ⚠️ ARCHIVED REPOSITORY
+
+> This repository contains code and presentation materials prepared for the **DevFest Łódź 2025** conference.
+>
+> **Status:** Archived — this is a snapshot of an **AI-assisted development experiment** presented live during the conference.
+>
+> 👉 Active development of the production-ready version continues at:
+> https://github.com/lukaszpiotrluczak/lukaszpiotrluczak.me
+
+## About This Archive
+
+This repository documents an AI coding experiment conducted for the conference talk:
+
+> **"Are Frontend Developers at Risk? AI Is Already Writing HTML for Us…"**
+
+### Important context
+
+- The application was developed under **strict time constraints** and with a strong focus on **process rather than completeness**
+- The work was intentionally **not finalized** — several planned steps were left out
+- Existing imperfections and errors were **left intentionally for educational and analytical purposes**
+- The presentation itself was **entirely generated using AI**, including its inaccuracies, to transparently demonstrate current limitations of such tools
+- This codebase serves as a **case study of an AI-assisted development workflow**, including its strengths and weaknesses
+
+☕ **Support this work:**
+If you found this experiment valuable, feel free to [buy me a coffee ☕](http://buymeacoffee.com/lukaszpiotrluczak/)
+
+---
+
 # Digital Business Card — AI-Assisted, Production-Grade Web Platform
 
 This repository contains the full source code, assets, AI prompts, and conversation logs for a **production-ready digital business card platform** built for **Łukasz Piotr Łuczak**.
