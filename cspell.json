@@ -129,6 +129,7 @@
     "commonjs",
     "postprocess",
     "Checkmarks",
-    "oneline"
+    "oneline",
+    "slidechanged"
   ]
 }

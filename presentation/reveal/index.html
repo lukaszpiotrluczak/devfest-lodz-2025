@@ -551,8 +551,10 @@
       }
 
       function fitAllBlocks() {
-        const blocks = document.querySelectorAll('.reveal .slides section.present .fit-block');
-        blocks.forEach(el => fitOrScroll(el));
+        const blocks = document.querySelectorAll(
+          '.reveal .slides section.present .fit-block'
+        );
+        blocks.forEach((el) => fitOrScroll(el));
       }
 
       // Re-fit on navigation, resize, and Reveal layout changes
