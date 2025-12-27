@@ -24,6 +24,8 @@
     "slides:build": "cd presentation/reveal && vite build",
     "slides:preview": "cd presentation/reveal && vite preview",
     "pages:build": "pnpm run slides:build && pnpm run build:astro:static",
+    "pages:prepare": "pnpm run pages:build && node -e \"const fs=require('fs');const p='dist/pages';fs.rmSync(p,{recursive:true,force:true});fs.mkdirSync(p,{recursive:true});fs.copyFileSync('public/index.html',p+'/index.html');fs.cpSync('dist/slides',p+'/slides',{recursive:true});fs.cpSync('dist/demo',p+'/demo',{recursive:true})\"",
+    "pages:preview": "pnpm run pages:prepare && node scripts/preview-pages.js",
     "typecheck": "cd app/astro && astro check && cd ../backend && tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
