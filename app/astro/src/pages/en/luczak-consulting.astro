@@ -34,8 +34,8 @@ const description = companyData.valueProp;
       <p><strong>Address:</strong> {companyData.registry.address}</p>
 
       <div>
-        <a href="/en/me" class="btn">Back to Me</a>
-        <a href="/en/contact" class="btn">Contact</a>
+        <a href={`${import.meta.env.BASE_URL}/en/me`} class="btn">Back to Me</a>
+        <a href={`${import.meta.env.BASE_URL}/en/contact`} class="btn">Contact</a>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const PAGES_DIR = join(__dirname, '..', 'dist', 'pages');
 const PORT = process.env.PORT || 8080;
+const BASE_PATH = '/devfest-lodz-2025';
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -36,7 +37,13 @@ const MIME_TYPES = {
 };
 
 const server = createServer((req, res) => {
-  let filePath = join(PAGES_DIR, req.url === '/' ? 'index.html' : req.url);
+  // Strip base path from URL to match GitHub Pages behavior
+  let url = req.url;
+  if (url.startsWith(BASE_PATH)) {
+    url = url.substring(BASE_PATH.length) || '/';
+  }
+
+  let filePath = join(PAGES_DIR, url === '/' ? 'index.html' : url);
 
   // Remove query string
   const queryIndex = filePath.indexOf('?');
@@ -70,11 +77,11 @@ const server = createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`\n🚀 GitHub Pages preview server running at:\n`);
-  console.log(`   Local:   http://localhost:${PORT}/`);
+  console.log(`   Local:   http://localhost:${PORT}${BASE_PATH}/`);
   console.log(`\n📊 Preview:\n`);
-  console.log(`   Dashboard:     http://localhost:${PORT}/`);
-  console.log(`   Slides:        http://localhost:${PORT}/slides/`);
-  console.log(`   Demo App:      http://localhost:${PORT}/demo/`);
+  console.log(`   Dashboard:     http://localhost:${PORT}${BASE_PATH}/`);
+  console.log(`   Slides:        http://localhost:${PORT}${BASE_PATH}/slides/`);
+  console.log(`   Demo App:      http://localhost:${PORT}${BASE_PATH}/demo/`);
   console.log(`\n💡 Tip: Use PORT environment variable to change the port`);
   console.log(`   Example: PORT=3000 pnpm run pages:preview\n`);
   console.log(`Press Ctrl+C to stop the server\n`);
