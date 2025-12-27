@@ -1,4 +1,4 @@
-name: Deploy Presentation to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -50,13 +50,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build presentation
-        run: pnpm run slides:build
+      - name: Build slides and demo app
+        run: pnpm run pages:build
+
+      - name: Prepare GitHub Pages directory
+        run: |
+          mkdir -p dist/pages
+          cp public/index.html dist/pages/index.html
+          cp -r dist/slides dist/pages/slides
+          cp -r dist/demo dist/pages/demo
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/presentation
+          path: ./dist/pages
 
   deploy:
     environment:

@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      DevFest Łódź 2025 — AI-Assisted Development Experiment Archive
+    </title>
+    <meta
+      name="description"
+      content="Archived repository of AI-assisted development experiment presented at DevFest Łódź 2025. Explore the presentation slides or view the demo application."
+    />
+    <meta name="author" content="Łukasz Piotr Łuczak" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Brand tokens from design-profile.json */
+        --brand-consulting-primary: #fad228;
+        --brand-consulting-secondary: #d28c0a;
+        --brand-personal-primary: #cc1e1e;
+        --neutral-900: #0b0b0c;
+        --neutral-800: #1a1a1c;
+        --neutral-50: #fafafa;
+        --gray-500: #6b7280;
+        --gray-300: #d1d5db;
+        --gray-200: #e5e7eb;
+
+        /* Light theme defaults */
+        --background-color: var(--neutral-50);
+        --surface-color: #ffffff;
+        --text-color: var(--neutral-900);
+        --text-muted: var(--gray-500);
+        --accent-color: var(--brand-consulting-primary);
+        --accent-hover: var(--brand-consulting-secondary);
+        --border-color: var(--gray-200);
+      }
+
+      [data-theme='dark'] {
+        --background-color: var(--neutral-900);
+        --surface-color: var(--neutral-800);
+        --text-color: var(--neutral-50);
+        --text-muted: var(--gray-300);
+        --border-color: rgba(250, 210, 40, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        flex: 1;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-top: 2rem;
+      }
+
+      h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .archive-notice {
+        background-color: var(--surface-color);
+        border: 2px solid var(--accent-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0 3rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .archive-notice h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      .archive-notice h2::before {
+        content: '⚠️ ';
+      }
+
+      .archive-notice p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+
+      .archive-notice p:last-child {
+        margin-bottom: 0;
+      }
+
+      .archive-notice strong {
+        color: var(--accent-color);
+      }
+
+      .archive-notice a {
+        color: var(--accent-color);
+        text-decoration: underline;
+        transition: color 0.2s ease;
+      }
+
+      .archive-notice a:hover {
+        color: var(--accent-hover);
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 3rem 0;
+      }
+
+      .button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2.5rem 2rem;
+        background-color: var(--surface-color);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+      }
+
+      .button:hover {
+        border-color: var(--accent-color);
+        box-shadow:
+          0 8px 16px rgba(250, 210, 40, 0.15),
+          0 0 0 1px var(--accent-color);
+        transform: translateY(-2px);
+      }
+
+      .button-icon {
+        font-size: 3rem;
+      }
+
+      .button-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .button-description {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .info-section {
+        background-color: var(--surface-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .info-section h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      .info-section ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .info-section li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .info-section li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: var(--surface-color);
+        border-top: 1px solid var(--border-color);
+        padding: 2rem 1.5rem;
+        margin-top: 4rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer-meta {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        background-color: var(--surface-color);
+        border: 2px solid var(--border-color);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--accent-color);
+        box-shadow: 0 4px 12px rgba(250, 210, 40, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .buttons {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .theme-toggle {
+          top: 1rem;
+          right: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+
+    <div class="container">
+      <header>
+        <h1>DevFest Łódź 2025</h1>
+        <p class="subtitle">AI-Assisted Development Experiment Archive</p>
+      </header>
+
+      <main>
+        <div class="archive-notice">
+          <h2>Archive Notice</h2>
+          <p>
+            This repository contains code and presentation materials prepared
+            for the <strong>DevFest Łódź 2025</strong> conference.
+          </p>
+          <p>
+            <strong>Status:</strong> Archived — this is a snapshot of an
+            AI-assisted development experiment presented live during the
+            conference.
+          </p>
+          <p>
+            👉 Active development of the production-ready version continues at:
+            <a
+              href="https://github.com/lukaszpiotrluczak/lukaszpiotrluczak.me"
+              target="_blank"
+              rel="noopener noreferrer"
+              >github.com/lukaszpiotrluczak/lukaszpiotrluczak.me</a
+            >
+          </p>
+        </div>
+
+        <div class="buttons">
+          <a href="./slides/" class="button">
+            <span class="button-icon">📊</span>
+            <h2 class="button-title">View Presentation</h2>
+            <p class="button-description">
+              Explore the conference presentation slides about AI-assisted
+              development
+            </p>
+          </a>
+
+          <a href="./demo/" class="button">
+            <span class="button-icon">🚀</span>
+            <h2 class="button-title">View Demo App</h2>
+            <p class="button-description">
+              See the digital business card platform built during the experiment
+            </p>
+          </a>
+        </div>
+
+        <div class="info-section">
+          <h3>About This Experiment</h3>
+          <ul>
+            <li>
+              The application was developed under strict time constraints with
+              focus on process rather than completeness
+            </li>
+            <li>
+              The work was intentionally not finalized — several planned steps
+              were left out
+            </li>
+            <li>
+              Existing imperfections and errors were left intentionally for
+              educational and analytical purposes
+            </li>
+            <li>
+              The presentation itself was entirely generated using AI, including
+              its inaccuracies
+            </li>
+            <li>
+              This codebase serves as a case study of an AI-assisted development
+              workflow, including its strengths and weaknesses
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-section">
+          <h3>Conference Talk</h3>
+          <p style="line-height: 1.8">
+            <strong
+              >"Are Frontend Developers at Risk? AI Is Already Writing HTML for
+              Us…"</strong
+            >
+            <br />
+            A live case study on building a production-grade digital business
+            card platform using AI-assisted development workflow, presented at
+            DevFest Łódź 2025.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a
+            href="https://github.com/lukaszpiotrluczak/devfest-lodz-2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub Repository</a
+          >
+          <a
+            href="https://lukaszpiotrluczak.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            >lukaszpiotrluczak.me</a
+          >
+          <a
+            href="https://linkedin.com/in/lukaszpiotrluczak"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            href="http://buymeacoffee.com/lukaszpiotrluczak"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Buy Me a Coffee ☕</a
+          >
+        </div>
+        <div class="footer-meta">
+          <p>
+            <strong>Łukasz Piotr Łuczak</strong> — Software Architect •
+            Consultant • Researcher • Speaker
+          </p>
+          <p style="margin-top: 0.5rem">
+            © 2025 DevFest Łódź — AI-Assisted Development Experiment
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      html.setAttribute('data-theme', currentTheme);
+      updateThemeIcon(currentTheme);
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+    </script>
+  </body>
+</html>

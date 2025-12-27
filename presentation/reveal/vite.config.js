@@ -3,10 +3,10 @@ import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   root: fileURLToPath(new URL('.', import.meta.url)),
-  base: '/devfest-lodz-2025/',
+  base: '/devfest-lodz-2025/slides/',
   publicDir: 'assets',
   build: {
-    outDir: '../../dist/presentation',
+    outDir: '../../dist/slides',
     emptyOutDir: true,
     rollupOptions: {
       input: {
