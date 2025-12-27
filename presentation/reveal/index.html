@@ -37,7 +37,7 @@
 
             ---
             > ⚠️ **Repository Archived** — This is a snapshot of the conference experiment.
-            > Active development: github.com/lukaszpiotrluczak/lukaszpiotrluczak.me
+            > Active development: [github.com/lukaszpiotrluczak/lukaszpiotrluczak.me](https://github.com/lukaszpiotrluczak/lukaszpiotrluczak.me)
 
             <aside class="notes">
               Hi, I'm Łukasz Piotr Łuczak. Three Ł's. It's easier to show you my online business card than to spell my name.
@@ -51,15 +51,19 @@
 
             ---
 
-            # ⚠️ Repository Status
+            # <span style="-webkit-text-fill-color: #FAD228;">⚠️</span> Repository Status
 
             **This repository is now ARCHIVED**
 
             DevFest Łódź 2025 snapshot — experiment completed.
 
+            **Preview the experiment result:**
+
+            [lukaszpiotrluczak.github.io/devfest-lodz-2025](https://lukaszpiotrluczak.github.io/devfest-lodz-2025/)
+
             **Active development continues:**
 
-            github.com/lukaszpiotrluczak/lukaszpiotrluczak.me
+            [github.com/lukaszpiotrluczak/lukaszpiotrluczak.me](https://github.com/lukaszpiotrluczak/lukaszpiotrluczak.me)
 
             <aside class="notes">
               Quick note: this repository you're looking at is now archived. It's a snapshot of the DevFest Łódź 2025 experiment.
@@ -132,6 +136,8 @@
 
             # The AI-Assisted Process
 
+            <div class="fit-block">
+
             **Artifacts Pipeline:**
 
             1. Information Architecture
@@ -142,6 +148,8 @@
             6. Repository DX Setup
             7. Architecture (NestJS + Astro)
             8. Implementation
+
+            </div>
 
             <aside class="notes">
               This wasn't "ChatGPT, write me a website."
@@ -270,6 +278,8 @@
 
             # What Works Today
 
+            <div class="fit-block">
+
             - ✅ Bilingual SPA (EN/PL)
             - ✅ Tabs with icon + label
             - ✅ Light/Dark mode
@@ -278,6 +288,8 @@
             - ✅ Contact form API (stub)
             - ✅ CI/CD quality gates
             - ✅ Coolify-ready deployment
+
+            </div>
 
             <aside class="notes">
               So what actually works?
@@ -354,6 +366,8 @@
 
             # The Repository as the Product
 
+            <div class="fit-block">
+
             **Everything is public:**
 
             - All prompts (prompts/)
@@ -362,7 +376,9 @@
             - All code (app/)
             - All CI failures and fixes
 
-            **github.com/lukaszpiotrluczak/devfest-lodz-2025**
+            **[github.com/lukaszpiotrluczak/devfest-lodz-2025](https://github.com/lukaszpiotrluczak/devfest-lodz-2025)**
+
+            </div>
 
             <aside class="notes">
               The repository IS the product of this talk.
@@ -427,19 +443,23 @@
 
             # Thank You
 
+            <div class="fit-block">
+
             **Explore the archived repo:**
 
-            github.com/lukaszpiotrluczak/devfest-lodz-2025
+            [github.com/lukaszpiotrluczak/devfest-lodz-2025](https://github.com/lukaszpiotrluczak/devfest-lodz-2025)
 
             **Connect:**
 
-            - lukaszpiotrluczak.me
-            - linkedin.com/in/lukaszpiotrluczak
-            - github.com/lukaszpiotrluczak
+            - [lukaszpiotrluczak.me](https://lukaszpiotrluczak.me)
+            - [linkedin.com/in/lukaszpiotrluczak](https://linkedin.com/in/lukaszpiotrluczak)
+            - [github.com/lukaszpiotrluczak](https://github.com/lukaszpiotrluczak)
 
             **Support this work:**
 
-            buymeacoffee.com/lukaszpiotrluczak
+            [buymeacoffee.com/lukaszpiotrluczak](https://buymeacoffee.com/lukaszpiotrluczak)
+
+            </div>
 
             <aside class="notes">
               That's it. Thanks for listening.
@@ -483,9 +503,64 @@
         center: true,
         width: 1280,
         height: 720,
-        margin: 0.04,
+        margin: 0.06,
         minScale: 0.2,
-        maxScale: 2.0,
+        maxScale: 1.6,
+      });
+
+      // Fit-block: dynamic scaling for overflow content
+      function fitOrScroll(el) {
+        // Reset any previous transforms/classes
+        el.classList.remove('scroll-y');
+        el.style.transform = 'scale(1)';
+
+        const parent = el.parentElement;
+        if (!parent) return;
+
+        // Wait for layout to settle
+        requestAnimationFrame(() => {
+          const availableW = parent.clientWidth;
+          const availableH = parent.clientHeight;
+          const contentW = el.scrollWidth;
+          const contentH = el.scrollHeight;
+
+          // Calculate scale needed to fit
+          const scaleX = availableW / contentW;
+          const scaleY = availableH / contentH;
+          const scale = Math.min(scaleX, scaleY);
+
+          // Clamp between 0.75 (min) and 1.0 (max)
+          const clampedScale = Math.max(0.75, Math.min(1.0, scale));
+
+          if (clampedScale < 1) {
+            el.style.transform = `scale(${clampedScale})`;
+          }
+
+          // After scaling, check if still overflowing
+          requestAnimationFrame(() => {
+            const scaledRect = el.getBoundingClientRect();
+            const parentRect = parent.getBoundingClientRect();
+
+            if (scaledRect.height > parentRect.height + 1) {
+              // Still overflowing, reset scale and enable scroll
+              el.style.transform = 'scale(1)';
+              el.classList.add('scroll-y');
+            }
+          });
+        });
+      }
+
+      function fitAllBlocks() {
+        const blocks = document.querySelectorAll('.reveal .slides section.present .fit-block');
+        blocks.forEach(el => fitOrScroll(el));
+      }
+
+      // Re-fit on navigation, resize, and Reveal layout changes
+      deck.on('slidechanged', fitAllBlocks);
+      deck.on('ready', fitAllBlocks);
+      window.addEventListener('resize', () => {
+        deck.layout();
+        fitAllBlocks();
       });
 
       deck.initialize();

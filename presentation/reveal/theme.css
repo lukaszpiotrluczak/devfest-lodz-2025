@@ -100,10 +100,24 @@
   background-clip: text;
 }
 
+/* Ensure emojis in headings are visible */
+.reveal h1 *,
+.reveal h1 ::before,
+.reveal h1 ::after {
+  -webkit-text-fill-color: initial;
+  color: var(--accent-color);
+}
+
 .reveal h2 {
   font-size: 1.8em;
   color: var(--accent-color);
   margin-top: 1em;
+}
+
+/* Reduce top margin for h2 when followed by image */
+.reveal h2:has(+ p img) {
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 .reveal h3 {
@@ -168,19 +182,50 @@
 }
 
 /*********************************************
+ * IMAGES
+ *********************************************/
+
+.reveal img {
+  max-width: 90%;
+  max-height: 65vh;
+  object-fit: contain;
+  margin: 0.5rem auto 1.5rem auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.reveal section img {
+  background: transparent;
+  border: none;
+}
+
+/*********************************************
  * LINKS
  *********************************************/
 
 .reveal a {
-  color: var(--link-color);
+  color: var(--text-color);
   text-decoration: none;
-  transition: color 0.2s ease;
-  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--gray-500);
+}
+
+.reveal a::after {
+  content: ' ↗';
+  font-size: 0.85em;
+  opacity: 0.7;
+  margin-left: 0.2em;
 }
 
 .reveal a:hover {
-  color: var(--link-hover-color);
-  border-bottom-color: var(--link-hover-color);
+  color: var(--link-color);
+  border-bottom-color: var(--link-color);
+}
+
+.reveal a:hover::after {
+  opacity: 1;
+  color: var(--link-color);
 }
 
 /*********************************************
@@ -198,6 +243,42 @@
 .reveal .slides > section,
 .reveal .slides > section > section {
   padding: 2rem;
+}
+
+/* Reduce spacing for content-heavy slides */
+.reveal .slides section h1 {
+  margin-bottom: 0.3em;
+}
+
+.reveal .slides section h1 + p,
+.reveal .slides section h2 + p,
+.reveal .slides section h3 + p {
+  margin-top: 0.5em;
+}
+
+.reveal .slides section p + p {
+  margin-top: 0.8em;
+}
+
+/* Special styling for image-only slides */
+.reveal .slides section:has(> p > img:only-child) {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal .slides section:has(> p > img:only-child) h2 {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+
+.reveal .slides section:has(> p > img:only-child) p {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*********************************************
@@ -319,6 +400,22 @@
 /* Adjust bullet for items with emoji */
 .reveal ul li:first-child:has(+ li) {
   margin-top: 0.5em;
+}
+
+/*********************************************
+ * FIT BLOCK (dynamic scaling for overflow)
+ *********************************************/
+
+.fit-block {
+  transform-origin: top center;
+  will-change: transform;
+  transition: transform 0.3s ease;
+}
+
+.fit-block.scroll-y {
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /*********************************************
